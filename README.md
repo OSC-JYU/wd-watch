@@ -7,7 +7,7 @@ UI on jquery-pohjainen.
  
 ## lokaali kehittäminen
     git clone https://github.com/OSC-JYU/wd-watch.git
-    cd weskari
+    cd wd-watch
     npm install
     DEBUG=debug nodemon index.js
     
