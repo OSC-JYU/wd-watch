@@ -73,8 +73,8 @@ describe('Watchlist item', () => {
 
 
 describe('Watchlist check', () => {
-	describe('/POST check', () => {
-		it('should check wathclist', (done) => {
+	describe('/POST check edits', () => {
+		it('should check changes in wathclist', (done) => {
 			chai.request(url)
 				.post('/api/watchlist/check?wdset=test-set1')
 				.send({})
@@ -85,4 +85,58 @@ describe('Watchlist check', () => {
 				});
 		});
 	});
+
+	describe('/GET checked item', () => {
+		it('item status should be "edited"', (done) => {
+			chai.request(url)
+				.get('/api/watchlist/' + venus_id)
+				.end((err, res) => {
+					res.should.have.status(200);
+					res.body.should.be.a('object');
+					chai.expect(res.body).to.have.property("status", "edited"); 
+					done();
+				});
+		});
+	});
+
+	describe('/POST approve edits', () => {
+		it('should approve edits', (done) => {
+			chai.request(url)
+				.put('/api/watchlist/' + venus_id)
+				.end((err, res) => {
+					res.should.have.status(200);
+					done();
+				});
+		});
+	});
+
+	describe('/POST check again', () => {
+		it('should check changes in wathclist', (done) => {
+			chai.request(url)
+				.post('/api/watchlist/check?wdset=test-set1')
+				.send({})
+				.end((err, res) => {
+					res.should.have.status(200);
+					res.body.should.have.property('edited',0);
+					done();
+				});
+		});
+	});
+
+	describe('/GET checked item', () => {
+		it('item status should be"ok"', (done) => {
+			chai.request(url)
+				.get('/api/watchlist/' + venus_id)
+				.end((err, res) => {
+					res.should.have.status(200);
+					res.body.should.be.a('object');
+					chai.expect(res.body).to.have.property("status", "ok"); 
+					done();
+				});
+		});
+	});
+
 });
+
+
+
