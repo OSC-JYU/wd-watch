@@ -20,8 +20,7 @@ let config;
 		await loadConfig();
 		db.watchlist = Datastore.create('./data/watchlist.db')
 		db.watchlist.ensureIndex({ fieldName: 'label' }, function (err) {
-		  // If there was an error, err is not null
-		  console.log(err)
+			console.log(err)
 		});
 	} catch (e) {
 		console.log('Could not load config.json or database, aborting...');
@@ -29,9 +28,6 @@ let config;
 		process.exit(1);
     }
 })();
-
-
-
 
 
 //Set up body parsing middleware
@@ -42,22 +38,7 @@ app.use(bodyParser({
 
 
 app.use(json({ pretty: true, param: 'pretty' }))
-//app.use(cors());
 app.use(require('koa-static')('public'));
-
-
-// check that user has rights to use app
-app.use(async function handleError(context, next) {
-	context.request.headers.mail = 'ari.hayrinen@jyu.fi'; // for testing
-	if(config.users.includes(context.request.headers.mail)) {
-		await next();
-	} else {
-		console.log('access denied for user: ' + context.request.headers.mail);
-		context.status = 403
-		context.body = {'error': 'Sinulla ei ole oikeuksia Weskarin käyttöön.'};
-	}
-});
-
 
 
 app.use(async function handleError(context, next) {
@@ -87,21 +68,12 @@ router.get('/api/config', function (ctx) {
 
 router.post('/api/config/reload', async function (ctx) {
 	await loadConfig();
-	//console.log(config);
 	ctx.body = {'status': 'Config loaded'};
 })
 
-router.get('/api/auth', function (ctx) {
-	ctx.body = {
-		shibboleth: {user:'ari.hayrinen@jyu.fi'}
-	};
-});
-
 
 router.get('/api/status', function (ctx) {
-	ctx.body = {
-		shibboleth: {user:'ari.hayrinen@jyu.fi'}
-	};
+	ctx.body = 'ok'
 });
 
 
@@ -121,7 +93,7 @@ router.get('/api/watchlist', async function (ctx) {
 router.get('/api/watchlist/:qid', async function (ctx) {
 	var query = {_id: ctx.params.qid}
 	debug(query)
-	var p = await db[ctx.params.collection].findOne(query)
+	var p = await db.watchlist.findOne(query)
 	ctx.body = p;
 });
 
@@ -134,12 +106,20 @@ router.put('/api/watchlist/:qid', async function (ctx) {
 	ctx.body = response;
 });
 
+
 router.post('/api/watchlist', async function (ctx) {
-	var doc = JSON.parse(ctx.request.body)
+	//var doc = JSON.parse(ctx.request.body)
+	var doc = ctx.request.body
 	debug('hit')
 	debug(doc)
 	var resp = await db.watchlist.insert(doc)
 	ctx.body = resp;
+});
+
+
+router.delete('/api/watchlist/:qid', async function (ctx) {
+	var p = await db.watchlist.remove({_id: ctx.params.qid});
+	ctx.body = p;
 });
 
 
@@ -150,8 +130,11 @@ router.get('/api/wikidata/:qid', async function (ctx) {
 });
 
 router.post('/api/watchlist/check', async function (ctx) {
+	console.log('checking...')
 	var count = 0;
-	var items = await db.watchlist.find({})
+	var query = {}
+	if(ctx.query.wdset) query = {wdset: ctx.query.wdset} 
+	var items = await db.watchlist.find(query)
 	for(var item of items) {
 		var url = "https://test.wikidata.org/w/api.php?action=query&format=json&prop=revisions&titles=" + item._id + "&rvprop=ids|timestamp|flags|comment|user&rvlimit=1&rvdir=older"
 		var result = await fetch(url)
@@ -168,9 +151,9 @@ router.post('/api/watchlist/check', async function (ctx) {
 		}
 
 	}
+	console.log(count)
 	ctx.body = {edited: count}
 });
-
 
 
 
@@ -181,7 +164,6 @@ async function loadConfig() {
 }
 
 app.use(router.routes());
-//app.listen(8103);
 
 var server = app.listen(8101, function () {
    var host = server.address().address
@@ -189,8 +171,6 @@ var server = app.listen(8101, function () {
    
    console.log('WD-Watch käynnissä osoitteessa http://%s:%s', host, port)
 })
-
-
 
 
 function createQuery(ctx) {

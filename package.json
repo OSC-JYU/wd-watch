@@ -9,12 +9,17 @@
     "koa-json": "^2.0.2",
     "koa-router": "^8.0.8",
     "koa-static": "^5.0.0",
+    
     "nedb-promises": "^4.0.3",
     "node-fetch": "^2.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^8.2.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0"
+	  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "nodemonConfig": {
     "ignore": [

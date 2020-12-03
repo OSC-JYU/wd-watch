@@ -1,3 +1,8 @@
-{"$$indexCreated":{"fieldName":"label","unique":false,"sparse":false}}
+{"_id":"Q179482","wdset":"test-set1","status":"edited","timestamp":"2018-11-06T11:48:17Z","comment":"/* wbsetclaim-create:2||1 */ [[Property:P81775]]: [[Q179633]]","user":"Sartle.wiki.bot"}
 {"_id":"Q42","label":"Doug","modified":"2020-06-26T10:43:42Z"}
+{"$$indexCreated":{"fieldName":"label","unique":false,"sparse":false}}
+{"$$deleted":true,"_id":"Q179482"}
+{"_id":"Q179482","wdset":"test-set1"}
+{"_id":"Q179482","wdset":"test-set1","status":"edited","timestamp":"2018-11-06T11:48:17Z","comment":"/* wbsetclaim-create:2||1 */ [[Property:P81775]]: [[Q179633]]","user":"Sartle.wiki.bot"}
+{"$$indexCreated":{"fieldName":"label"}}
 {"$$indexCreated":{"fieldName":"label"}}
