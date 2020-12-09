@@ -352,7 +352,7 @@ table {
 }
 
 #items {
-	min-height: 500px;
+	min-height: 200px;
 }	
 
 /*   for flot chart labels */

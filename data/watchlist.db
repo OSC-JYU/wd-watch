@@ -1,7 +1,5 @@
 {"_id":"Q179482","wdset":"test-set1","status":"ok","timestamp":"2018-11-06T11:48:17Z","comment":"/* wbsetclaim-create:2||1 */ [[Property:P81775]]: [[Q179633]]","user":"Sartle.wiki.bot","modified":"2018-11-06T11:48:17Z"}
-{"_id":"Q42","label":"Doug","modified":"2020-06-26T10:43:42Z"}
+{"_id":"Q213673","label":"Talot rannalla","modified":"2020-12-03T12:30:01Z","status":"edited","timestamp":"2020-12-09T13:40:21Z","comment":"/* wbsetaliases-set:1|en */ Aarne","user":"87.93.130.115"}
+{"_id":"Q42","label":"Doug","modified":"2020-12-02T13:39:18Z","status":"ok","timestamp":"2020-12-02T13:39:18Z","comment":"/* wbsetsitelink-add:1|be_x_oldwiki */ Дуглас Адамз","user":"Lucas Werkmeister (WMDE)"}
 {"$$indexCreated":{"fieldName":"label","unique":false,"sparse":false}}
-{"$$deleted":true,"_id":"Q179482"}
-{"_id":"Q179482","wdset":"test-set1"}
-{"_id":"Q179482","wdset":"test-set1","status":"edited","timestamp":"2018-11-06T11:48:17Z","comment":"/* wbsetclaim-create:2||1 */ [[Property:P81775]]: [[Q179633]]","user":"Sartle.wiki.bot"}
-{"_id":"Q179482","wdset":"test-set1","status":"ok","timestamp":"2018-11-06T11:48:17Z","comment":"/* wbsetclaim-create:2||1 */ [[Property:P81775]]: [[Q179633]]","user":"Sartle.wiki.bot","modified":"2018-11-06T11:48:17Z"}
+{"_id":"Q213673","label":"Talot rannalla","modified":"2020-12-09T13:40:21Z","status":"ok","timestamp":"2020-12-09T13:40:21Z","comment":"/* wbsetaliases-set:1|en */ Aarne","user":"87.93.130.115"}

@@ -39,13 +39,22 @@ function kakeAdmin () {
 		} catch(e) {
 			console.log(e)
 		}
-		//if(self.items && self.items["updated"]) $("#updated-count").text(self.items["updated"].length);		
 	}
 
 	this.renderItemCount = async function() {
 		var result = await fetch("/api/watchlist?mode=count", {credentials: "include"} );
 		var json = await result.json();
 		if(json && json.count) $("#item-count").text('Wikidatakohteita ' + json.count);
+	}
+
+	this.renderAll = async function() {
+		var result = await fetch("/api/watchlist", {credentials: "include"} );
+		var items = await result.json();
+		var html = ''
+		for(var item of items) {
+			html += "<div><a target='_blank' href='" + config.wd_server + '/wiki/' + item._id + "'>" + item._id + ":  " + item.label + "</a></div>"
+		}
+		$("#items-all").empty().append(html)
 	}
 
 	this.checkEdits = async function() {
@@ -75,7 +84,7 @@ function kakeAdmin () {
 			
 			html += "  <td><a target='_blank' href='" + config.wd_server + '/wiki/' + item._id + "'> <h4 style='margin-top:0px'>" + item.label + "</h4></a>";
 			//html += "  <td><a target='_blank' href='" + config.wd_server + 'w/index.php?title=' + item._id + '&action=history'"' > <h4 style='margin-top:0px'>historia</h4></a>";
-			html += "  <td><button data-id='" + item._id + "' class='button rev-approve'>muutokset OK</button></td>";
+			html += "  <td><button data-id='" + item._id + "' class='button rev-approve'>hyväksy</button></td>";
 			html += "</tr>";
 		}	
 		$("#items").empty().append(html + "</table>");
@@ -83,11 +92,8 @@ function kakeAdmin () {
 	}
 
 
-
-
-
 	this.addWikidataItem = async function(qid) {
-		
+		qid = qid.replace(/ /g,'')
 		try {
 			var url = config.api_url + "/wikidata/" +  qid
 			var result = await fetch(url);
@@ -110,12 +116,7 @@ function kakeAdmin () {
 			alert('lisäys epäonnistui ' + e)
 		}
 
-		
-		//alert(result.entities.Q42.labels.fi.value)
-
 	}
-
-
 
 
 	this.updateDoc = async function(collection, id, update) {

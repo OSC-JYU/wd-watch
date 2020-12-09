@@ -8,7 +8,7 @@ before((done) => {
 			db.watchlist = Datastore.create('./data/watchlist.db')
 			
 		} catch(e) {
-			console.log('pyynnot kokoelmaa ei voitu dropata') // continue even if collection did not exist
+			console.log('Could not create collection') 
 		}
 
 

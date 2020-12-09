@@ -9,7 +9,7 @@ if(window.location.href.indexOf("file") === 0|| window.location.href.indexOf("ht
 }
 
 
-if(g_local_dev) server = "http://localhost:8101";
+if(g_local_dev) server = "";
 
 var config = {
 	api_url: server + "/s/weskari/api",

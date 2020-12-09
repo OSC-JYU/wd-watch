@@ -110,6 +110,7 @@ router.put('/api/watchlist/:qid', async function (ctx) {
 router.post('/api/watchlist', async function (ctx) {
 	//var doc = JSON.parse(ctx.request.body)
 	var doc = ctx.request.body
+	if(typeof ctx.request.body == 'string') doc = JSON.parse(ctx.request.body)
 	debug('hit')
 	debug(doc)
 	var resp = await db.watchlist.insert(doc)
@@ -165,7 +166,7 @@ async function loadConfig() {
 
 app.use(router.routes());
 
-var server = app.listen(8101, function () {
+var server = app.listen(8200, function () {
    var host = server.address().address
    var port = server.address().port
    

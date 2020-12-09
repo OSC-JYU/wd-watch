@@ -25,6 +25,10 @@ $( document ).ready(function() {
 		admin.checkEdits();
 	})
 
+	$("#show-all").click(function(e) {
+		e.preventDefault();
+		admin.renderAll();
+	})
 
 	$(document).on("click", ".rev-approve", async function(e) {
 		admin.approveEdit($(this).data("id"))
