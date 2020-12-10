@@ -13,17 +13,15 @@ let db = {};
 
 var app				= new Koa();
 var router			= new Router();
-let config;
 
 (async () => {
 	try {
-		await loadConfig();
 		db.watchlist = Datastore.create('./data/watchlist.db')
 		db.watchlist.ensureIndex({ fieldName: 'label' }, function (err) {
 			console.log(err)
 		});
 	} catch (e) {
-		console.log('Could not load config.json or database, aborting...');
+		console.log('Could not create or load database, aborting...');
 		console.log(e);
 		process.exit(1);
     }
@@ -57,19 +55,6 @@ app.use(async function handleError(context, next) {
 		debug(error.stack);
 	}
 });
-
-
-router.get('/api/config', function (ctx) {
-	ctx.body = {
-		users: config.users
-	};
-});
-
-
-router.post('/api/config/reload', async function (ctx) {
-	await loadConfig();
-	ctx.body = {'status': 'Config loaded'};
-})
 
 
 router.get('/api/status', function (ctx) {
@@ -158,11 +143,6 @@ router.post('/api/watchlist/check', async function (ctx) {
 
 
 
-async function loadConfig() {
-	console.log('Lataan config -tiedostoa')
-	const file = await fs.readFile('./config.json', 'utf8');
-	config = JSON.parse(file);
-}
 
 app.use(router.routes());
 
