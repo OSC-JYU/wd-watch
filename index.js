@@ -11,12 +11,14 @@ const fetch		 	= require('node-fetch')
 const axios		 	= require('axios')
 
 let db = {};
+let config;
 
 var app				= new Koa();
 var router			= new Router();
 
 (async () => {
 	try {
+		await loadConfig();
 		db.watchlist = Datastore.create('./data/watchlist.db')
 		db.watchlist.ensureIndex({ fieldName: 'label' }, function (err) {
 			console.log(err)
@@ -98,6 +100,7 @@ router.get('/api/watchlist/:qid', async function (ctx) {
 });
 
 
+// edit approval
 router.put('/api/watchlist/:qid', async function (ctx) {
 	var p = await db.watchlist.findOne({_id: ctx.params.qid});
 	console.log(p)
@@ -107,12 +110,27 @@ router.put('/api/watchlist/:qid', async function (ctx) {
 });
 
 
-router.post('/api/watchlist', async function (ctx) {
-	//var doc = JSON.parse(ctx.request.body)
-	var doc = ctx.request.body
-	if(typeof ctx.request.body == 'string') doc = JSON.parse(ctx.request.body)
-	debug('hit')
-	debug(doc)
+// add item to watch set
+router.post('/api/watchlist/:qid', async function (ctx) {
+
+	if(!ctx.query.wdset) throw('wdset must be set')
+	var qid = ctx.params.qid
+	var result = await axios(config.site + '/wiki/Special:EntityData/' + ctx.params.qid + '.json')
+	var doc = {
+		_id: qid, 
+		label: {}, 
+		modified: result.data.entities[qid].modified,
+		wdset: ctx.request.query.wdset
+	}
+	
+	if(result.data.entities[qid].labels.en)
+		doc.label = result.data.entities[qid].labels.en.value
+
+	if(result.data.entities[qid].labels.fi)
+		doc.label = result.data.entities[qid].labels.fi.value
+		
+	if(!doc.label) doc.label = 'no label'
+		
 	try {
 		var resp = await db.watchlist.insert(doc)
 	} catch(e) {
@@ -120,6 +138,7 @@ router.post('/api/watchlist', async function (ctx) {
 	}
 	ctx.body = resp
 });
+
 
 router.post('/api/watchlist/query', async function (ctx) {
 
@@ -155,10 +174,10 @@ router.delete('/api/watchlist/:qid', async function (ctx) {
 
 
 router.get('/api/wikidata/:qid', async function (ctx) {
-	var result = await fetch('https://test.wikidata.org/wiki/Special:EntityData/' + ctx.params.qid + '.json')
-	var json = await result.json()
-	ctx.body = json
+	var result = await axios(config.site + '/wiki/Special:EntityData/' + ctx.params.qid + '.json')
+	ctx.body = result.data
 });
+
 
 router.post('/api/watchlist/check', async function (ctx) {
 	console.log('checking...')
@@ -167,14 +186,30 @@ router.post('/api/watchlist/check', async function (ctx) {
 	if(ctx.query.wdset) query = {wdset: ctx.query.wdset} 
 	var items = await db.watchlist.find(query)
 	for(var item of items) {
-		var url = "https://test.wikidata.org/w/api.php?action=query&format=json&prop=revisions&titles=" + item._id + "&rvprop=ids|timestamp|flags|comment|user&rvlimit=1&rvdir=older"
+		var url = "https://test.wikidata.org/w/api.php?action=query&format=json&prop=revisions&titles=" + item._id + "&rvprop=ids|timestamp|flags|comment|user&rvlimit=10&rvdir=older"
 		var result = await fetch(url)
 		var json = await result.json()
 		var key = Object.keys(json.query.pages)
 		var timestamp = json.query.pages[key[0]].revisions[0].timestamp;
 		if(timestamp != item.modified) {
+			// we have an edit, now check how many edits there are after last check
 			console.log(timestamp + ' - ' + item.modified)
-			var update = {status: 'edited', timestamp: timestamp, comment: json.query.pages[key[0]].revisions[0].comment, user: json.query.pages[key[0]].revisions[0].user}
+			var edit_count = 0
+			var edits = []
+			for(var i=0; i < 10; i++) {
+				if(json.query.pages[key[0]].revisions[i]) {
+					if(item.modified != json.query.pages[key[0]].revisions[i].timestamp) {
+						edit_count++
+						edits.push(json.query.pages[key[0]].revisions[i].comment + "::" + json.query.pages[key[0]].revisions[i].user)
+					}
+				}
+			}
+			var update = {
+				status: 'edited', 
+				timestamp: timestamp, 
+				edits: edits,
+				edit_count: edit_count
+			}
 			var response = await db.watchlist.update({_id: item._id}, {$set: update}, {returnUpdatedDocs:1})
 			count++;
 		} else {
@@ -192,10 +227,9 @@ router.post('/api/watchlist/check', async function (ctx) {
 app.use(router.routes());
 
 var server = app.listen(8200, function () {
-   var host = server.address().address
-   var port = server.address().port
-   
-   console.log('WD-Watch käynnissä osoitteessa http://%s:%s', host, port)
+	var host = server.address().address
+	var port = server.address().port
+	console.log('WD-Watch running on http://%s:%s', host, port)
 })
 
 
@@ -225,4 +259,8 @@ function createQuery(ctx) {
 	return q;
 }
 
-
+async function loadConfig() {
+	console.log('Lataan config -tiedostoa')
+	const file = await fs.readFile('./config.json', 'utf8');
+	config = JSON.parse(file);
+}

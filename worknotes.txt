@@ -9,3 +9,10 @@ SELECT ?item ?itemLabel ?esiintym__kohteesta ?esiintym__kohteestaLabel ?tekijä 
   
 }
 '
+
+
+
+SELECT ?item ?itemLabel ?esiintym__kohteesta ?esiintym__kohteestaLabel ?tekijä ?tekijäLabel WHERE {?item wdt:P195 wd:Q86443703. SERVICE wikibase:label { bd:serviceParam wikibase:language "fi,en". } OPTIONAL { ?item wdt:P31 ?esiintym__kohteesta. } OPTIONAL { ?item wdt:P170 ?tekijä. }}
+
+käännökset:
+https://www.wikidata.org/w/index.php?action=render&title=MediaWiki:Wikibase-item-summary-wbeditentity-update/fi

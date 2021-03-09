@@ -23,13 +23,13 @@ function WDWatch () {
 	}
 
 	this.getSets = async function() {
-		$("#wdsets").empty()
+		$(".wdsets").empty()
 		try {
 			var result = await fetch(config.api_url + "/watchlist/sets", {credentials: "include"} );
 			self.sets = await result.json();
-			$("#wdsets").append("<option>choose set</option>")
+			$(".wdsets").append("<option>choose set</option>")
 			for(var wdset in self.sets) {
-				$("#wdsets").append("<option value='"+wdset+"'>" + wdset + " (" + self.sets[wdset] + " items)</option>")
+				$(".wdsets").append("<option value='"+wdset+"'>" + wdset + " (" + self.sets[wdset] + " items)</option>")
 			}
 
 		} catch(e) {
@@ -94,7 +94,12 @@ function WDWatch () {
 			html += "<tr>"
 			html += "  <td>" + item._id + "</td>";
 			if(item.status == 'edited') {
-				html += "  <td>" + item.modified + " <div>" + item.comment + "</div><br>" +item.user+ "</td>";
+				html += "  <td><b>edits: " + item.edit_count + "<br>latest: " + item.timestamp + " </b><div>"
+				for(var edit of item.edits) {
+					var sp = edit.split("::")
+					html += "</br>" + sp[0].replace("/* ","") + " <b></br>user</b>: " + sp[1] + "</br>"
+				} 
+				html += "  </td>";
 			} else {
 				html += "  <td></td>";
 			}
@@ -105,35 +110,21 @@ function WDWatch () {
 			html += "</tr>";
 		}	
 		$("#items").empty().append(html + "</table>");
-		if(self.items.length == 0) $("#items").empty().append("<div class='alert alert-info'>ei muokkauksia</div>");
+		if(self.items.length == 0) $("#items").empty().append("<div class='alert alert-info'>no edits</div>");
 	}
 
 
 	this.addWikidataItem = async function(qid, wdset) {
 		qid = qid.replace(/ /g,'')
+		
+		if(!wdset) wdset = $("#wdsets-add").val()
 		try {
-			var url = config.api_url + "/wikidata/" +  qid
-			var result = await fetch(url);
-			var json = await result.json();
-			
-			var doc = {_id: qid, label: {}, modified: json.entities[qid].modified}
-			
-			// add to current set by default
-			if(wdset) doc.wdset = wdset
-			else doc.wdset = self.currentSet
-
-			if(json.entities[qid].labels.en)
-				doc.label = json.entities[qid].labels.en.value
-
-			if(json.entities[qid].labels.fi)
-				doc.label = json.entities[qid].labels.fi.value
-
-			var update_res = await fetch(config.api_url + "/watchlist", {method: "POST", body: JSON.stringify(doc), credentials: "include"});
+			var update_res = await fetch(config.api_url + "/watchlist/" + qid + "?wdset=" + wdset, {method: "POST", credentials: "include"});
 			var update_json = await update_res.json();
 			if(!update_res.ok) throw(update_json.error)
 			self.getSets()
 			self.renderSetItems()
-			$("#info").show().text('added ' + doc.label)
+			$("#info").show().text('added ' + qid)
 			
 		} catch(e) {
 			alert('add failed! ' + e)

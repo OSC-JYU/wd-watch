@@ -33,6 +33,7 @@ $( document ).ready(function() {
 
 	$("#wdsets").change(function(e) {
 		admin.currentSet = $(this).val()
+		$(".wdsets").val($(this).val())
 		admin.renderSetItems();
 	})
 

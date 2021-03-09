@@ -66,15 +66,14 @@
 				
 
 
-				<h2>watch sets</h2>
-				<select id="wdsets">
+				<h2>watch edits</h2>
+				<select class="wdsets" id="wdsets">
 					<option>choose set</option>
 				</select>
 
 
-
 				<div id="setitems">
-					<h2 id="items-header">wikidata items</h2>
+					<h3 id="items-header">wikidata items</h3>
 					<div class="alert alert-info" id="item-count"></div>
 
 					<button class="button" id="show-all">Show all</button>
@@ -87,20 +86,25 @@
 					<br>
 					<button class="button" id="check">Check edits</button>
 					<br>
-					
+				</div>
 
+
+				<div id="inserts">
+					<h2>Add items</h2>
 					<h3>Add item to set</h3>
 					<input id="qid" placeholder="Q42"/>
 					<button class="button" id="add-item">Add Wikidata ID</button>
-					create new set <input id="new_wdset" placeholder="new set"/>
-
-					<h3>Add items from SPARQL query</h3>
-					<p>copy CSV here:</p>
-					<textarea id="query"></textarea><br>
-					<button class="button" id="mass-add-items">Add Wikidata IDs</button>
-
+					to <select class="wdsets" id="wdsets-add">
+						<option>choose set</option>
+					</select>
+					or create new set <input id="new_wdset" placeholder="new set"/>
 					<div class="alert alert-success" id="info"></div>
 
+					<h3>Add items from SPARQL query</h3>
+					<p>Query needs to provide "item" and "itemLabel", so make sure that your query starts with "<b>SELECT ?item ?itemLabel</b> ".</p>
+					<p> Copy query here:</p>
+					<textarea rows="10" cols="80" id="query" ></textarea><br>
+					<button class="button" id="mass-add-items">Add Wikidata IDs</button>
 				</div>
 			</div>
 
