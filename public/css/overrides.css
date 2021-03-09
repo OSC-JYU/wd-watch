@@ -351,10 +351,6 @@ table {
 	color: black;
 }
 
-#items {
-	min-height: 200px;
-}	
-
 /*   for flot chart labels */
 .legend table {
 	min-width:20px;

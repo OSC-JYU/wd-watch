@@ -3,7 +3,7 @@ var g_user = "";
 
 $( document ).ready(function() {
 
-	var admin = new kakeAdmin();
+	var admin = new WDWatch();
 	admin.init();
 
 	

@@ -13,12 +13,6 @@ create_volume:
 build:
 	docker build -t osc-jyu/wd-watch:latest .
 
-push:
-	docker push osc-jyu/wd-watch:latest
-	
-pull:
-	docker pull osc-jyu/wd-watch:latest
-
 start:
 	docker run -d --name wd-watch \
 		-v $(VOLUME):/src/data \

@@ -1,5 +1,2283 @@
-{"_id":"Q179482","wdset":"test-set1","status":"ok","timestamp":"2018-11-06T11:48:17Z","comment":"/* wbsetclaim-create:2||1 */ [[Property:P81775]]: [[Q179633]]","user":"Sartle.wiki.bot","modified":"2018-11-06T11:48:17Z"}
-{"_id":"Q213673","label":"Talot rannalla","modified":"2020-12-03T12:30:01Z","status":"edited","timestamp":"2020-12-09T13:40:21Z","comment":"/* wbsetaliases-set:1|en */ Aarne","user":"87.93.130.115"}
-{"_id":"Q42","label":"Doug","modified":"2020-12-02T13:39:18Z","status":"ok","timestamp":"2020-12-02T13:39:18Z","comment":"/* wbsetsitelink-add:1|be_x_oldwiki */ Дуглас Адамз","user":"Lucas Werkmeister (WMDE)"}
+{"_id":"Q101552401","label":"nimeämätön"}
+{"_id":"Q101552402","label":"Glories of a Forgotten Future"}
+{"_id":"Q101552404","label":"The New Man And My Father"}
+{"_id":"Q101552405","label":"Porilainen"}
+{"_id":"Q101552406","label":"Jäljet jääneet"}
+{"_id":"Q101552407","label":"Wiglamp"}
+{"_id":"Q101552408","label":"Course in Mischief"}
+{"_id":"Q101552409","label":"Ball Ashtray With Cigarettes"}
+{"_id":"Q101552410","label":"teosnimi: Haus der F."}
+{"_id":"Q179482","wdset":"test-set1","status":"ok","timestamp":"2020-12-10T12:10:02Z","comment":"/* wbsetdescription-add:1|fi */ Peter Paul Rubensin maalaus","user":"130.234.247.74","modified":"2020-12-10T12:10:02Z"}
+{"_id":"Q213246","label":"Parthian Horse Figurine, held at the Yale University Art Gallery","modified":"2020-09-29T21:54:31Z","wdset":"test-set1"}
+{"_id":"Q213673","label":"Talot rannalla","modified":"2020-12-09T13:40:21Z","status":"edited","timestamp":"2020-12-18T09:22:33Z","comment":"/* wbsetdescription-add:1|sv */ Aarne Elomaas målning","user":"Antasa"}
+{"_id":"Q21509409","label":"Il pecoraio (Lammaspaimen)"}
+{"_id":"Q21600587","label":"Roomalainen osteria"}
+{"_id":"Q21600849","label":"Lautta, jossa on lukuisia matkustajia ja karjaa"}
+{"_id":"Q21600924","label":"Tanssikohtaus italialaisessa majatalossa"}
+{"_id":"Q21600959","label":"Ryöstökohtaus"}
+{"_id":"Q21606735","label":"Satuloitu aasi"}
+{"_id":"Q21680427","label":"Öiset ratsastajat"}
+{"_id":"Q21680700","label":"Kustaa Vaasa olkikuormassa"}
+{"_id":"Q21680736","label":"Maisemaluonnos (Siikaniemi Riistaveden rannalla lähellä Kuopiota)"}
+{"_id":"Q21682555","label":"Lepäävä elonkorjaajatyttö"}
+{"_id":"Q21684325","label":"Kirkkoon kävijät"}
+{"_id":"Q21684398","label":"Tauko"}
+{"_id":"Q21684446","label":"Saksalainen maisema"}
+{"_id":"Q21684477","label":"Kuutamo"}
+{"_id":"Q21686803","label":"Kristus käy vetten päällä, luonnos Jyväskylän maaseurakunnan (nykyisen Taulumäen) kirkon alttaritauluun"}
+{"_id":"Q21744178","label":"Puisto"}
+{"_id":"Q22348421","label":"Nature morte (Lehtokurppa)"}
+{"_id":"Q22348459","label":"Hattupäinen poika"}
+{"_id":"Q22348488","label":"Naisen muotokuva"}
+{"_id":"Q22348509","label":"Stella ja lapsi"}
+{"_id":"Q42","label":"Doug","modified":"2020-12-02T13:39:18Z","status":"edited","timestamp":"2021-03-01T10:30:01Z","comment":"/* wbsetaliases-add:1|en */ xxx, xxx","user":"Lockal"}
+{"_id":"Q43","label":"eolgi","modified":"2021-03-09T09:17:35Z","wdset":"testi-1","status":"ok","timestamp":"2021-03-09T09:17:35Z","comment":"/* wbsetlabel-add:1|fi */ eolgi","user":"81.197.41.21"}
+{"_id":"Q44","label":"first marriage of Elizabeth Taylor","modified":"2020-04-28T10:17:43Z","wdset":"testi-1"}
+{"_id":"Q92375077","label":"Pormestari Lars Sacklenin muotokuva"}
+{"_id":"Q92375079","label":"Rantanäkymä"}
+{"_id":"Q92375084","label":"Tulen synty"}
+{"_id":"Q92375087","label":"Rautaa ja kuparia"}
+{"_id":"Q92375091","label":"Rantanäkymää"}
+{"_id":"Q92375094","label":"Rantanäkymä"}
+{"_id":"Q92375096","label":"Suomen taiteen suuri tammi"}
+{"_id":"Q92375100","label":"Gallen-Kallela"}
+{"_id":"Q92375103","label":"Hetki luonnossa"}
+{"_id":"Q92375110","label":"Inspiraatio"}
+{"_id":"Q92375114","label":"Ruusumaa"}
+{"_id":"Q92375116","label":"Pommituksen jälkeinen Viipuri"}
+{"_id":"Q92375119","label":"Surun ja ilon kieli"}
+{"_id":"Q92375122","label":"Päällysmies"}
+{"_id":"Q92375126","label":"Työmaaruokalasta"}
+{"_id":"Q92375129","label":"Isä ja poika"}
+{"_id":"Q92375131","label":"Pallo rannalla"}
+{"_id":"Q92375134","label":"Ukonilma pallokentällä"}
+{"_id":"Q92375140","label":"Presidentti P:n terveiset Tyynenmeren atolleilta, 1. lähetys, 2. posti kulkee"}
+{"_id":"Q92375143","label":"Rantatie"}
+{"_id":"Q92375149","label":"Valoa vasten"}
+{"_id":"Q92375150","label":"Maalaus"}
+{"_id":"Q92375154","label":"Isän matkassa"}
+{"_id":"Q92375156","label":"Tuuli, kylätie"}
+{"_id":"Q92375158","label":"Pellon koivu"}
+{"_id":"Q92375162","label":"Raatihuone"}
+{"_id":"Q92375164","label":"Kalanmyyntiä"}
+{"_id":"Q92375170","label":"Huutokauppa"}
+{"_id":"Q92375174","label":"Valkoista valoa"}
+{"_id":"Q92375177","label":"Rakastavaiset"}
+{"_id":"Q92375180","label":"Kuivuva kalaverkko"}
+{"_id":"Q92375182","label":"Jalmari Karhula"}
+{"_id":"Q92375187","label":"Iltapäivä maalla"}
+{"_id":"Q92375189","label":"Nunna"}
+{"_id":"Q92375193","label":"Balettitanssijatar"}
+{"_id":"Q92375194","label":"Déjeuner sur l'herbe (teosnimi), Aamiainen ruohikolla"}
+{"_id":"Q92375200","label":"Teräsveistos"}
+{"_id":"Q92375205","label":"Teräsveistos II"}
+{"_id":"Q92375209","label":"Moonlight Rabbit"}
+{"_id":"Q92375213","label":"Papukaijat"}
+{"_id":"Q92375214","label":"Indikator: \"Doppelzonation\" GAIA (teosnimi)"}
+{"_id":"Q92375217","label":"Psykoanalyysi"}
+{"_id":"Q92375221","label":"Nube sobre nubes (teosnimi)"}
+{"_id":"Q92375224","label":"Tikalin yö"}
+{"_id":"Q92375228","label":"Klarinetinsoittaja"}
+{"_id":"Q92375231","label":"Sibelius"}
+{"_id":"Q92375233","label":"Veistos"}
+{"_id":"Q92375240","label":"Ilmakuvia"}
+{"_id":"Q92375241","label":"nimeämätön"}
+{"_id":"Q92375639","label":"Only for the Money"}
+{"_id":"Q92375640","label":"Monadi-sarja I-V"}
+{"_id":"Q92375643","label":"365 päivää naisena -sarja"}
+{"_id":"Q92375646","label":"Anartismilippu"}
+{"_id":"Q92375649","label":"Uuden Englannin muotokuva, n. 1947"}
+{"_id":"Q92375651","label":"\"Helen\", Burbank, California, n. 1941"}
+{"_id":"Q92375654","label":"Snow Design, n. 1960 (teosnimi)"}
+{"_id":"Q92375657","label":"Snow Design, n. 1960"}
+{"_id":"Q92375665","label":"Tapestry I"}
+{"_id":"Q92375669","label":"Ratatyömaan parakki, Kihniö"}
+{"_id":"Q92375672","label":"Kaupan ikkuna, Honkajoen keskustasta"}
+{"_id":"Q92375675","label":"Alkkia, Karvia"}
+{"_id":"Q92375677","label":"Vasikkaneva, Kauhajoki"}
+{"_id":"Q92375681","label":"Ulosvedettävä, Pori"}
+{"_id":"Q92375683","label":"Niinisalo, pikatien laajennustyömaa"}
+{"_id":"Q92375686","label":"Kihniön Vapaaseurakunnan telttakokousjuliste"}
+{"_id":"Q92375689","label":"Niinisalon keskusta"}
+{"_id":"Q92375696","label":"Sikorämäkkö, Kauhajoen etelälaidassa"}
+{"_id":"Q92375700","label":"Pori, Jussin kämppä, Leveäkari"}
+{"_id":"Q92375704","label":"Ikkeläjärven baari"}
+{"_id":"Q92375709","label":"Lintu"}
+{"_id":"Q92375712","label":"Kihniön pyöräkankaan tukkikämpästä !"}
+{"_id":"Q92375716","label":"Karvian Alkkia, Kurjentie"}
+{"_id":"Q92375718","label":"Itikka Oy:n romu tienvarrella Niinisalo-Karvia"}
+{"_id":"Q92375722","label":"Kyläsaaren seurojentalon ilmoitus"}
+{"_id":"Q92375725","label":"Kioski, Karvian Kankarinkylä"}
+{"_id":"Q92375731","label":"Ratatyömaan parakista"}
+{"_id":"Q92375736","label":"Peto uimaan kuin kala vedessään"}
+{"_id":"Q92375739","label":"Kursk, koulutuskonversio"}
+{"_id":"Q92375742","label":"Palapeli"}
+{"_id":"Q92375744","label":"Yakusha-e Haha Sadamasa (teosnimi)"}
+{"_id":"Q92375748","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q92375752","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q92375781","label":"Nürnberg-Tikal I"}
+{"_id":"Q92375784","label":"Nürnberg-Helsinki-Tikal"}
+{"_id":"Q92375785","label":"Nürnberg-Helsinki"}
+{"_id":"Q92375789","label":"Fröhliche Eiszeit (teosnimi)"}
+{"_id":"Q92375793","label":"Kukkia Elsalle"}
+{"_id":"Q92375795","label":"Valokuva sarjasta Interlager Druzba, DDR"}
+{"_id":"Q92375798","label":"nimeämätön"}
+{"_id":"Q92375800","label":"Contrapunctus (luonnos)"}
+{"_id":"Q92375804","label":"Kukkia Elsalle"}
+{"_id":"Q92376224","label":"Sanomalehtien liitto - Tidningarnas förbund"}
+{"_id":"Q92376230","label":"Eino Leino"}
+{"_id":"Q92376232","label":"Theses on the Body Politic (Shadows)"}
+{"_id":"Q92376237","label":"Ryöstökopio / Raubkopie (ote teoksesta)"}
+{"_id":"Q92376240","label":"nimeämätön"}
+{"_id":"Q92376244","label":"Giotton pöytä I - V"}
+{"_id":"Q92376247","label":"Giotton pöytä I - V"}
+{"_id":"Q92376281","label":"Rivoli"}
+{"_id":"Q92376283","label":"Värijaksot II"}
+{"_id":"Q92376287","label":"Värijaksot III"}
+{"_id":"Q92376292","label":"Värijaksot IV"}
+{"_id":"Q92376299","label":"Värijaksot V"}
+{"_id":"Q92376303","label":"Värijaksot VI"}
+{"_id":"Q92376306","label":"Värijaksot VII"}
+{"_id":"Q92376310","label":"Värijaksot VIII"}
+{"_id":"Q92376312","label":"Värijaksot IX"}
+{"_id":"Q92376316","label":"Värijaksot X"}
+{"_id":"Q92376320","label":"Värijaksot XI"}
+{"_id":"Q92376324","label":"Värijaksot XII"}
+{"_id":"Q92376327","label":"Värijaksot XIII"}
+{"_id":"Q92376335","label":"Värijaksot XIV"}
+{"_id":"Q92376339","label":"Värijaksot XV"}
+{"_id":"Q92376343","label":"Mänty-hahmo"}
+{"_id":"Q92376348","label":"Tuhkasta"}
+{"_id":"Q92376352","label":"At the Pole Of Heaven I & II"}
+{"_id":"Q92376355","label":"Her Blue Sea Fire (USA)"}
+{"_id":"Q92376357","label":"The Day Before..."}
+{"_id":"Q92385421","label":"Asessori, Pormestari Gustaf Ignatiuksen muotokuva"}
+{"_id":"Q92385425","label":"Tohtori, kaupunginjohtaja F.V. Härmän muotokuva"}
+{"_id":"Q92385429","label":"Kaupunkineuvos, kaupunginjohtaja Martti I. Ekblomin muotokuva"}
+{"_id":"Q92385432","label":"Filosofian maisteri Antero Lammisen muotokuva"}
+{"_id":"Q92385436","label":"Kunnallisneuvos Vilho Rantasen muotokuva"}
+{"_id":"Q92385439","label":"Mäntyluodon satama"}
+{"_id":"Q92385442","label":"Jokisatama"}
+{"_id":"Q92385445","label":"Porilaisten marssi"}
+{"_id":"Q92385447","label":"Pihanäkymä Porista"}
+{"_id":"Q92385454","label":"Talot rannalla"}
+{"_id":"Q92385458","label":"Sillan rakentajat"}
+{"_id":"Q92385461","label":"Näkymä Porista TM 0013"}
+{"_id":"Q92385465","label":"Näkymä Porista TM 0014"}
+{"_id":"Q92385467","label":"Rauman kirkko"}
+{"_id":"Q92385472","label":"Paris, Rue Tournefort"}
+{"_id":"Q92385474","label":"Kivenhakkaajat"}
+{"_id":"Q92385479","label":"Asetelma"}
+{"_id":"Q92385480","label":"Porin kirkko"}
+{"_id":"Q92385486","label":"Kalastajat"}
+{"_id":"Q92385489","label":"Siltanäkymä"}
+{"_id":"Q92385495","label":"Näkymä Porin jokirannasta"}
+{"_id":"Q92385497","label":"Rantanäkymä"}
+{"_id":"Q92385499","label":"Talkkunatehdas"}
+{"_id":"Q92385505","label":"Entinen portti Isolinnankatu 7:ssä"}
+{"_id":"Q92385506","label":"Ostoksilla"}
+{"_id":"Q92385511","label":"Varatuomari Paavo Wahlroosin muotokuva"}
+{"_id":"Q92385513","label":"Aallonmurtajalla"}
+{"_id":"Q92385518","label":"Jokivarrelta"}
+{"_id":"Q92385523","label":"Purjeita"}
+{"_id":"Q92385526","label":"Kokemäen silta"}
+{"_id":"Q92385527","label":"Torremolinon huiput"}
+{"_id":"Q92385530","label":"Saarnastuoliukkoja"}
+{"_id":"Q92385538","label":"Veneitä vuonossa"}
+{"_id":"Q92385542","label":"Tehtaanpiha"}
+{"_id":"Q92385544","label":"Maisemafantasia"}
+{"_id":"Q92385551","label":"Sortuneet muurit"}
+{"_id":"Q92385555","label":"Kökarista"}
+{"_id":"Q92385557","label":"Talvi"}
+{"_id":"Q92385561","label":"Ulvilan kirkosta"}
+{"_id":"Q92385564","label":"Kukka-mummo"}
+{"_id":"Q92385568","label":"Portti-aihe"}
+{"_id":"Q92385571","label":"Porttiholvi"}
+{"_id":"Q92385574","label":"Puuseppä"}
+{"_id":"Q92385577","label":"Näkymä Visbystä"}
+{"_id":"Q92385583","label":"Lumisia puita"}
+{"_id":"Q92385588","label":"Verkonpaikkaajat"}
+{"_id":"Q92385592","label":"Porin rantanäkymää"}
+{"_id":"Q92385595","label":"Kuuset"}
+{"_id":"Q92385598","label":"Kirkonportti"}
+{"_id":"Q92385966","label":"Satama"}
+{"_id":"Q92385967","label":"Silta"}
+{"_id":"Q92385969","label":"Tehdasnäkymä"}
+{"_id":"Q92385973","label":"Valkama"}
+{"_id":"Q92385975","label":"Paja"}
+{"_id":"Q92385978","label":"Meren ja maan syleily"}
+{"_id":"Q92385981","label":"Rajuilma"}
+{"_id":"Q92385982","label":"Savuja"}
+{"_id":"Q92385987","label":"Laamanni Eckin muotokuva"}
+{"_id":"Q92385995","label":"Syksy"}
+{"_id":"Q92385996","label":"Kohti valoa päin"}
+{"_id":"Q92386001","label":"Aurea mediocritas (teosnimi)"}
+{"_id":"Q92386002","label":"Rantanäkymä"}
+{"_id":"Q92386006","label":"Rantanäkymä"}
+{"_id":"Q92386008","label":"Rantanäkymä"}
+{"_id":"Q92386012","label":"Inspiraatio"}
+{"_id":"Q92386014","label":"Kaupunkinäkymä"}
+{"_id":"Q92386017","label":"Stralsundista"}
+{"_id":"Q92386026","label":"Rantanäkymä"}
+{"_id":"Q92386028","label":"Kaupunkikuva"}
+{"_id":"Q92386032","label":"Katukuva"}
+{"_id":"Q92386048","label":"Keltainen kaupunki"}
+{"_id":"Q92386050","label":"Ingatiuksenkatu 3 (VI kaup. osa)"}
+{"_id":"Q92386058","label":"Näkymä Katariinankadulta"}
+{"_id":"Q92386064","label":"Pihanäkymä Itsenäisyydenkatu 43"}
+{"_id":"Q92386068","label":"Pihanäkymä"}
+{"_id":"Q92386072","label":"Pihanäkymä"}
+{"_id":"Q92386076","label":"Työmiehiä"}
+{"_id":"Q92386081","label":"Rantanäkymä"}
+{"_id":"Q92386084","label":"Maisema"}
+{"_id":"Q92386088","label":"Turun satama"}
+{"_id":"Q92386090","label":"Rantatuuli"}
+{"_id":"Q92386094","label":"Espanjalainen linna"}
+{"_id":"Q92386097","label":"Vuono"}
+{"_id":"Q92386101","label":"Etäällä ja yksin"}
+{"_id":"Q92386105","label":"Kuutamo"}
+{"_id":"Q92386110","label":"Satama"}
+{"_id":"Q92386114","label":"Vihreä nuoruus"}
+{"_id":"Q92386120","label":"Pako yöstä"}
+{"_id":"Q92386123","label":"Mielenosoituksen muisto (Rue Guy Lussac 1968)"}
+{"_id":"Q92386128","label":"Kalakarhu"}
+{"_id":"Q92386135","label":"Ystävät"}
+{"_id":"Q92386143","label":"Kallion varjo"}
+{"_id":"Q92386147","label":"Simpukkasatu"}
+{"_id":"Q92386573","label":"Tyttö"}
+{"_id":"Q92386577","label":"Maisema"}
+{"_id":"Q92386583","label":"Palman katedraali illalla"}
+{"_id":"Q92386586","label":"Luostari"}
+{"_id":"Q92386590","label":"Kallon majakka"}
+{"_id":"Q92386593","label":"Reposaarelta"}
+{"_id":"Q92386595","label":"Reposaarelta"}
+{"_id":"Q92386598","label":"Jää yllättää"}
+{"_id":"Q92386602","label":"Lepotila"}
+{"_id":"Q92386607","label":"Sammalmetsä"}
+{"_id":"Q92386610","label":"Kyläkuva"}
+{"_id":"Q92386615","label":"Aittoja I"}
+{"_id":"Q92386619","label":"Kelirikko"}
+{"_id":"Q92386624","label":"Luhti"}
+{"_id":"Q92386627","label":"Hallituskatua"}
+{"_id":"Q92386630","label":"Maisema"}
+{"_id":"Q92386633","label":"Portti Porista"}
+{"_id":"Q92386636","label":"Muodollinen subjekti"}
+{"_id":"Q92386640","label":"Kuja"}
+{"_id":"Q92386644","label":"Pallonlyöjä"}
+{"_id":"Q92386647","label":"Pilvi"}
+{"_id":"Q92386650","label":"Supermaisema"}
+{"_id":"Q92386653","label":"Menesjärvi"}
+{"_id":"Q92386658","label":"Raattamasta"}
+{"_id":"Q92386661","label":"Kaksi puuta"}
+{"_id":"Q92386663","label":"Suisto"}
+{"_id":"Q92386666","label":"Satelliitti"}
+{"_id":"Q92386670","label":"Pro humanitate (teosnimi)"}
+{"_id":"Q92386674","label":"Sumu"}
+{"_id":"Q92386676","label":"Tanja"}
+{"_id":"Q92386681","label":"Valkoinen laiva"}
+{"_id":"Q92386683","label":"Japanilainen tanssi"}
+{"_id":"Q92386687","label":"Vihreä piha"}
+{"_id":"Q92386690","label":"Jukkapuu"}
+{"_id":"Q92386693","label":"Portti (Suomenlinna)"}
+{"_id":"Q92386696","label":"Katkenneet pylväät"}
+{"_id":"Q92386701","label":"Tornit"}
+{"_id":"Q92386703","label":"Pyhimystuolit"}
+{"_id":"Q92386708","label":"Hiilikannu"}
+{"_id":"Q92386710","label":"Sipuli nature morte"}
+{"_id":"Q92386715","label":"Lintu"}
+{"_id":"Q92386720","label":"Limppu"}
+{"_id":"Q92386723","label":"Tsefyros"}
+{"_id":"Q92386727","label":"Arkkiherttua"}
+{"_id":"Q92386730","label":"Ikkuna"}
+{"_id":"Q92386735","label":"Noppa"}
+{"_id":"Q92386736","label":"Mummu ja makkara"}
+{"_id":"Q92386743","label":"Born laser"}
+{"_id":"Q92386746","label":"Torinäkymä"}
+{"_id":"Q92386750","label":"Pulu"}
+{"_id":"Q92387250","label":"Piha Porissa"}
+{"_id":"Q92387258","label":"Yön muisto"}
+{"_id":"Q92387261","label":"Peräseinä"}
+{"_id":"Q92387267","label":"Golgatan naiset"}
+{"_id":"Q92387269","label":"Viimeiset kalliot"}
+{"_id":"Q92387272","label":"nimeämätön"}
+{"_id":"Q92387276","label":"Sukupolvet vaihtuvat"}
+{"_id":"Q92387279","label":"Puoliaika"}
+{"_id":"Q92387288","label":"Nainen ja lintu"}
+{"_id":"Q92387291","label":"Rautamarski"}
+{"_id":"Q92387296","label":"Kevät"}
+{"_id":"Q92387299","label":"Katukuva"}
+{"_id":"Q92387301","label":"Syysilta"}
+{"_id":"Q92387305","label":"Savumerkki"}
+{"_id":"Q92387307","label":"Vanhoja rakennuksia"}
+{"_id":"Q92387311","label":"Tutkija"}
+{"_id":"Q92387314","label":"Tähdet"}
+{"_id":"Q92387321","label":"Yöllinen ohitus"}
+{"_id":"Q92387324","label":"Keltaiset merkit"}
+{"_id":"Q92387327","label":"Silloin kun sipulinvarret"}
+{"_id":"Q92387332","label":"Hedelmiä"}
+{"_id":"Q92387334","label":"Pilvipouta"}
+{"_id":"Q92387338","label":"Legenda"}
+{"_id":"Q92387340","label":"Luhti, kyläkuja"}
+{"_id":"Q92387343","label":"Troolari"}
+{"_id":"Q92387347","label":"Linnake"}
+{"_id":"Q92387354","label":"Iltarusko"}
+{"_id":"Q92387356","label":"Asetelma I"}
+{"_id":"Q92387360","label":"Veteraanipyöräilijät"}
+{"_id":"Q92387363","label":"Vapaapäivä"}
+{"_id":"Q92387366","label":"Kirkkotiellä"}
+{"_id":"Q92387369","label":"Pihanäkymä"}
+{"_id":"Q92387372","label":"Vaellus"}
+{"_id":"Q92387376","label":"Mala IV"}
+{"_id":"Q92387378","label":"Kierretornit"}
+{"_id":"Q92387383","label":"Tyhjentyneet kasvihuoneet"}
+{"_id":"Q92387388","label":"Kivimalja"}
+{"_id":"Q92387390","label":"Kesämaisema"}
+{"_id":"Q92387394","label":"Mielenosoituksen muisto"}
+{"_id":"Q92387398","label":"Uhri"}
+{"_id":"Q92387401","label":"Metsän laidassa"}
+{"_id":"Q92387404","label":"Taika"}
+{"_id":"Q92387407","label":"Piharakennus"}
+{"_id":"Q92387411","label":"Sateen ääniä"}
+{"_id":"Q92387416","label":"Ensi lumi"}
+{"_id":"Q92387418","label":"Vibrato 2-viivalla"}
+{"_id":"Q92387422","label":"Vibrato 5-viivalla"}
+{"_id":"Q92387425","label":"Vibrato 6-viivalla"}
+{"_id":"Q92387428","label":"Romaanipoika"}
+{"_id":"Q92387979","label":"Omakuva"}
+{"_id":"Q92387986","label":"Jäinen maisema"}
+{"_id":"Q92387990","label":"Veturitallit"}
+{"_id":"Q92387997","label":"Ryysyranta"}
+{"_id":"Q92388000","label":"Pato"}
+{"_id":"Q92388005","label":"Läpikäytävä"}
+{"_id":"Q92388008","label":"Pihaportti"}
+{"_id":"Q92388013","label":"Juha"}
+{"_id":"Q92388015","label":"Pelin henki"}
+{"_id":"Q92388020","label":"Vs-suunnitelma"}
+{"_id":"Q92388026","label":"Iloinen vankila"}
+{"_id":"Q92388028","label":"Merimiehen morsian"}
+{"_id":"Q92388034","label":"Viherlehto"}
+{"_id":"Q92388036","label":"Nimetön"}
+{"_id":"Q92388042","label":"Asetelma"}
+{"_id":"Q92388487","label":"Maaseutu ja kaupunki (\"Länsirannikon luonne\")"}
+{"_id":"Q92388489","label":"Ylänkö"}
+{"_id":"Q92388493","label":"Tapahtuma"}
+{"_id":"Q92388497","label":"Vastavalo"}
+{"_id":"Q92388499","label":"Neptunus"}
+{"_id":"Q92388501","label":"Runoilijan ikkuna"}
+{"_id":"Q92388504","label":"Punatulkut"}
+{"_id":"Q92388507","label":"Vanha rakennus"}
+{"_id":"Q92388510","label":"Piha"}
+{"_id":"Q92388516","label":"Hiljaisuus"}
+{"_id":"Q92388519","label":"Emilia maalaa"}
+{"_id":"Q92388523","label":"Lampi"}
+{"_id":"Q92388525","label":"Räjähdys"}
+{"_id":"Q92388528","label":"Musiikkia niityllä"}
+{"_id":"Q92388532","label":"Aamukävely"}
+{"_id":"Q92388534","label":"Meri"}
+{"_id":"Q92388537","label":"Sumumaisema"}
+{"_id":"Q92388542","label":"Rauha"}
+{"_id":"Q92388548","label":"Pirunnyrkki"}
+{"_id":"Q92388554","label":"Saastuva ranta"}
+{"_id":"Q92388558","label":"Maisema"}
+{"_id":"Q92388562","label":"Rannalla"}
+{"_id":"Q92388566","label":"Pihanäkymä"}
+{"_id":"Q92388572","label":"Makholma II"}
+{"_id":"Q92388575","label":"Pori-72"}
+{"_id":"Q92388579","label":"Asetelma"}
+{"_id":"Q92388583","label":"Murskaamo"}
+{"_id":"Q92388587","label":"Yli kattojen"}
+{"_id":"Q92388592","label":"Savonlinna"}
+{"_id":"Q92388595","label":"Vihreän kirkon kummitus"}
+{"_id":"Q92388600","label":"Kotikaupungin kirkko"}
+{"_id":"Q92388604","label":"Vanhaa kaupunkia"}
+{"_id":"Q92388607","label":"Tähystystorni"}
+{"_id":"Q92388611","label":"Talvi tuli tulvaan"}
+{"_id":"Q92389130","label":"Purje nousee"}
+{"_id":"Q92389135","label":"Huippu-urheilua"}
+{"_id":"Q92389138","label":"Sommitelma"}
+{"_id":"Q92389143","label":"Takaranta"}
+{"_id":"Q92389146","label":"Lyhty"}
+{"_id":"Q92389149","label":"Hämärtyy"}
+{"_id":"Q92389160","label":"Kotitie"}
+{"_id":"Q92389171","label":"Montmartrelta"}
+{"_id":"Q92389176","label":"Hevonen"}
+{"_id":"Q92389180","label":"Tyttö"}
+{"_id":"Q92389183","label":"Ulvilan kirkosta"}
+{"_id":"Q92389187","label":"Peltotie"}
+{"_id":"Q92389189","label":"Pirasen luhti"}
+{"_id":"Q92389192","label":"Päivätyynyt"}
+{"_id":"Q92389196","label":"Punainen selkä"}
+{"_id":"Q92389199","label":"Sahanterottaja"}
+{"_id":"Q92389208","label":"Kevätpuuhat"}
+{"_id":"Q92389213","label":"Piirustus"}
+{"_id":"Q92389216","label":"Avaruusaika II"}
+{"_id":"Q92389219","label":"Kesäyö"}
+{"_id":"Q92389224","label":"Syystunnelma"}
+{"_id":"Q92389228","label":"Varhainen aamu"}
+{"_id":"Q92389233","label":"Hämärä"}
+{"_id":"Q92389236","label":"Kylän lapset"}
+{"_id":"Q92389239","label":"Rikottu harju"}
+{"_id":"Q92389246","label":"Peltomaisema"}
+{"_id":"Q92389250","label":"Kukka"}
+{"_id":"Q92389255","label":"Ahlaisista"}
+{"_id":"Q92389258","label":"Ruisleivän tuleminen"}
+{"_id":"Q92389261","label":"Huhtikuu"}
+{"_id":"Q92389267","label":"Kesän muisto"}
+{"_id":"Q92389270","label":"Lauantai-ilta"}
+{"_id":"Q92389273","label":"Oliivipuita Italiassa"}
+{"_id":"Q92389277","label":"Pohjalainen talo"}
+{"_id":"Q92389284","label":"Harmaa poika"}
+{"_id":"Q92389288","label":"Maallikkosaarnaaja"}
+{"_id":"Q92389293","label":"Tilanne torilla"}
+{"_id":"Q92389295","label":"Aune ja Kalle"}
+{"_id":"Q92389301","label":"Lamppu"}
+{"_id":"Q92389304","label":"Aktivoitu"}
+{"_id":"Q92389307","label":"Pöydällinen"}
+{"_id":"Q92389311","label":"Syksyn satoa"}
+{"_id":"Q92389315","label":"Valkoinen aurinko"}
+{"_id":"Q92389321","label":"Leipä ja viini"}
+{"_id":"Q92389329","label":"Reposaaresta"}
+{"_id":"Q92389332","label":"Väärämaa I"}
+{"_id":"Q92389336","label":"Kukka"}
+{"_id":"Q92389768","label":"Taloryhmä"}
+{"_id":"Q92389770","label":"Hätilän peltotie"}
+{"_id":"Q92389774","label":"Huhtikuu"}
+{"_id":"Q92389777","label":"Ehtamon talo"}
+{"_id":"Q92389780","label":"Kevätjää"}
+{"_id":"Q92389784","label":"Silta"}
+{"_id":"Q92389787","label":"Aihe Pariisista"}
+{"_id":"Q92389791","label":"Huvipuisto"}
+{"_id":"Q92389795","label":"Karuselli"}
+{"_id":"Q92389803","label":"Vartiotorni"}
+{"_id":"Q92389807","label":"Päiväkävelyllä"}
+{"_id":"Q92389812","label":"Päiväkävelyllä 2"}
+{"_id":"Q92389815","label":"Talviranta I"}
+{"_id":"Q92389817","label":"Kesäyö I"}
+{"_id":"Q92389821","label":"Kesäyö II"}
+{"_id":"Q92389822","label":"Ja elämä oli seikkailua"}
+{"_id":"Q92389824","label":"Niskalasta"}
+{"_id":"Q92389827","label":"Maantien ässä"}
+{"_id":"Q92389830","label":"Stuttgart 1963"}
+{"_id":"Q92389833","label":"Kaupunki Provence"}
+{"_id":"Q92389839","label":"Ilta tulee rannalle"}
+{"_id":"Q92389841","label":"Myöhäissyksyistä pellonlaitaa"}
+{"_id":"Q92389845","label":"Syksy Kiikassa"}
+{"_id":"Q92389846","label":"Pato"}
+{"_id":"Q92389849","label":"Kaadettua lepikkoa"}
+{"_id":"Q92389853","label":"Rotaatio"}
+{"_id":"Q92389854","label":"Kaverukset"}
+{"_id":"Q92389859","label":"Maisema Kirjurinluodosta"}
+{"_id":"Q92389862","label":"Ilta saapuu kaupunkiin"}
+{"_id":"Q92389868","label":"Koivikkoa"}
+{"_id":"Q92389871","label":"Kylävieras"}
+{"_id":"Q92389873","label":"Loppu"}
+{"_id":"Q92389878","label":"Tuhkimon jäljillä"}
+{"_id":"Q92389880","label":"Vanha sähkölaitos"}
+{"_id":"Q92389884","label":"Hallituskatu I"}
+{"_id":"Q92389887","label":"Vähälinnankatua"}
+{"_id":"Q92389890","label":"Hallituskatu 2"}
+{"_id":"Q92389894","label":"Talvihämärää"}
+{"_id":"Q92389900","label":"Mustikassa"}
+{"_id":"Q92389903","label":"Pienvijelijän perhe"}
+{"_id":"Q92389909","label":"Merimerkki"}
+{"_id":"Q92389912","label":"Katse muualle"}
+{"_id":"Q92389916","label":"Sivupersoonat"}
+{"_id":"Q92389918","label":"Sadeastia"}
+{"_id":"Q92389921","label":"Leikkaus"}
+{"_id":"Q92389923","label":"Talonmies"}
+{"_id":"Q92389925","label":"Ekaluokkalaiset"}
+{"_id":"Q92389929","label":"Vanha portti I"}
+{"_id":"Q92389933","label":"Vanha portti"}
+{"_id":"Q92389936","label":"Heijastus"}
+{"_id":"Q92390365","label":"Leikki"}
+{"_id":"Q92390370","label":"Piha siistiksi"}
+{"_id":"Q92390373","label":"Puistotie"}
+{"_id":"Q92390376","label":"Taormina (teosnimi)"}
+{"_id":"Q92390380","label":"Seitikki"}
+{"_id":"Q92390384","label":"Syksy"}
+{"_id":"Q92390388","label":"Väärä leimautuminen"}
+{"_id":"Q92390395","label":"Yksinhuoltajan murheet"}
+{"_id":"Q92390396","label":"Syyspäivä"}
+{"_id":"Q92390405","label":"Teetä"}
+{"_id":"Q92390410","label":"Vanha tinatuoppi"}
+{"_id":"Q92390414","label":"Nainen ja kissa"}
+{"_id":"Q92390418","label":"Kalastussatama"}
+{"_id":"Q92390421","label":"Tyhjä torppa"}
+{"_id":"Q92390426","label":"Syksy Lattomerellä"}
+{"_id":"Q92390429","label":"Hyvää huomenta, Suomi 6.12."}
+{"_id":"Q92390432","label":"Aamu-utu"}
+{"_id":"Q92390435","label":"Alisenkosken silta"}
+{"_id":"Q92390441","label":"Rantakivet"}
+{"_id":"Q92390444","label":"Serigrafia salkusta \"11 suomalaista maalaria\""}
+{"_id":"Q92390448","label":"Serigrafia salkusta \"11 suomalaista maalaria\""}
+{"_id":"Q92390450","label":"Serigrafia salkusta \"11 suomalaista maalaria\""}
+{"_id":"Q92390453","label":"Grafiikkaa"}
+{"_id":"Q92390455","label":"Grafiikkaa"}
+{"_id":"Q92390459","label":"Serigrafia"}
+{"_id":"Q92390462","label":"Serigrafia salkusta ”11 suomalaista maalaria”"}
+{"_id":"Q92390465","label":"Serigrafia salkusta \"11 suomalaista maalaria\""}
+{"_id":"Q92390469","label":"Serigrafia salkusta \"11 suomalaista maalaria\""}
+{"_id":"Q92390472","label":"Serigrafia salkusta \"11 suomalaista maalaria\""}
+{"_id":"Q92390476","label":"Serigrafia"}
+{"_id":"Q92390478","label":"Ratapiha"}
+{"_id":"Q92390485","label":"Sommitelma"}
+{"_id":"Q92390495","label":"Rantalepikköä"}
+{"_id":"Q92390500","label":"Pihakaivo"}
+{"_id":"Q92390506","label":"Kylänlaidalla"}
+{"_id":"Q92390508","label":"Villiomenapuita"}
+{"_id":"Q92390513","label":"Puistokuva"}
+{"_id":"Q92390516","label":"Kesäpäivä"}
+{"_id":"Q92390522","label":"Näytelmä"}
+{"_id":"Q92390523","label":"Sisarukset"}
+{"_id":"Q92390528","label":"Maisema"}
+{"_id":"Q92390529","label":"Siikarantaa"}
+{"_id":"Q92390534","label":"Kallioranta"}
+{"_id":"Q92390538","label":"Pahnanpolttajat"}
+{"_id":"Q92390543","label":"Länsirantaa"}
+{"_id":"Q92390546","label":"Sivutuuli"}
+{"_id":"Q92390551","label":"Kolme markkaa kilo"}
+{"_id":"Q92390554","label":"Pihajuhla"}
+{"_id":"Q92391057","label":"Sommitelma V"}
+{"_id":"Q92391061","label":"Pälvikuu"}
+{"_id":"Q92391068","label":"Iltasumu"}
+{"_id":"Q92391070","label":"Mustaa punaisella"}
+{"_id":"Q92391076","label":"Loskakeli"}
+{"_id":"Q92391081","label":"Leijanlennättäjä"}
+{"_id":"Q92391086","label":"Balettikoulun alokas"}
+{"_id":"Q92391090","label":"Varhaiskevät (Tidigt vår)"}
+{"_id":"Q92391096","label":"Suojasää"}
+{"_id":"Q92391105","label":"Keskittyminen"}
+{"_id":"Q92391110","label":"Varaäiti"}
+{"_id":"Q92391116","label":"Onnelliset vaivaiset"}
+{"_id":"Q92391120","label":"Talo mäen päällä"}
+{"_id":"Q92391126","label":"Talven odotus"}
+{"_id":"Q92391129","label":"Maitohuoneen ovi"}
+{"_id":"Q92391134","label":"Kompositio"}
+{"_id":"Q92391138","label":"Hääkuvaus"}
+{"_id":"Q92391143","label":"Talvimaisema"}
+{"_id":"Q92391149","label":"Kuva Väinö Niemisestä"}
+{"_id":"Q92391152","label":"Tyttö"}
+{"_id":"Q92391156","label":"Peilaaja"}
+{"_id":"Q92391161","label":"Kohtauspaikka"}
+{"_id":"Q92391165","label":"Syysuinti"}
+{"_id":"Q92391169","label":"Hirviön kesyttäjä"}
+{"_id":"Q92391172","label":"Piha"}
+{"_id":"Q92391177","label":"Parkkipaikka"}
+{"_id":"Q92391182","label":"Vastasyntynyt"}
+{"_id":"Q92391185","label":"Koulupoika"}
+{"_id":"Q92391189","label":"Väkivalta"}
+{"_id":"Q92391194","label":"Odotus"}
+{"_id":"Q92391199","label":"Poika"}
+{"_id":"Q92391202","label":"Kohti valoa II"}
+{"_id":"Q92391206","label":"Otto, leskimies I"}
+{"_id":"Q92391210","label":"Puisto"}
+{"_id":"Q92391213","label":"Rauhankyyhkyjä"}
+{"_id":"Q92391222","label":"Pihan puolta"}
+{"_id":"Q92391226","label":"Talvisunnuntai"}
+{"_id":"Q92391229","label":"Kuja Porvoossa"}
+{"_id":"Q92391233","label":"Pohjalainen"}
+{"_id":"Q92391234","label":"Majatalon makasiinit"}
+{"_id":"Q92391240","label":"Kujan mutka"}
+{"_id":"Q92391242","label":"Pihanäkymä"}
+{"_id":"Q92391246","label":"Hylätty kasvihuone"}
+{"_id":"Q92391248","label":"Maalaisidylli"}
+{"_id":"Q92391254","label":"Kevät"}
+{"_id":"Q92391258","label":"Tuoli ja Siveltimet"}
+{"_id":"Q92391263","label":"Maisema joelta"}
+{"_id":"Q92391268","label":"Taidemuseo on totta"}
+{"_id":"Q92391779","label":"Viimeinen hetki"}
+{"_id":"Q92391783","label":"Lippomies"}
+{"_id":"Q92391787","label":"Lepopäivänä"}
+{"_id":"Q92391792","label":"Malli punaisessa"}
+{"_id":"Q92391797","label":"Jokirantaa"}
+{"_id":"Q92391800","label":"Syksyn satoa"}
+{"_id":"Q92391804","label":"Kevättalvea I"}
+{"_id":"Q92391810","label":"Nuoskaa"}
+{"_id":"Q92391813","label":"Hääpari"}
+{"_id":"Q92391821","label":"Malli ja tausta"}
+{"_id":"Q92391829","label":"Laituri ja vene"}
+{"_id":"Q92391833","label":"Railo"}
+{"_id":"Q92391837","label":"8-78"}
+{"_id":"Q92391841","label":"4-76"}
+{"_id":"Q92391846","label":"Varaslähtö"}
+{"_id":"Q92391851","label":"Hermot kireällä"}
+{"_id":"Q92391857","label":"Lelukaappi I"}
+{"_id":"Q92391862","label":"Nukahtanut humalainen"}
+{"_id":"Q92391864","label":"Hapannaama"}
+{"_id":"Q92391871","label":"Omis (teosnimi)"}
+{"_id":"Q92391872","label":"Puiston reuna"}
+{"_id":"Q92391874","label":"Lasitemppu"}
+{"_id":"Q92391876","label":"Pallotemppu"}
+{"_id":"Q92391880","label":"Suurkaupunki"}
+{"_id":"Q92391882","label":"Katedraali I"}
+{"_id":"Q92391885","label":"Tanssit"}
+{"_id":"Q92391889","label":"Huutavan ääni erämaasta"}
+{"_id":"Q92391891","label":"Viimeiset lehdet"}
+{"_id":"Q92391893","label":"Tomaatit"}
+{"_id":"Q92391902","label":"Leopardi, josta tuli tiikeri"}
+{"_id":"Q92391904","label":"nimeämätön"}
+{"_id":"Q92391908","label":"Häät 2.8.1977"}
+{"_id":"Q92391909","label":"nimeämätön"}
+{"_id":"Q92391913","label":"Aku Ankka, jazz tunnelma"}
+{"_id":"Q92391916","label":"Ihmisiä vihreässä"}
+{"_id":"Q92391919","label":"Aurinkovaunut"}
+{"_id":"Q92391921","label":"Ihmisiä ja eläimiä"}
+{"_id":"Q92391924","label":"Aita"}
+{"_id":"Q92391928","label":"Ihmisen kauppa"}
+{"_id":"Q92391931","label":"Ruutikellarin mäki"}
+{"_id":"Q92391933","label":"Bdam"}
+{"_id":"Q92392381","label":"Ben Renwall muovailee monumenttia"}
+{"_id":"Q92392383","label":"Professori Tohkan ja faktori Koivusen keskustelu Suomen taidelitografiasta."}
+{"_id":"Q92392388","label":"Järjestysmies"}
+{"_id":"Q92392390","label":"Vaaramaisema"}
+{"_id":"Q92392393","label":"Kesä"}
+{"_id":"Q92392396","label":"Oraspelto"}
+{"_id":"Q92392401","label":"Aihe luonnosta"}
+{"_id":"Q92392404","label":"Tuulessa"}
+{"_id":"Q92392799","label":"Lumiaita"}
+{"_id":"Q92392802","label":"Talvihämärä"}
+{"_id":"Q92392806","label":"Alaston I"}
+{"_id":"Q92392809","label":"Kissat"}
+{"_id":"Q92392812","label":"Tupakalla"}
+{"_id":"Q92392816","label":"Väkivoimaa"}
+{"_id":"Q92392818","label":"Aittoja"}
+{"_id":"Q92392820","label":"Vanha tatti"}
+{"_id":"Q92392825","label":"Edward Hallin muotokuva"}
+{"_id":"Q92392831","label":"Maisema"}
+{"_id":"Q92392834","label":"Piha"}
+{"_id":"Q92392838","label":"Siihen aikaan kun..."}
+{"_id":"Q92392840","label":"Asetelma"}
+{"_id":"Q92392843","label":"Saarella"}
+{"_id":"Q92392848","label":"Ajan patinoimat"}
+{"_id":"Q92392850","label":"Uusi päivä"}
+{"_id":"Q92392853","label":"Työ"}
+{"_id":"Q92392857","label":"Porokotajärveltä"}
+{"_id":"Q92392863","label":"Kevät II"}
+{"_id":"Q92392869","label":"Risto ja savikissa"}
+{"_id":"Q92392872","label":"Aamu"}
+{"_id":"Q92392875","label":"Sommitelma"}
+{"_id":"Q92392878","label":"Sumuinen maisema"}
+{"_id":"Q92392882","label":"Talvinen päivä"}
+{"_id":"Q92392887","label":"Huilusoolo"}
+{"_id":"Q92392890","label":"Arkisia asioita"}
+{"_id":"Q92392892","label":"Muusan päiväunet \"Minne se pehmeä hartiahuivi on viety\""}
+{"_id":"Q92392899","label":"Asetelmaa edestakaisin"}
+{"_id":"Q92392904","label":"Vanhaa Poria"}
+{"_id":"Q92392908","label":"Pilvien anatomia"}
+{"_id":"Q92392913","label":"Jäähyväiset asemalla"}
+{"_id":"Q92392915","label":"Peilaava morsian"}
+{"_id":"Q92392918","label":"Ikkuna itään ja länteen"}
+{"_id":"Q92392922","label":"Louhos"}
+{"_id":"Q92392927","label":"Vuodenajat"}
+{"_id":"Q92392930","label":"Tiedemies"}
+{"_id":"Q92392934","label":"Perillä"}
+{"_id":"Q92392937","label":"Kissa ja lintu"}
+{"_id":"Q92392940","label":"Puu"}
+{"_id":"Q92392944","label":"Näkymä Söderistä"}
+{"_id":"Q92392948","label":"Tulevaisuudessa II"}
+{"_id":"Q92392952","label":"Meren rannalla"}
+{"_id":"Q92392954","label":"Hiljainen paviljonki"}
+{"_id":"Q92392957","label":"Valaistu torni"}
+{"_id":"Q92392964","label":"Monumentti"}
+{"_id":"Q92392969","label":"Klovnin vappuaamu"}
+{"_id":"Q92392974","label":"Laulajatar Madisonista"}
+{"_id":"Q92392977","label":"Jokimaisema"}
+{"_id":"Q92392982","label":"Hämärtyessä"}
+{"_id":"Q92392984","label":"Rytmejä Erkin riihessä"}
+{"_id":"Q92393449","label":"Mäntyjä II"}
+{"_id":"Q92393453","label":"Asetelma"}
+{"_id":"Q92393456","label":"Savijärvi jäätyy"}
+{"_id":"Q92393458","label":"Etydi IV"}
+{"_id":"Q92393461","label":"Fatum"}
+{"_id":"Q92393465","label":"Taisto Ahtola"}
+{"_id":"Q92393467","label":"Vähärauman vanha koulumiljöö I"}
+{"_id":"Q92393471","label":"Vähärauman vanha koulumiljöö II"}
+{"_id":"Q92393473","label":"Vähärauman vanha koulumiljöö III"}
+{"_id":"Q92393484","label":"Vähärauman vanha koulumiljöö IV"}
+{"_id":"Q92393488","label":"Vähärauman vanha koulumiljöö V"}
+{"_id":"Q92393492","label":"Työttömien armeija"}
+{"_id":"Q92393495","label":"L´etre perdu (teosnimi)"}
+{"_id":"Q92393499","label":"Hiljainen iltapäivä"}
+{"_id":"Q92393502","label":"Rannalla"}
+{"_id":"Q92393506","label":"Oma koti kullan kallis"}
+{"_id":"Q92393510","label":"Tanssivat vaivaisukot"}
+{"_id":"Q92393513","label":"Pieni vaivaisukko"}
+{"_id":"Q92393517","label":"Vaivaisukon vaimo"}
+{"_id":"Q92393520","label":"Sotainen vaivaisukko"}
+{"_id":"Q92393524","label":"Metsän reunasta"}
+{"_id":"Q92393528","label":"Varjot"}
+{"_id":"Q92393532","label":"Merelle mieli"}
+{"_id":"Q92393537","label":"Sinistä vasten"}
+{"_id":"Q92393539","label":"Tyhjän pantti"}
+{"_id":"Q92393544","label":"Savuja -luonnos"}
+{"_id":"Q92393547","label":"Kesäinen aurinko, Ahvenanmaa"}
+{"_id":"Q92393552","label":"Kirjastoneuvos Henry Granfors"}
+{"_id":"Q92393555","label":"Miete"}
+{"_id":"Q92393559","label":"Colosseum vuonna 2000"}
+{"_id":"Q92393561","label":"Citta di Mare II (teosnimi)"}
+{"_id":"Q92393566","label":"Suojeluenkeli"}
+{"_id":"Q92393571","label":"Taiteilijan uni"}
+{"_id":"Q92393573","label":"Organismin lento"}
+{"_id":"Q92393576","label":"Karhun pääsiäinen"}
+{"_id":"Q92393578","label":"Valo IV"}
+{"_id":"Q92393581","label":"Ensimmäinen lomapäivä"}
+{"_id":"Q92393585","label":"Z/5/81"}
+{"_id":"Q92393586","label":"Limppu"}
+{"_id":"Q92393590","label":"Kukkia"}
+{"_id":"Q92393593","label":"Museopaketti"}
+{"_id":"Q92393597","label":"Lanttu"}
+{"_id":"Q92393599","label":"Tuoddaris"}
+{"_id":"Q92393603","label":"Rakenne"}
+{"_id":"Q92393606","label":"Teiresias"}
+{"_id":"Q92393609","label":"Lintuballadi"}
+{"_id":"Q92393611","label":"Metamorfoosi"}
+{"_id":"Q92393615","label":"Gredo"}
+{"_id":"Q92393617","label":"Sitä unta..."}
+{"_id":"Q92393620","label":"Ettäkö vain..."}
+{"_id":"Q92394070","label":"Taivas pidätti..."}
+{"_id":"Q92394074","label":"Jo kauan..."}
+{"_id":"Q92394078","label":"Ei jätä luontokaan"}
+{"_id":"Q92394084","label":"Olen rauhallinen aina..."}
+{"_id":"Q92394088","label":"Kaukana metsä"}
+{"_id":"Q92394091","label":"Hikoillen juon teetäni"}
+{"_id":"Q92394094","label":"Puolitoista suolakurkkua"}
+{"_id":"Q92394098","label":"Punapukuinen"}
+{"_id":"Q92394102","label":"Pilakuva"}
+{"_id":"Q92394109","label":"Koirat"}
+{"_id":"Q92394114","label":"Luonnos no:3 alttaritaulua varten"}
+{"_id":"Q92394118","label":"Keskipäivä"}
+{"_id":"Q92394121","label":"Häiritsijä"}
+{"_id":"Q92394125","label":"Kukat"}
+{"_id":"Q92394130","label":"Turun taideyhdistyksen piirustuskoulu Åbo konstföreningens ritskola 1830 - 1930"}
+{"_id":"Q92394134","label":"Väinö Aaltonen 1894-1966"}
+{"_id":"Q92394136","label":"Olavin linna Olofs borg"}
+{"_id":"Q92394140","label":"Lahden museo 50v"}
+{"_id":"Q92394147","label":"Matti Kauppinen 1843-1936 Satakunnan museo 1888"}
+{"_id":"Q92394151","label":"Turku. Museum Historicum. Åbo. 1881-1981"}
+{"_id":"Q92394158","label":"Anders Chydenius 1729-1979"}
+{"_id":"Q92394161","label":"Suopursu"}
+{"_id":"Q92394166","label":"Tyrsky"}
+{"_id":"Q92394168","label":"Ystävyys"}
+{"_id":"Q92394171","label":"Perhe"}
+{"_id":"Q92394177","label":"Merihevonen"}
+{"_id":"Q92394179","label":"Herman puutarhuri"}
+{"_id":"Q92394189","label":"Castello II"}
+{"_id":"Q92394194","label":"Ruusuikkuna"}
+{"_id":"Q92394200","label":"Nimetön"}
+{"_id":"Q92394207","label":"nimeämätön"}
+{"_id":"Q92394211","label":"Tyttö ovella"}
+{"_id":"Q92394215","label":"Vuoristokylä"}
+{"_id":"Q92394219","label":"Kubistinen asetelma"}
+{"_id":"Q92394224","label":"Johannes"}
+{"_id":"Q92394227","label":"Katkennut palkki"}
+{"_id":"Q92394230","label":"Kalastaja"}
+{"_id":"Q92394235","label":"Nojatuoli"}
+{"_id":"Q92394240","label":"Nukkuva"}
+{"_id":"Q92394246","label":"Kengät"}
+{"_id":"Q92394248","label":"Aitapensas"}
+{"_id":"Q92394251","label":"Huurrepuut"}
+{"_id":"Q92394256","label":"Espanjatar"}
+{"_id":"Q92394258","label":"Takaranta"}
+{"_id":"Q92394261","label":"Portti"}
+{"_id":"Q92394265","label":"Taiteilijaelämää"}
+{"_id":"Q92394266","label":"Heijastuksia IV"}
+{"_id":"Q92394272","label":"Luonnonvoima II"}
+{"_id":"Q92394276","label":"Luonnonvoima III"}
+{"_id":"Q92394280","label":"Vanhaa Seikkua"}
+{"_id":"Q92394505","label":"Hauska hääyö"}
+{"_id":"Q92394506","label":"Pelisali"}
+{"_id":"Q92394509","label":"Helmikuu"}
+{"_id":"Q92394510","label":"4-82 W"}
+{"_id":"Q92394511","label":"Portti"}
+{"_id":"Q92394514","label":"Rintakuva"}
+{"_id":"Q92394516","label":"Iris"}
+{"_id":"Q92394520","label":"Torso"}
+{"_id":"Q92394523","label":"Jälkivaikutus"}
+{"_id":"Q92394526","label":"Sivuvaikutus"}
+{"_id":"Q92394534","label":"Rajuilma"}
+{"_id":"Q92394537","label":"Musta pääsiäinen"}
+{"_id":"Q92394539","label":"Vastakkain I"}
+{"_id":"Q92394542","label":"Lintu, heijastus II"}
+{"_id":"Q92394546","label":"Lintu, heijastus I"}
+{"_id":"Q92394549","label":"Krypta"}
+{"_id":"Q92394553","label":"Vastakkain II"}
+{"_id":"Q92394558","label":"Avautuva alavasen"}
+{"_id":"Q92394560","label":"Länsituuli"}
+{"_id":"Q92394566","label":"Maantiekadun varrelta"}
+{"_id":"Q92394569","label":"Metsä"}
+{"_id":"Q92394572","label":"Onnellisten talo"}
+{"_id":"Q92394576","label":"Ikkuna merelle"}
+{"_id":"Q92394582","label":"Silta, taloja, vihreä puu"}
+{"_id":"Q92394586","label":"Pori park przed rat uszem (teosnimi)"}
+{"_id":"Q92394590","label":"Asetelma"}
+{"_id":"Q92394594","label":"Maisema"}
+{"_id":"Q92394599","label":"Kukka-asetelma"}
+{"_id":"Q92394605","label":"Alastontutkielma"}
+{"_id":"Q92394607","label":"Alastontutkielma"}
+{"_id":"Q92394613","label":"Reposaaren kalasatama"}
+{"_id":"Q92394615","label":"Vanhaa Viipuria"}
+{"_id":"Q92394620","label":"Kaupunkinäkymä Veliko Tornovosta"}
+{"_id":"Q92394622","label":"Maisema (Utsikt över Hogland)"}
+{"_id":"Q92394628","label":"Piha"}
+{"_id":"Q92394638","label":"Suistomaisema"}
+{"_id":"Q92394642","label":"Rantatörmä"}
+{"_id":"Q92394644","label":"Linnut"}
+{"_id":"Q92394649","label":"Metsot"}
+{"_id":"Q92394652","label":"Selim Palmgren"}
+{"_id":"Q92394657","label":"Lumenluojat"}
+{"_id":"Q92394659","label":"Siirto"}
+{"_id":"Q92394664","label":"Harlekiini"}
+{"_id":"Q92394667","label":"Surrealistinen tapahtuma"}
+{"_id":"Q92394674","label":"Kaupunkimaisema"}
+{"_id":"Q92394680","label":"Keväänportti"}
+{"_id":"Q92394683","label":"Työ"}
+{"_id":"Q92394688","label":"Rehtori Särkkä"}
+{"_id":"Q92395147","label":"Muotokuva"}
+{"_id":"Q92395152","label":"Rehtori A.D. Malin"}
+{"_id":"Q92395157","label":"Reino Hannula"}
+{"_id":"Q92395162","label":"Asetelma"}
+{"_id":"Q92395166","label":"Marjametsä"}
+{"_id":"Q92395171","label":"Antti Ahlström"}
+{"_id":"Q92395174","label":"Edvin Avellan"}
+{"_id":"Q92395179","label":"K. E. Stenbäck"}
+{"_id":"Q92395183","label":"Risto Ryti"}
+{"_id":"Q92395192","label":"Vuorimaisema"}
+{"_id":"Q92395199","label":"Istuva nainen"}
+{"_id":"Q92395202","label":"Tunturi"}
+{"_id":"Q92395207","label":"Kuusia"}
+{"_id":"Q92395213","label":"Muotokuva"}
+{"_id":"Q92395218","label":"Koski"}
+{"_id":"Q92395222","label":"Perhe"}
+{"_id":"Q92395227","label":"Kubistinen sommitelma"}
+{"_id":"Q92395233","label":"Uimalaitos"}
+{"_id":"Q92395238","label":"Elias Lönnrot"}
+{"_id":"Q92395242","label":"Elias Lönnrot"}
+{"_id":"Q92395246","label":"Kalastajien paluu"}
+{"_id":"Q92395254","label":"Istuva poika"}
+{"_id":"Q92395258","label":"Itkuvirsien esitys"}
+{"_id":"Q92395264","label":"Ignoi Vornanen, Tolvajärvi"}
+{"_id":"Q92395269","label":"Vanha tuulimylly"}
+{"_id":"Q92395273","label":"Tolvajärven kyläkappeli"}
+{"_id":"Q92395277","label":"Norder port, Wisby"}
+{"_id":"Q92395281","label":"Ainava"}
+{"_id":"Q92395288","label":"Koski"}
+{"_id":"Q92395291","label":"Tohtori Toivo Vanhatalon muotokuva"}
+{"_id":"Q92395296","label":"Huivipäinen tyttö"}
+{"_id":"Q92395301","label":"Tyttö"}
+{"_id":"Q92395304","label":"Näkymä sairaalan ikkunasta"}
+{"_id":"Q92395309","label":"Potilas"}
+{"_id":"Q92395314","label":"Kukka-asetelma"}
+{"_id":"Q92395319","label":"Maisema Ruosniemen tien varrelta"}
+{"_id":"Q92395320","label":"Lato"}
+{"_id":"Q92395323","label":"Muotokuva"}
+{"_id":"Q92395327","label":"Pauli Happosen muotokuva"}
+{"_id":"Q92395331","label":"Eger/Bukk (teosnimi)"}
+{"_id":"Q92395335","label":"Vaaka"}
+{"_id":"Q92395339","label":"Hopeahäät"}
+{"_id":"Q92395343","label":"Abstrakti sommitelma"}
+{"_id":"Q92395347","label":"Rauman Pyhän Ristin kirkko"}
+{"_id":"Q92395352","label":"Intialainen talo III"}
+{"_id":"Q92395356","label":"Piazza I"}
+{"_id":"Q92395358","label":"Rehtori Aarno Airion muotokuva"}
+{"_id":"Q92395364","label":"Hugo Nuorsaaren muotokuva"}
+{"_id":"Q92395368","label":"Variksenpelättimiä"}
+{"_id":"Q92395372","label":"Meren ranta"}
+{"_id":"Q92395960","label":"Pajatson nauru"}
+{"_id":"Q92395963","label":"Ahtojäät"}
+{"_id":"Q92395968","label":"Aurinkopouta"}
+{"_id":"Q92395974","label":"Tuuli I"}
+{"_id":"Q92395975","label":"Tuuli II"}
+{"_id":"Q92395981","label":"Kasvu I"}
+{"_id":"Q92395985","label":"Rauhallinen tila"}
+{"_id":"Q92395990","label":"Teatteritalo"}
+{"_id":"Q92395993","label":"Liisa"}
+{"_id":"Q92396004","label":"Vesieste (Tampereen stadionin veistos)"}
+{"_id":"Q92396009","label":"Väinämöinen-Kaleva"}
+{"_id":"Q92396019","label":"Linjalla"}
+{"_id":"Q92396023","label":"Maisema"}
+{"_id":"Q92396027","label":"Poika ja vuono"}
+{"_id":"Q92396032","label":"Omakuva"}
+{"_id":"Q92396037","label":"Istuva tyttö"}
+{"_id":"Q92396041","label":"Kuha 24"}
+{"_id":"Q92396049","label":"Kanttarelleja"}
+{"_id":"Q92396053","label":"Muotokuva kirjailija Kaisa Merestä"}
+{"_id":"Q92396057","label":"Työväenopisto-kirjastotalo"}
+{"_id":"Q92396059","label":"Kaalimaan vahti"}
+{"_id":"Q92396064","label":"Ystävykset"}
+{"_id":"Q92396066","label":"Uimari"}
+{"_id":"Q92396071","label":"Kasvot"}
+{"_id":"Q92396075","label":"Omega"}
+{"_id":"Q92396080","label":"5-osaa"}
+{"_id":"Q92396083","label":"Kasvu"}
+{"_id":"Q92396088","label":"Mullitorin laidasta"}
+{"_id":"Q92396092","label":"Seinämaalausehdotus"}
+{"_id":"Q92396096","label":"Sommitelma"}
+{"_id":"Q92396098","label":"Paikallaan oleva muoto"}
+{"_id":"Q92396102","label":"Maisema II"}
+{"_id":"Q92396108","label":"Maisema III"}
+{"_id":"Q92396111","label":"Cazorla"}
+{"_id":"Q92396114","label":"Extremadura (teosnimi)"}
+{"_id":"Q92396116","label":"Poseidon"}
+{"_id":"Q92396120","label":"Maisema"}
+{"_id":"Q92396125","label":"Interiööri"}
+{"_id":"Q92396129","label":"Naisen muotokuva"}
+{"_id":"Q92396132","label":"Tytön muotokuva"}
+{"_id":"Q92396136","label":"Munchhausen"}
+{"_id":"Q92396139","label":"Salaisesta puutarhasta I"}
+{"_id":"Q92396141","label":"Salaisesta puutarhasta II"}
+{"_id":"Q92396146","label":"Kubistinen figuuri"}
+{"_id":"Q92396147","label":"Maisema Kokemäeltä"}
+{"_id":"Q92396149","label":"Kauttuan puu"}
+{"_id":"Q92396154","label":"Maarian kirkko"}
+{"_id":"Q92396161","label":"Q92396161"}
+{"_id":"Q92396695","label":"Ulvilan kirkko"}
+{"_id":"Q92396698","label":"Maisema Tyrväältä"}
+{"_id":"Q92396702","label":"BIO"}
+{"_id":"Q92396704","label":"Assisilaisia nunnia"}
+{"_id":"Q92396707","label":"Hevosia"}
+{"_id":"Q92396710","label":"Peltomaisema"}
+{"_id":"Q92396712","label":"Piha"}
+{"_id":"Q92396714","label":"Muotoja II"}
+{"_id":"Q92396719","label":"Ympyrä neliössä \"Hommage á Delaunay II\""}
+{"_id":"Q92396726","label":"Tatti"}
+{"_id":"Q92396730","label":"Kivi"}
+{"_id":"Q92396732","label":"Sotamies ja herra"}
+{"_id":"Q92396736","label":"Syksy"}
+{"_id":"Q92396738","label":"Fasaaninainen"}
+{"_id":"Q92396743","label":"Luuta"}
+{"_id":"Q92396744","label":"Eno nilkuttaja"}
+{"_id":"Q92396746","label":"Jätesäkki"}
+{"_id":"Q92396751","label":"Mobile"}
+{"_id":"Q92396757","label":"Kesämökki"}
+{"_id":"Q92396760","label":"Millainen on ruusu?"}
+{"_id":"Q92396764","label":"Elegia"}
+{"_id":"Q92396767","label":"Aapinen"}
+{"_id":"Q92396772","label":"Intiimisti"}
+{"_id":"Q92396773","label":"Pihlaja koputti"}
+{"_id":"Q92396776","label":"Oi byrokraatti"}
+{"_id":"Q92396780","label":"Sade"}
+{"_id":"Q92396783","label":"Kasuuni"}
+{"_id":"Q92396792","label":"Kaatuva karnevaalikatos"}
+{"_id":"Q92396794","label":"Aihe Kurusta"}
+{"_id":"Q92396798","label":"Inarista, Jäniskoski"}
+{"_id":"Q92396800","label":"Kukka-asetelma"}
+{"_id":"Q92396805","label":"Mutkat suoriksi"}
+{"_id":"Q92396810","label":"Puistokuva"}
+{"_id":"Q92396813","label":"Yön hahmot"}
+{"_id":"Q92396816","label":"Yön hahmot"}
+{"_id":"Q92396825","label":"Keskeinen sanasto 6"}
+{"_id":"Q92396829","label":"Keskeinen sanasto 3"}
+{"_id":"Q92396830","label":"Keskeinen sanasto 2"}
+{"_id":"Q92396835","label":"Keskeinen sanasto 7"}
+{"_id":"Q92396839","label":"Yy"}
+{"_id":"Q92396842","label":"Metsän valo"}
+{"_id":"Q92396845","label":"Andante: Valo- ja äänikuvia"}
+{"_id":"Q92396850","label":"Dialogue des sourds (Dialogi)"}
+{"_id":"Q92396853","label":"Muutoksen merkit"}
+{"_id":"Q92396861","label":"Syksyn tunnot"}
+{"_id":"Q92396865","label":"Vastakohdat"}
+{"_id":"Q92396866","label":"Konventa setas pagalms (teosnimi)"}
+{"_id":"Q92396871","label":"Transsendenttistä mietiskelyä"}
+{"_id":"Q92396873","label":"Nami-Namimaan kuningas tuli lentäen"}
+{"_id":"Q92397330","label":"Heinäkuu"}
+{"_id":"Q92397335","label":"Dia I, Castellum"}
+{"_id":"Q92397337","label":"Espanjalainen nainen"}
+{"_id":"Q92397340","label":"Hietaniemi"}
+{"_id":"Q92397344","label":"Loviisa"}
+{"_id":"Q92397349","label":"Porvoo"}
+{"_id":"Q92397354","label":"Iltapäivä"}
+{"_id":"Q92397357","label":"Rakennustyöläiset"}
+{"_id":"Q92397361","label":"Hulluus I"}
+{"_id":"Q92397364","label":"Tokio-portti"}
+{"_id":"Q92397368","label":"Ounasvaaralta"}
+{"_id":"Q92397370","label":"Hetki II"}
+{"_id":"Q92397373","label":"Kaverikuva"}
+{"_id":"Q92397375","label":"Finlayson, Pori"}
+{"_id":"Q92397377","label":"Hurraa II"}
+{"_id":"Q92397380","label":"Hurraa III"}
+{"_id":"Q92397382","label":"Pyhäjärvi"}
+{"_id":"Q92397386","label":"Turha puhua rauhasta"}
+{"_id":"Q92397388","label":"Kiinalainen puutarha"}
+{"_id":"Q92397392","label":"Koti-ikävä, koivu"}
+{"_id":"Q92397395","label":"Vaellus II"}
+{"_id":"Q92397397","label":"Puutarhakaupunki"}
+{"_id":"Q92397399","label":"Pohjoinen"}
+{"_id":"Q92397402","label":"Etsikkoaika"}
+{"_id":"Q92397404","label":"Pyhäpäivä"}
+{"_id":"Q92397406","label":"Valoa kauempaa I"}
+{"_id":"Q92397408","label":"Valoa kauempaa II"}
+{"_id":"Q92397411","label":"Valoa kauempaa III"}
+{"_id":"Q92397412","label":"Ristikko"}
+{"_id":"Q92397415","label":"Mattomies no: 7"}
+{"_id":"Q92397417","label":"Sysi I"}
+{"_id":"Q92397419","label":"Finlayson"}
+{"_id":"Q92397421","label":"Sopeutunut"}
+{"_id":"Q92397423","label":"Sädetasot"}
+{"_id":"Q92397425","label":"Valkoiset neliöt"}
+{"_id":"Q92397428","label":"Halla"}
+{"_id":"Q92397429","label":"Break-tanssija"}
+{"_id":"Q92397432","label":"Piirustus I"}
+{"_id":"Q92397433","label":"Piirustus II"}
+{"_id":"Q92397437","label":"Piirustus III"}
+{"_id":"Q92397439","label":"Piirustus IV"}
+{"_id":"Q92397440","label":"Piirustus V"}
+{"_id":"Q92397443","label":"Erik Satie saapuu / Cafe de la Liberte"}
+{"_id":"Q92397445","label":"Erik Satie / Café de la liberté"}
+{"_id":"Q92397447","label":"Havainto / Luonnoskirjasta"}
+{"_id":"Q92397450","label":"Näyttelijä / Luonnoskirjasta II"}
+{"_id":"Q92397451","label":"Nuorimies / Ibu"}
+{"_id":"Q92397454","label":"Palmu / kivi putosi"}
+{"_id":"Q92397455","label":"Gnossiennes / Café de la Liberté"}
+{"_id":"Q92397812","label":"Haihtuva Erik Satie / Café de la Liberté"}
+{"_id":"Q92397816","label":"Haihtuva Café de la Liberté"}
+{"_id":"Q92397824","label":"Nimetön"}
+{"_id":"Q92397827","label":"Paraatipäähine"}
+{"_id":"Q92397830","label":"Pori 1986"}
+{"_id":"Q92397836","label":"Pori 1986"}
+{"_id":"Q92397853","label":"Armi"}
+{"_id":"Q92397867","label":"Tuomiokirkko Aix-en-Provencesta"}
+{"_id":"Q92397870","label":"Prosessi IV"}
+{"_id":"Q92397872","label":"Prosessi V"}
+{"_id":"Q92397875","label":"Prosessi VI"}
+{"_id":"Q92397880","label":"Prosessi VII"}
+{"_id":"Q92397881","label":"Prosessi VIII"}
+{"_id":"Q92397892","label":"Apropoo...Fibonacci"}
+{"_id":"Q92397896","label":"Eleonor, Chicago"}
+{"_id":"Q92397898","label":"Michigan-järvi"}
+{"_id":"Q92397901","label":"Sarjasta kentillä ja ristillä"}
+{"_id":"Q92397903","label":"Sarjasta kentillä ja ristillä"}
+{"_id":"Q92397908","label":"Avaruuskello"}
+{"_id":"Q92397933","label":"Rakettimies viisarina kellotaulussa"}
+{"_id":"Q92397934","label":"Sininen sommitelma 2"}
+{"_id":"Q92397938","label":"Sommitelma 21"}
+{"_id":"Q92397941","label":"Sommitelma 22"}
+{"_id":"Q92397945","label":"Sommitelma 23"}
+{"_id":"Q92397947","label":"Kevät"}
+{"_id":"Q92397950","label":"Nimetön"}
+{"_id":"Q92397953","label":"Siikaniemi, Suomi"}
+{"_id":"Q92397955","label":"Saaria I"}
+{"_id":"Q92397962","label":"Monumentti"}
+{"_id":"Q92397965","label":"Viimeinen pisara"}
+{"_id":"Q92397969","label":"Vaarallinen romanssi"}
+{"_id":"Q92397972","label":"Idee la Cite (teosnimi)"}
+{"_id":"Q92397975","label":"Kesätuulen muisto"}
+{"_id":"Q92397978","label":"R-180:VI"}
+{"_id":"Q92397981","label":"R-180: III"}
+{"_id":"Q92397984","label":"La Coupole (teosnimi)"}
+{"_id":"Q92397987","label":"Montparnassen Bulevardi"}
+{"_id":"Q92397993","label":"Maalari kesäyössä"}
+{"_id":"Q92397997","label":"Yves Klein taistelee kolmiota, ympyrää ja neliötä vastaan"}
+{"_id":"Q92398428","label":"Nyhavn"}
+{"_id":"Q92398432","label":"Jumala luo auringon"}
+{"_id":"Q92398434","label":"Reliefi"}
+{"_id":"Q92398436","label":"Onnenkone"}
+{"_id":"Q92398440","label":"Vihreä ja punainen alkuvoima"}
+{"_id":"Q92398445","label":"Kauna"}
+{"_id":"Q92398447","label":"Hyvästi"}
+{"_id":"Q92398450","label":"La Vie Claire (teosnimi)"}
+{"_id":"Q92398454","label":"Les Vents (teosnimi)"}
+{"_id":"Q92398461","label":"Nainen ja aurinko"}
+{"_id":"Q92398464","label":"Asetelma II"}
+{"_id":"Q92398467","label":"NZ-diptyykki"}
+{"_id":"Q92398470","label":"Kolme eriväristä neliötä"}
+{"_id":"Q92398473","label":"Laulava puu"}
+{"_id":"Q92398476","label":"Ikuisuuteen"}
+{"_id":"Q92398478","label":"Toiminta"}
+{"_id":"Q92398484","label":"Tallinna-Pariisi"}
+{"_id":"Q92398485","label":"Nimetön"}
+{"_id":"Q92398497","label":"Polku"}
+{"_id":"Q92398501","label":"Puinen kone"}
+{"_id":"Q92398504","label":"Omakuva Venuksena"}
+{"_id":"Q92398507","label":"Asetelma II"}
+{"_id":"Q92398510","label":"Indikaattori: Zonation -sarja"}
+{"_id":"Q92398512","label":"Indikaattori: Zonation -sarja"}
+{"_id":"Q92398529","label":"Indikation: Oekologie des Bewusstseins (teosnimi)"}
+{"_id":"Q92398531","label":"Indikation: Strategie eines neuen planetaren Bewusstseins (teosnimi)"}
+{"_id":"Q92398535","label":"Indikator: \"Doppelzonation\" GAIA (teosnimi)"}
+{"_id":"Q92398538","label":"Indikator: Doppelzonation (teosnimi)"}
+{"_id":"Q92398540","label":"Indikator: Doppelzonation A/B Diagenese (teosnimi)"}
+{"_id":"Q92398544","label":"Indikator: \"Doppelzonation\" A/B GALA (teosnimi)"}
+{"_id":"Q92398547","label":"Indikator: Palsamoor/Palsasuo \"Doppelzonation\" GAIA (teosnimi)"}
+{"_id":"Q92398551","label":"Indikator: \"Zonation\", Reorganization of the Birth of the Earth"}
+{"_id":"Q92398557","label":"Indikator: Transmitter, Radar"}
+{"_id":"Q92398562","label":"Merkki-sarjasta Must kolmnurk"}
+{"_id":"Q92398565","label":"Merkki-sarjasta Punane kolmnurk"}
+{"_id":"Q92398567","label":"Merkki-sarjasta Must rist"}
+{"_id":"Q92398569","label":"Merkki-sarjasta Punane Rist"}
+{"_id":"Q92398572","label":"Merkki-sarjasta Musta viisnurk"}
+{"_id":"Q92398573","label":"Merkki-sarjasta Punane viisnurk"}
+{"_id":"Q92398576","label":"Merkki-sarjasta Must ring"}
+{"_id":"Q92398579","label":"Merkki-sarjasta Punane ring"}
+{"_id":"Q92398584","label":"Merkki-sarjasta Must ruut"}
+{"_id":"Q92398586","label":"Merkki-sarjasta Punane ruut"}
+{"_id":"Q92398589","label":"Merkki-sarjasta Must segment"}
+{"_id":"Q92398593","label":"Merkki-sarjasta Must teravik"}
+{"_id":"Q92398595","label":"Vako"}
+{"_id":"Q92399125","label":"Raskauden vuoksi-sarja II/XXV"}
+{"_id":"Q92399129","label":"Raskauden vuoksi-sarja II/XXV"}
+{"_id":"Q92399141","label":"Kolmiyhteys \"Kosmos\""}
+{"_id":"Q92399145","label":"Nimetön"}
+{"_id":"Q92399150","label":"Suojaväri"}
+{"_id":"Q92399155","label":"Kaksoset"}
+{"_id":"Q92399160","label":"Merkitty"}
+{"_id":"Q92399166","label":"Sokea"}
+{"_id":"Q92399170","label":"Viettelys"}
+{"_id":"Q92399174","label":"Haarniska"}
+{"_id":"Q92399176","label":"Feistos"}
+{"_id":"Q92399182","label":"Valon rajalla"}
+{"_id":"Q92399184","label":"Elämä"}
+{"_id":"Q92399190","label":"Kuolema"}
+{"_id":"Q92399192","label":"nimeämätön"}
+{"_id":"Q92399196","label":"Egotriptyykki"}
+{"_id":"Q92399203","label":"Kesä 88"}
+{"_id":"Q92399207","label":"Saari"}
+{"_id":"Q92399212","label":"Yhteinen yritys"}
+{"_id":"Q92399215","label":"Sommitelma I"}
+{"_id":"Q92399218","label":"Myötäpäivä"}
+{"_id":"Q92399221","label":"Nimetön"}
+{"_id":"Q92399223","label":"Nimetön"}
+{"_id":"Q92399229","label":"Kentaurin loppu"}
+{"_id":"Q92399230","label":"Kaksoisolio"}
+{"_id":"Q92399238","label":"Kirous"}
+{"_id":"Q92399243","label":"Lentäen tornin sisällä"}
+{"_id":"Q92399246","label":"Luvalla"}
+{"_id":"Q92399251","label":"Käytännöllinen vaihe, Flavio Garciandia"}
+{"_id":"Q92399255","label":"Käytännöllinen vaihe, Ciro Quintana"}
+{"_id":"Q92399258","label":"Käytännöllinen vaihe, Tomas Esson Reid"}
+{"_id":"Q92399265","label":"Käytännöllinen vaihe, C. R. Cardenas"}
+{"_id":"Q92399268","label":"Käytännöllinen vaihe, Glexis Novoa Vian"}
+{"_id":"Q92399274","label":"Modernin taiteen painajaiset 1/8 (1)"}
+{"_id":"Q92399412","label":"Modernin taiteen painajaiset 3/8 (6)"}
+{"_id":"Q92399415","label":"Modernin taiteen painajaiset 4/8 (7)"}
+{"_id":"Q92399418","label":"Modernin taiteen painajaiset 5/8 (8)"}
+{"_id":"Q92399422","label":"Modernin taiteen painajaiset 6/8 (9)"}
+{"_id":"Q92399424","label":"Modernin taiteen painajaiset 7/8 (10)"}
+{"_id":"Q92399428","label":"Modernin taiteen painajaiset"}
+{"_id":"Q92399432","label":"Serigrafia"}
+{"_id":"Q92399433","label":"Serigrafia"}
+{"_id":"Q92399439","label":"Serigrafia"}
+{"_id":"Q92399441","label":"Havannan hallintokeskus häviää"}
+{"_id":"Q92399453","label":"Serigrafia"}
+{"_id":"Q92399455","label":"Serigrafia"}
+{"_id":"Q92399901","label":"Serigrafia"}
+{"_id":"Q92399904","label":"Serigrafia"}
+{"_id":"Q92399906","label":"Serigrafia"}
+{"_id":"Q92399908","label":"Kuva ja sen historia"}
+{"_id":"Q92399910","label":"Tiziano-Barbara Kruger"}
+{"_id":"Q92399911","label":"Kuvalliset merkit muuntuvat totuttujen koodien mukaisesti"}
+{"_id":"Q92399915","label":"Historia rakentaa mielikuvaa/Mielikuva rakentaa historiaa"}
+{"_id":"Q92399916","label":"Sarjasta \"Muistoja vauvastamme\""}
+{"_id":"Q92399918","label":"Sarjasta \"Muistoja vauvastamme\""}
+{"_id":"Q92399924","label":"Serigrafia"}
+{"_id":"Q92399927","label":"Serigrafia"}
+{"_id":"Q92399933","label":"Serigrafia"}
+{"_id":"Q92399934","label":"Magical mystery tour I"}
+{"_id":"Q92399938","label":"Magical mystery tour II"}
+{"_id":"Q92399939","label":"Magical mystery tour III"}
+{"_id":"Q92399940","label":"nimeämätön"}
+{"_id":"Q92399944","label":"Voimala"}
+{"_id":"Q92399948","label":"1000 ja 100, sarjasta Merkkien konversaatio"}
+{"_id":"Q92399951","label":"Suprematismi ja sosialismi, sarjasta Merkkien konversaatio"}
+{"_id":"Q92399953","label":"Suprematismi ja sosialismi, sarjasta Merkkien konversaatio"}
+{"_id":"Q92399955","label":"Stalinin ympyrä, sarjasta Merkkien konversaatio"}
+{"_id":"Q92399958","label":"Ylevä ja alhainen, sarjasta Merkkien konversaatio"}
+{"_id":"Q92399960","label":"Kruununvalvojaiset"}
+{"_id":"Q92399963","label":"Maisema IX"}
+{"_id":"Q92399965","label":"Viisi aistia ja muisti"}
+{"_id":"Q92399967","label":"Kaksi vanhaa pihlajaa"}
+{"_id":"Q92399972","label":"Valentinen päivä"}
+{"_id":"Q92399974","label":"Samovaari"}
+{"_id":"Q92399976","label":"Angelo"}
+{"_id":"Q92399979","label":"Tulivuori"}
+{"_id":"Q92399981","label":"Leopardi juo mustasta lähteestä"}
+{"_id":"Q92399986","label":"Hommage à Claude (teosnimi)"}
+{"_id":"Q92399988","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Giacomo Balla"}
+{"_id":"Q92399991","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Luigi Russolo Giacomo"}
+{"_id":"Q92399996","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Umberto Boccioni"}
+{"_id":"Q92400001","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Carlo Carra"}
+{"_id":"Q92400004","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Filippo Marinetti"}
+{"_id":"Q92400008","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Francesco Cangiullo"}
+{"_id":"Q92400011","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Anton Bragaglia"}
+{"_id":"Q92400015","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Fortunato Depero"}
+{"_id":"Q92400018","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Enrico Prampolini"}
+{"_id":"Q92400023","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Felice Azari"}
+{"_id":"Q92400025","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Antonio Sant' Elia"}
+{"_id":"Q92400031","label":"Teoksesta \"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit\": Gino Severini"}
+{"_id":"Q92400035","label":"Q92400035"}
+{"_id":"Q92400040","label":"Sydän"}
+{"_id":"Q92400045","label":"Raha"}
+{"_id":"Q92400047","label":"Leibnitzin talon uudelleenrakennus"}
+{"_id":"Q92400053","label":"Kontuurid ja siluetid VI (teosnimi)"}
+{"_id":"Q92400557","label":"Lohutud ringid II (teosnimi)"}
+{"_id":"Q92400562","label":"Hevonen"}
+{"_id":"Q92400565","label":"Julistemaalaus"}
+{"_id":"Q92400569","label":"Kevät"}
+{"_id":"Q92400571","label":"Atlas"}
+{"_id":"Q92400575","label":"Never say good-bye"}
+{"_id":"Q92400579","label":"Läsnäolo"}
+{"_id":"Q92400583","label":"Nimetön"}
+{"_id":"Q92400587","label":"Kasvokkain"}
+{"_id":"Q92400596","label":"Taivas-teos"}
+{"_id":"Q92400600","label":"Maalaus taivaan näkemiseksi"}
+{"_id":"Q92400602","label":"Maalaus taivaan näkemiseksi"}
+{"_id":"Q92400605","label":"Joka asia on hyvä omalla paikallaan"}
+{"_id":"Q92400608","label":"Let the northern wind blow"}
+{"_id":"Q92400610","label":"Oho..."}
+{"_id":"Q92400613","label":"Inspiraatiokatkos"}
+{"_id":"Q92400616","label":"Muotokuva rehtori Matti Myllyniemestä"}
+{"_id":"Q92400618","label":"Rakentajan merkintöjä"}
+{"_id":"Q92400622","label":"Rakentajan merkintöjä"}
+{"_id":"Q92400626","label":"Kunnallisneuvos Eero Karra"}
+{"_id":"Q92400627","label":"Ylipostimies Eero Grönroos"}
+{"_id":"Q92400630","label":"Hallituskatua"}
+{"_id":"Q92400633","label":"Veistos"}
+{"_id":"Q92400635","label":"Tanssijatar"}
+{"_id":"Q92400636","label":"So, so, pojat"}
+{"_id":"Q92400640","label":"Kanatarha"}
+{"_id":"Q92400644","label":"Kaupunginjohtaja Oiva Kaivola"}
+{"_id":"Q92400650","label":"Kaupunginjohtaja Heikki Koski"}
+{"_id":"Q92400653","label":"Porin syväsatama-mitali"}
+{"_id":"Q92400655","label":"Muistatko kun sadusta tuli totta?"}
+{"_id":"Q92400658","label":"Reposaaren terveystalo"}
+{"_id":"Q92400660","label":"Teatteritalo"}
+{"_id":"Q92400663","label":"Maisema"}
+{"_id":"Q92400664","label":"Näkymä Aura-joen rannalta"}
+{"_id":"Q92400666","label":"Opetusneuvos Niilo Perälän muotokuva"}
+{"_id":"Q92400668","label":"Seitsekumene seitsemes"}
+{"_id":"Q92400672","label":"Kaheksakumene kuues"}
+{"_id":"Q92400676","label":"Vanhus ja lapsi"}
+{"_id":"Q92400678","label":"Q92400678"}
+{"_id":"Q92400682","label":"Pihanäkymä"}
+{"_id":"Q92400683","label":"Asetelma 2-korvainen"}
+{"_id":"Q92400686","label":"Kaupungininsinööri Tauno Saarisen (51-68) muotokuva"}
+{"_id":"Q92400689","label":"Uimahuone"}
+{"_id":"Q92400692","label":"Sunnuntai"}
+{"_id":"Q92400695","label":"Lukeva"}
+{"_id":"Q92400700","label":"Puita"}
+{"_id":"Q92400702","label":"Puuaihe"}
+{"_id":"Q92400707","label":"Kirstin talon pihalla"}
+{"_id":"Q92400710","label":"Kaksi venettä rannalla"}
+{"_id":"Q92400712","label":"Puistokuva"}
+{"_id":"Q92401206","label":"Malminpään rehtori Kaisu Tiusanen"}
+{"_id":"Q92401210","label":"Lyseon piha"}
+{"_id":"Q92401213","label":"Kaksoismuotokuva 'Soittaja ja vaimo'"}
+{"_id":"Q92401217","label":"Talonäkymä"}
+{"_id":"Q92401220","label":"Kullaalta"}
+{"_id":"Q92401224","label":"Heikki Erämies TLJ:n puheenjohtaja W 1949-1976"}
+{"_id":"Q92401228","label":"Rudolf Jåfsin muotokuva"}
+{"_id":"Q92401230","label":"Verkkoranta"}
+{"_id":"Q92401234","label":"Dagmar Setälän muotokuva"}
+{"_id":"Q92401242","label":"Matti Suomalaisen muotokuva"}
+{"_id":"Q92401247","label":"Juhla Senaatintorilla"}
+{"_id":"Q92401249","label":"Optimistinen luonto"}
+{"_id":"Q92401253","label":"Pitojuhlat"}
+{"_id":"Q92401265","label":"Herneitä palkova tyttö"}
+{"_id":"Q92401277","label":"Nimetön"}
+{"_id":"Q92401282","label":"Törmäys"}
+{"_id":"Q92401284","label":"Louhi"}
+{"_id":"Q92401286","label":"Installaatio"}
+{"_id":"Q92401289","label":"Mad Dog Productions Osakekirja"}
+{"_id":"Q92401292","label":"Pyhä jänis"}
+{"_id":"Q92401295","label":"Raatajakansan alttari. Sarjasta kadonneen metsän keskellä."}
+{"_id":"Q92401298","label":"Pimentola. Sarjasta kadonneen metsän keskellä."}
+{"_id":"Q92401299","label":"Sarjasta Urbilder"}
+{"_id":"Q92401302","label":"Sarjasta Urbilder"}
+{"_id":"Q92401306","label":"Maisema VIII d"}
+{"_id":"Q92401308","label":"Apulaiskaupunginjohtaja Ylermi Säterin muotokuva"}
+{"_id":"Q92401311","label":"Mannografia, Lea Pekkala"}
+{"_id":"Q92401313","label":"Mannografia, Olli Pohjola"}
+{"_id":"Q92401318","label":"Mannografia, Riku Niemi"}
+{"_id":"Q92401321","label":"Legenda karhusta"}
+{"_id":"Q92401324","label":"Mannografia, Mikael Hartman"}
+{"_id":"Q92401326","label":"Mannografia, Hilkka Könönen"}
+{"_id":"Q92401329","label":"Mannografia, Kalervo Valli"}
+{"_id":"Q92401332","label":"Mannografia, Heikki Oksanen, Kurt Stålfors, Jan-Ivar Juup, Bengt Nyman, Tiina Jalava"}
+{"_id":"Q92401335","label":"Mannografia, Alpo Suhonen"}
+{"_id":"Q92401338","label":"Mannografia, Marketta Seppälä"}
+{"_id":"Q92401340","label":"Mannografia, Leena Lander"}
+{"_id":"Q92401345","label":"Mannografia, Berndt Arell"}
+{"_id":"Q92401347","label":"Taidetta, jota linnut voivat hyödyntää \"että elämä jatkuisi\""}
+{"_id":"Q92401350","label":"Reikiä päässä (kuuluu kokonaisuuteen Sotaa ja väkivaltaa vastaan)"}
+{"_id":"Q92401352","label":"Kuuma kylpy"}
+{"_id":"Q92401355","label":"Nimetön, PNG"}
+{"_id":"Q92401357","label":"Nimetön, PNG"}
+{"_id":"Q92401359","label":"Puutarha"}
+{"_id":"Q92402101","label":"Franciscus"}
+{"_id":"Q92402106","label":"Esse Delendam"}
+{"_id":"Q92402109","label":"Afrikka"}
+{"_id":"Q92402112","label":"Litografia"}
+{"_id":"Q92402117","label":"Nimetön"}
+{"_id":"Q92402120","label":"Virta"}
+{"_id":"Q92402127","label":"Nimetön"}
+{"_id":"Q92402134","label":"Nimetön"}
+{"_id":"Q92402136","label":"Nimetön"}
+{"_id":"Q92402141","label":"Nimetön"}
+{"_id":"Q92402144","label":"Il miracolo di Chonae (teosnimi)"}
+{"_id":"Q92402149","label":"Luominen"}
+{"_id":"Q92402151","label":"Sakhmet"}
+{"_id":"Q92402156","label":"Nimetön"}
+{"_id":"Q92402168","label":"Lentävä dervish"}
+{"_id":"Q92402172","label":"Lehetöség kecsegtetö (teosnimi)"}
+{"_id":"Q92402177","label":"Eletfa"}
+{"_id":"Q92402181","label":"Litografia"}
+{"_id":"Q92402184","label":"Kiseltlt utak (teosnimi)"}
+{"_id":"Q92402188","label":"Suuri purjehdus"}
+{"_id":"Q92402192","label":"Oksa"}
+{"_id":"Q92402197","label":"Aamu"}
+{"_id":"Q92402199","label":"Väylä"}
+{"_id":"Q92402203","label":"Nimetön (Kreml)"}
+{"_id":"Q92402208","label":"Nimetön (Vartija)"}
+{"_id":"Q92402211","label":"Encore I, II, III"}
+{"_id":"Q92402214","label":"Hotelli Otava"}
+{"_id":"Q92402218","label":"Bonk 600"}
+{"_id":"Q92402224","label":"Tunteet"}
+{"_id":"Q92402229","label":"Viiden veistoksen maisema: Auringonlasku"}
+{"_id":"Q92402233","label":"Viiden veistoksen maisema: Ammuslaiva"}
+{"_id":"Q92402236","label":"Viiden veistoksen maisema: Satama"}
+{"_id":"Q92402240","label":"Viiden veistoksen maisema: Kulutuspinta"}
+{"_id":"Q92402243","label":"Viiden veistoksen maisema: Vaihdelaatikko"}
+{"_id":"Q92402248","label":"Pöytä"}
+{"_id":"Q92402251","label":"Teloitusmuurin päällä"}
+{"_id":"Q92402257","label":"Globaalit kysymykset"}
+{"_id":"Q92402261","label":"nimeämätön"}
+{"_id":"Q92402265","label":"Käärmeet"}
+{"_id":"Q92402269","label":"Viiden etsauksen sarja (Eesti muistendoa)"}
+{"_id":"Q92402272","label":"Salatusta puutarhasta II"}
+{"_id":"Q92402274","label":"Pihanäkymä (2 vedosta)"}
+{"_id":"Q92402279","label":"Alaston"}
+{"_id":"Q92402284","label":"Selkä"}
+{"_id":"Q92402287","label":"Näkymä Samokselta"}
+{"_id":"Q92402292","label":"Apulaiskaupunginjohtaja Mikko Sävelän muotokuva"}
+{"_id":"Q92402297","label":"Kaupunginvaltuuston puheenjohtajan Mikko Elon muotokuva"}
+{"_id":"Q92402301","label":"Miss Bonk 1956 with Baby Bonk's educational toys"}
+{"_id":"Q92402306","label":"Miss Bonk 1989 with Raba Hiff Bonk-600"}
+{"_id":"Q92402775","label":"Miss Bonk 1994 with Raba Hiff Eggstream"}
+{"_id":"Q92402777","label":"Verenkierto"}
+{"_id":"Q92402781","label":"Aineenvaihtuminen"}
+{"_id":"Q92402785","label":"Ruhr - another green world Yöpyminen Die Haard metsässä Ruhrin alueella toukokuussa 1990"}
+{"_id":"Q92402789","label":"Zen for Head"}
+{"_id":"Q92402794","label":"Nimetön"}
+{"_id":"Q92402797","label":"Postikortti no 1, Tony Craggin lähettämä"}
+{"_id":"Q92402808","label":"Venus"}
+{"_id":"Q92402810","label":"Delilan tikapuut"}
+{"_id":"Q92402816","label":"Talvitie I"}
+{"_id":"Q92402820","label":"Mountain of the mind"}
+{"_id":"Q92402824","label":"Maailmankaikkeuden taivas"}
+{"_id":"Q92402827","label":"Flux pyhäinjäännöslipas"}
+{"_id":"Q92402833","label":"100 taivasta"}
+{"_id":"Q92402838","label":"Maaperän hedelmällisyys"}
+{"_id":"Q92402842","label":"The House Project"}
+{"_id":"Q92402850","label":"Troijan puuhevonen kugeldöörin muottiin valettuna"}
+{"_id":"Q92402854","label":"Ultimaatumi monarkian nimeen"}
+{"_id":"Q92402858","label":"Neljä ympäristötaiteilijaa"}
+{"_id":"Q92402862","label":"Perhetarina"}
+{"_id":"Q92402866","label":"Symposion"}
+{"_id":"Q92402872","label":"Hassetu"}
+{"_id":"Q92402876","label":"Yö ja Päivä"}
+{"_id":"Q92402881","label":"Katso viivaa"}
+{"_id":"Q92402885","label":"Valge väli x (teosnimi)"}
+{"_id":"Q92402889","label":"Redux 9"}
+{"_id":"Q92402894","label":"Sattumia"}
+{"_id":"Q92402899","label":"Museo on taiteen ainoa mahdollisuus"}
+{"_id":"Q92402903","label":"Iho"}
+{"_id":"Q92402909","label":"Fermat'n teoreema"}
+{"_id":"Q92402913","label":"Kolmio, neliö ja ympyrä kohtaavat italialaiset futuristit"}
+{"_id":"Q92402917","label":"Hyrynsalmi"}
+{"_id":"Q92402919","label":"Kuivaniemi"}
+{"_id":"Q92402922","label":"Mustaa ja valkoista"}
+{"_id":"Q92402925","label":"Mustat siivet"}
+{"_id":"Q92402932","label":"Syksy"}
+{"_id":"Q92402935","label":"Nukkuva kaunotar (Hiljainen valtameri)"}
+{"_id":"Q92402940","label":"Minä ja Sinä"}
+{"_id":"Q92402942","label":"Ave Maria"}
+{"_id":"Q92402948","label":"Runosuoni"}
+{"_id":"Q92402952","label":"Sarjasta kalamies ja muita itsensäpaljastelijoita"}
+{"_id":"Q92402954","label":"Sarjasta kalamies ja muita itsensäpaljastelijoita"}
+{"_id":"Q92402956","label":"Partituuri I: Vesimusiikkia"}
+{"_id":"Q92402962","label":"Partituuri II: Täällä puhuu FLUXUS"}
+{"_id":"Q92402967","label":"Partituuri III: Matkalaukku, jossa on kahtia halkaistu risti"}
+{"_id":"Q92402970","label":"Partituuri IV: Laskeva laulu"}
+{"_id":"Q92402973","label":"Partituuri V: Lukea \"Aikaa\""}
+{"_id":"Q92402978","label":"Partituuri VI"}
+{"_id":"Q92402983","label":"Partituuri VII: 8 Ilmapumppua x 2"}
+{"_id":"Q92402986","label":"Partituuri VIII: DIDGERIDOO"}
+{"_id":"Q92403378","label":"Partituuri IX: Täällä puhuu FLUXUS"}
+{"_id":"Q92403382","label":"Partituuri X: AORTA ANTI-KRIEG MANRESA"}
+{"_id":"Q92403386","label":"Partituuri XI: Vesimusiikkia (venäläisiä Segorsk -kelloja)"}
+{"_id":"Q92403389","label":"Maire"}
+{"_id":"Q92403393","label":"Sommitelma"}
+{"_id":"Q92403396","label":"Vesikasveja I"}
+{"_id":"Q92403398","label":"Talouspäällikkö Aate Tuomivuon muotokuva"}
+{"_id":"Q92403403","label":"Lääkintöneuvos Jukka Sävelän muotokuva"}
+{"_id":"Q92403405","label":"Ylihammaslääkäri Hillevi Huhtalan muotokuva"}
+{"_id":"Q92403411","label":"Ylihoitaja Eila Pälsin muotokuva"}
+{"_id":"Q92403417","label":"Atlas"}
+{"_id":"Q92403421","label":"Etsintäkuulutetun pää"}
+{"_id":"Q92403424","label":"Kuutamo"}
+{"_id":"Q92403426","label":"Untitled (for Parkett) PARKETT Special Edition No 39 Edition 78/84"}
+{"_id":"Q92403432","label":"Portti"}
+{"_id":"Q92403434","label":"Like a Bridge Over Trouble Water I"}
+{"_id":"Q92403437","label":"Kontti"}
+{"_id":"Q92403441","label":"Näkymä II"}
+{"_id":"Q92403447","label":"Kulkijat"}
+{"_id":"Q92403451","label":"Lippu projektista \"Afasia\" Tämä ei ole Jacobson"}
+{"_id":"Q92403455","label":"Lippu projektista \"Afasia\" Kaikkien maiden proletariaatit, yhtykää!"}
+{"_id":"Q92403457","label":"Lippu projektista \"Afasia\" Kaikkien maiden proletariaatit, yhtykää!"}
+{"_id":"Q92403463","label":"Merellä"}
+{"_id":"Q92403466","label":"Puutarhakuva, Englanti"}
+{"_id":"Q92403469","label":"Puutarhakuva, Englanti"}
+{"_id":"Q92403487","label":"Musta ovi"}
+{"_id":"Q92403490","label":"Sointu-värähtely I"}
+{"_id":"Q92403495","label":"Sointu-Värähtely II"}
+{"_id":"Q92403499","label":"Sointu-Värähtely III"}
+{"_id":"Q92403503","label":"Sinuhe"}
+{"_id":"Q92403506","label":"Eurydice no 3"}
+{"_id":"Q92403509","label":"Eurydice no 11"}
+{"_id":"Q92403512","label":"Kuhansoutu"}
+{"_id":"Q92403515","label":"V.R.O.K.E.Y. (KAKSI PALKKIA)"}
+{"_id":"Q92403520","label":"V.R.O.K.E.Y. (KAKSI PALKKIA)"}
+{"_id":"Q92403522","label":"Takaa-ajo"}
+{"_id":"Q92403527","label":"Kihu, tiira ja kala"}
+{"_id":"Q92403530","label":"Värimaalaus N:o 8"}
+{"_id":"Q92403534","label":"Kultainen hetki"}
+{"_id":"Q92403538","label":"Tsirigli"}
+{"_id":"Q92403541","label":"Vettä kengässä"}
+{"_id":"Q92403545","label":"Kotkan tytär"}
+{"_id":"Q92403549","label":"Rakastan"}
+{"_id":"Q92403554","label":"Arvojen muotokuvan dokumentointi"}
+{"_id":"Q92403560","label":"Vaatturi Verkan perhe"}
+{"_id":"Q92403562","label":"Natriumtiosulfaatti"}
+{"_id":"Q92403569","label":"Raportti Siperian matkastani"}
+{"_id":"Q92404021","label":"Oppitunti"}
+{"_id":"Q92404024","label":"Temppelin horisontti"}
+{"_id":"Q92404025","label":"Nimetön"}
+{"_id":"Q92404029","label":"Yksin"}
+{"_id":"Q92404032","label":"Metsästys"}
+{"_id":"Q92404035","label":"Maailman synty"}
+{"_id":"Q92404040","label":"Ruutusommitelma"}
+{"_id":"Q92404043","label":"Haukka, rastas ja mato"}
+{"_id":"Q92404045","label":"Ajan puutarha II"}
+{"_id":"Q92404052","label":"Suomalainen turkoosi"}
+{"_id":"Q92404056","label":"Valkoinen ja punainen"}
+{"_id":"Q92404059","label":"Nimetön"}
+{"_id":"Q92404065","label":"Nimetön"}
+{"_id":"Q92405110","label":"\"Muistissa\" Majdanek"}
+{"_id":"Q92405113","label":"Ambitious Bitch"}
+{"_id":"Q92405118","label":"Jättipotti"}
+{"_id":"Q92405127","label":"Huomattu"}
+{"_id":"Q92405130","label":"Vaikka ruumis suloillaan houkuttelee sielussa luikertelee jo valmiiksi valjastettu peto"}
+{"_id":"Q92405133","label":"Aistien valtakunta"}
+{"_id":"Q92405138","label":"Samassa persoonassa"}
+{"_id":"Q92405142","label":"Pakkahuoneenkatu"}
+{"_id":"Q92405148","label":"Luminen maisema"}
+{"_id":"Q92405151","label":"Woman-Other-Thing"}
+{"_id":"Q92405156","label":"Bit my Baby"}
+{"_id":"Q92405159","label":"Purkamisen jälkeen, teos no. 5"}
+{"_id":"Q92405164","label":"Mr. Haley itse"}
+{"_id":"Q92405173","label":"Mona, Rockland, Maine, 1942"}
+{"_id":"Q92405174","label":"Poika ja koira (Juhani Vainio ja Tassu), Panelia, 1948"}
+{"_id":"Q92405178","label":"Maisema, Nousiainen, 1948"}
+{"_id":"Q92405185","label":"Syleily (Eino Vainio), Panelia, 1948"}
+{"_id":"Q92405187","label":"Radiouutiset (Matti Ylinen), Korpilahti, 1948"}
+{"_id":"Q92405193","label":"Heinäntekoa (Fanni Vainio), Panelia, 1948"}
+{"_id":"Q92405196","label":"Virutus, Korpilahti, 1948"}
+{"_id":"Q92405200","label":"Rauhassa (Järvi Jyväskylän lähellä), 1948"}
+{"_id":"Q92405204","label":"Kahvitauko (Juhani Vainio), Panelia, 1948"}
+{"_id":"Q92405212","label":"Picnic ( Tyyne Vainio, Juhani Vainio, Eino Vainio, Terttu Sievi, Suoma Ruohomaa, Fanni Vainio, Paavo Ruohomaa), Panelia, 1948"}
+{"_id":"Q92405213","label":"Pellavan tekoa, Lappi TL Kaukola, 1948"}
+{"_id":"Q92405219","label":"Sauna, Kiukainen tai Lappi TL, 1948"}
+{"_id":"Q92405226","label":"...Yksi rysähdys, täydellisen puun kuolinlaulu, Fraser, Colorado, 1955"}
+{"_id":"Q92405231","label":"Sarastus, Fraser, Colorado, 1955"}
+{"_id":"Q92405233","label":"Cape Hatteras, North Carolina, 1947"}
+{"_id":"Q92405237","label":"Pemaquid Point, Maine, 1949"}
+{"_id":"Q92405242","label":"Benner Pond, Rockland, Maine, 1949"}
+{"_id":"Q92405245","label":"Dodge's Mountain, Rockland, Maine, 1949"}
+{"_id":"Q92405251","label":"Yöjuna Wiscassetin asemalla, Maine, 1949"}
+{"_id":"Q92405253","label":"Jäähyväiset, New York City, 1944"}
+{"_id":"Q92405258","label":"Kuvaelma, Dodge's Mountain farm, Rockland, Maine, 1946"}
+{"_id":"Q92405262","label":"Koillistuuli, troolari \"Quincy\", Grand Banks, 1957"}
+{"_id":"Q92405271","label":"Mohawk Valley, New York, 1945"}
+{"_id":"Q92405276","label":"Monheganin saari, Maine, 1957"}
+{"_id":"Q92405280","label":"Ravustusta, Monhegan Island, Maine, Tammikuu 1957"}
+{"_id":"Q92405285","label":"Vanhukset ulkoilemassa, Portland, Maine, 1947"}
+{"_id":"Q92405287","label":"Kansalaiskokous, Washington, Maine, Maaliskuu 1948"}
+{"_id":"Q92405292","label":"Itsenäinen kuin sika jäällä, Rockland, Maine, 1947"}
+{"_id":"Q92405295","label":"Chinook, Maine, 1953"}
+{"_id":"Q92405298","label":"Park Street, Rockland, Maine, 1949"}
+{"_id":"Q92405302","label":"Moody's Diner, Waldoboro, Maine, 1949"}
+{"_id":"Q92405309","label":"Kansalaiskokous, Lebanon, Maine, Maaliskuu 1948"}
+{"_id":"Q92405314","label":"Hylätty, Cushing, Maine, 1951"}
+{"_id":"Q92405318","label":"Marquee \" Happy Valley isn't happy anymore\" Walt Disney Studioiden työntekijöiden lakko, Los Angeles, California, 1941"}
+{"_id":"Q92405321","label":"Sarjakuvapiirtäjien killan jäsenet tukimarssilla Walt Disney studioiden työntekijäin lakon hyväksi, Hollywood, California, Heinäkuu 1941"}
+{"_id":"Q92405326","label":"Sumu, Dodge's Mountain Farm, Rockland, Maine, 1947"}
+{"_id":"Q92405769","label":"\"Sumu on kaunista\", The Barnyard, Rockland, Maine, 1947"}
+{"_id":"Q92405773","label":"Sumu-jokaisesta niitystä tulee satumaa, Rockland, Maine, 1947"}
+{"_id":"Q92405778","label":"\"Omakuva\", Walt Disneyn studio, Burbank, California, 1939"}
+{"_id":"Q92405781","label":"\"Ice Harvest\", Lake Chicawaukee, Maine, 1949"}
+{"_id":"Q92405786","label":"Hoboe, Santa Barbara, California, 1942"}
+{"_id":"Q92405789","label":"Muusikot, San Gabriel, California, 1940"}
+{"_id":"Q92405794","label":"Disneyn työntekijäin lakko, 1941"}
+{"_id":"Q92405797","label":"Reitti Mohave-kukkuloille, California, 1941"}
+{"_id":"Q92405799","label":"Wilbur Streech & ystävät; Disneyn työntekijöiden lakko, California, 1941"}
+{"_id":"Q92405806","label":"John Gamage, Blessing of the Fishing Fleet, Waldoboro, Maine, 1945"}
+{"_id":"Q92405810","label":"Elokuvakone, California, 1945"}
+{"_id":"Q92405815","label":"First Citizens, Annual Tribial Celebration, Gallup, New Mexico, August, 1940"}
+{"_id":"Q92405817","label":"Machias-joki, Orono, Maine, 1960"}
+{"_id":"Q92405819","label":"Grand Banks Trawler, Grand Banks, 1957"}
+{"_id":"Q92405825","label":"108-vuotias lady, Chaleur Bay, Canada, 1949"}
+{"_id":"Q92405827","label":"Monheganin saari, 1957"}
+{"_id":"Q92405831","label":"Jäätyneet vaahteranlehdet, n. 1959"}
+{"_id":"Q92405833","label":"Liki puolitoista kierrosta"}
+{"_id":"Q92405836","label":"Kärpässienilaulu"}
+{"_id":"Q92405838","label":"Legenda. Kari Pyykkö, Eero Markuksela ja Han-Shan, Shi-De"}
+{"_id":"Q92405841","label":"Ruskea sommitelma"}
+{"_id":"Q92405851","label":"Aukot"}
+{"_id":"Q92405855","label":"Ketokukan rukous"}
+{"_id":"Q92405861","label":"Sumun seireeni"}
+{"_id":"Q92405866","label":"Vincentin unet 1"}
+{"_id":"Q92405871","label":"Vincentin unet 2"}
+{"_id":"Q92405874","label":"Vincentin unet 3"}
+{"_id":"Q92405877","label":"Vincentin unet 4"}
+{"_id":"Q92405880","label":"Vincentin unet 5"}
+{"_id":"Q92405883","label":"Rakennushallinto 1811-1995"}
+{"_id":"Q92405895","label":"Maisema"}
+{"_id":"Q92405900","label":"Puuvilla"}
+{"_id":"Q92405903","label":"Syksy"}
+{"_id":"Q92405907","label":"Sienimetsässä"}
+{"_id":"Q92405910","label":"Yllin kyllin"}
+{"_id":"Q92405914","label":"Kun kissa on poissa..."}
+{"_id":"Q92405920","label":"Pori I"}
+{"_id":"Q92405923","label":"Sienten synnyttämä näky"}
+{"_id":"Q92405929","label":"Elämän vaiheet"}
+{"_id":"Q92405932","label":"Elämän vaiheet 2"}
+{"_id":"Q92405937","label":"Elämän vaiheet 3"}
+{"_id":"Q92405939","label":"Elämän vaiheet 4"}
+{"_id":"Q92405945","label":"Elämän vaiheet 5"}
+{"_id":"Q92405948","label":"Elämän vaiheet 6"}
+{"_id":"Q92406444","label":"Valpas vasikka"}
+{"_id":"Q92406446","label":"Lennart, Pajala, Ruotsi 1995"}
+{"_id":"Q92406451","label":"Katariina, Parkalompolo, Ruotsi 1995"}
+{"_id":"Q92406456","label":"Lassi, Parkalompolo -95"}
+{"_id":"Q92406460","label":"Union"}
+{"_id":"Q92406463","label":"Tunkio"}
+{"_id":"Q92406468","label":"Punainen"}
+{"_id":"Q92406469","label":"Suovillat"}
+{"_id":"Q92406478","label":"Kirjaviisaus"}
+{"_id":"Q92406483","label":"Lupaus"}
+{"_id":"Q92406486","label":"Tuntemattoman kohtaaminen II"}
+{"_id":"Q92406489","label":"Tuntemattoman kohtaaminen III"}
+{"_id":"Q92406493","label":"Tuntemattoman kohtaaminen V"}
+{"_id":"Q92406497","label":"Parkano-Haapamäki ratatyömaa, Ratikylä, Kihniö, 1996"}
+{"_id":"Q92406500","label":"Kihniö, Ratikylä. Ratatyömaa Lylyharjun kohdalla 13.8.1966"}
+{"_id":"Q92406503","label":"Karvia, Luomanvarsi. Niinisalon menevää tietä 18.9.1966"}
+{"_id":"Q92406507","label":"Laitakaupunkia, Pori, Tiilimäki, 1966"}
+{"_id":"Q92406518","label":"Maaseutunäkymä Parkanon Lapinnevalta 1966"}
+{"_id":"Q92406523","label":"Niinisalo, keskusta 1966"}
+{"_id":"Q92406525","label":"Kauhajoki, maantietä Ikkeläjärven ja Sahankylän välillä 1.9.1966"}
+{"_id":"Q92406530","label":"Kihniö, Niskoksen kylän korpiseutua, entistä asumustoa, 1966"}
+{"_id":"Q92406534","label":"Entistä turveteollisuusaluetta, Parkano, Lapineva 1966"}
+{"_id":"Q92406536","label":"Maalaispoika Helsingissä, 1966"}
+{"_id":"Q92406540","label":"Maalaus"}
+{"_id":"Q92406544","label":"Kollaasiveistos"}
+{"_id":"Q92406549","label":"Pako #2"}
+{"_id":"Q92406556","label":"Pakkomielle #8"}
+{"_id":"Q92406559","label":"Ikuisuus # 11"}
+{"_id":"Q92406564","label":"24.7.1999"}
+{"_id":"Q92406567","label":"nimeämätön"}
+{"_id":"Q92406572","label":"Palaset"}
+{"_id":"Q92406574","label":"Litistynyt ja palanut"}
+{"_id":"Q92406579","label":"Palanutta narua I"}
+{"_id":"Q92406582","label":"Palanutta narua II"}
+{"_id":"Q92406586","label":"Palanutta narua III"}
+{"_id":"Q92406593","label":"Influx"}
+{"_id":"Q92406597","label":"Villa Mairea"}
+{"_id":"Q92406604","label":"Anonyymi"}
+{"_id":"Q92406607","label":"East Broadway, Chinatown, New York - Sarjasta Lehmiä New York Cityssä: Lajin palauttaminen"}
+{"_id":"Q92406612","label":"Avenue D. East Village, New York - Sarjasta Lehmiä New York Cityssä: Lajin palauttaminen"}
+{"_id":"Q92406616","label":"Avenue D. East Village, New York - Sarjasta Lehmiä New York Cityssä: Lajin palauttaminen"}
+{"_id":"Q92406618","label":"Interflora"}
+{"_id":"Q92406623","label":"Mekko"}
+{"_id":"Q92406626","label":"Book of Um-Napistim"}
+{"_id":"Q92406629","label":"..."}
+{"_id":"Q92406632","label":"Suhteellisuuksien hierarkia"}
+{"_id":"Q92406637","label":"Päiväuni"}
+{"_id":"Q92406640","label":"Kaktus"}
+{"_id":"Q92406645","label":"Tikku sormesta piiluamalla käsi"}
+{"_id":"Q92407391","label":"Unelmien siipikaaret"}
+{"_id":"Q92407394","label":"Pikku Nemo"}
+{"_id":"Q92407400","label":"Pieniä olentoja I"}
+{"_id":"Q92407404","label":"Pieniä olentoja VI"}
+{"_id":"Q92407406","label":"Pieniä olentoja XI"}
+{"_id":"Q92407410","label":"Jäniskartta"}
+{"_id":"Q92407412","label":"Ketju"}
+{"_id":"Q92407418","label":"Sarjasta Sokeritarha \"Maitohorsma\""}
+{"_id":"Q92407422","label":"Sarjasta Sokeritarha \"Pioni\""}
+{"_id":"Q92407430","label":"Sarjasta Sokeritarha \"Marjaruusu\""}
+{"_id":"Q92407435","label":"Suojelija"}
+{"_id":"Q92407438","label":"Aurinko on hyvin kuuma"}
+{"_id":"Q92407443","label":"Elämän kärsimyksistä"}
+{"_id":"Q92407448","label":"Tulessa, tulessa, tulessa"}
+{"_id":"Q92407453","label":"Soluleikki"}
+{"_id":"Q92407456","label":"Soluleikki"}
+{"_id":"Q92407459","label":"Kovaa"}
+{"_id":"Q92407461","label":"Askel"}
+{"_id":"Q92407466","label":"Remontti"}
+{"_id":"Q92407474","label":"Fossiilit"}
+{"_id":"Q92407475","label":"Viesti"}
+{"_id":"Q92407477","label":"Ristiltäotto"}
+{"_id":"Q92407481","label":"Suuri taiteilija"}
+{"_id":"Q92407482","label":"Konsertti 7 tuolille"}
+{"_id":"Q92407486","label":"Tiimipiirustuspöytä"}
+{"_id":"Q92407488","label":"Lapsuuden leikin muisto"}
+{"_id":"Q92407492","label":"Genius Loci"}
+{"_id":"Q92407497","label":"Tarttuvat kuvat"}
+{"_id":"Q92407499","label":"Kaupunginhallituksen puheenjohtajan Timo Koiviston muotokuva"}
+{"_id":"Q92407505","label":"Nuphar Lúteum (teosnimi)"}
+{"_id":"Q92407507","label":"Yakusha-e Kokuun-ama Tomanosuke (teosnimi)"}
+{"_id":"Q92407513","label":"Yakusha-e Aburaya Okon (teosnimi)"}
+{"_id":"Q92407518","label":"Yakusha-e Matsumoto Koshiro as Gonta (teosnimi)"}
+{"_id":"Q92407524","label":"Yakusha-e Fukuoka Mitsugi (teosnimi)"}
+{"_id":"Q92407525","label":"Yakusha-e Narukami-ama (teosnimi)"}
+{"_id":"Q92407530","label":"Yakusha-e Iwai Kumesaburo as Ofude (teosnimi)"}
+{"_id":"Q92407537","label":"Bijin-Ga Imayo Bijin Yosooi-Kisoi (teosnimi)"}
+{"_id":"Q92407542","label":"Kamigata-e Icghikawa Kuzo (teosnimi)"}
+{"_id":"Q92407548","label":"Bijn-Ga Karauta (teosnimi)"}
+{"_id":"Q92407553","label":"Hiljainen äänijärjestelmä - äiti ja minä olemme yhtä"}
+{"_id":"Q92407557","label":"Taivaspaloja"}
+{"_id":"Q92407562","label":"Versoja"}
+{"_id":"Q92407566","label":"Lujaa eteenpäin"}
+{"_id":"Q92407569","label":"Mansikkaheinä"}
+{"_id":"Q92407573","label":"Sulka"}
+{"_id":"Q92407579","label":"Kala"}
+{"_id":"Q92407584","label":"Meriheinä"}
+{"_id":"Q92407590","label":"Majakka"}
+{"_id":"Q92407592","label":"Kaupunginvaltuuston puheenjohtajan Ilona Wessmanin muotokuva"}
+{"_id":"Q92407992","label":"Itä-Länsi"}
+{"_id":"Q92407996","label":"Diptyykki"}
+{"_id":"Q92407999","label":"Triptyykki"}
+{"_id":"Q92408003","label":"Sarjasta Short Course in Aesthetics: Form Follows Function"}
+{"_id":"Q92408006","label":"Sarjasta Short Course in Aesthetics: Significant Form"}
+{"_id":"Q92408010","label":"Sarjasta Short Course in Aesthetics: Less is More"}
+{"_id":"Q92408013","label":"Sarjasta Short Course in Aesthetics: Ornament is a Crime"}
+{"_id":"Q92408017","label":"Kuusi monologia. Jaakko Hintikka"}
+{"_id":"Q92408019","label":"Kuusi monologia. Matti Klinge"}
+{"_id":"Q92408025","label":"Kuusi monologia. Anna-Leena Siikala"}
+{"_id":"Q92408028","label":"Kuusi monologia. Kirsti Simonsuuri"}
+{"_id":"Q92408029","label":"Kuusi monologia, Hannu Eerikäinen"}
+{"_id":"Q92408036","label":"Kuusi monologia. Altti Kuusamo"}
+{"_id":"Q92408038","label":"Autoromuttamosta"}
+{"_id":"Q92408042","label":"Autoromuttamosta"}
+{"_id":"Q92408049","label":"Huhtikuu"}
+{"_id":"Q92408054","label":"Viimeinen matka"}
+{"_id":"Q92408064","label":"Pyörällä Suomea"}
+{"_id":"Q92408067","label":"Cayetano"}
+{"_id":"Q92408069","label":"Carpio"}
+{"_id":"Q92408071","label":"Kukkanen"}
+{"_id":"Q92408078","label":"Itämeri"}
+{"_id":"Q92408081","label":"Maalaus 1"}
+{"_id":"Q92408085","label":"Maalaus 2"}
+{"_id":"Q92408087","label":"Maalaus 3"}
+{"_id":"Q92408091","label":"Replika"}
+{"_id":"Q92408102","label":"The First Sigh"}
+{"_id":"Q92408108","label":"Apulaiskaupunginjohtaja Leo Marmion muotokuva"}
+{"_id":"Q92408112","label":"Lilja"}
+{"_id":"Q92408116","label":"nimeämätön"}
+{"_id":"Q92408119","label":"Sotalapset"}
+{"_id":"Q92408123","label":"Blow up"}
+{"_id":"Q92408126","label":"Etana"}
+{"_id":"Q92408130","label":"Quo vadis monumentum? (teosnimi)"}
+{"_id":"Q92408139","label":"Optimistinen luonto, Vanhukset"}
+{"_id":"Q92408143","label":"Valpuri"}
+{"_id":"Q92408149","label":"Uhka"}
+{"_id":"Q92408153","label":"Jos uskot"}
+{"_id":"Q92408158","label":"Kaupunginjohtaja Martti Sinisalmen muotokuva"}
+{"_id":"Q92408162","label":"Ihmisen suhde eläimeen"}
+{"_id":"Q92408167","label":"Lihavankila"}
+{"_id":"Q92408171","label":"nimeämätön"}
+{"_id":"Q92408175","label":"Dulce Malum (teosnimi)"}
+{"_id":"Q92408183","label":"nimeämätön"}
+{"_id":"Q92408186","label":"Flip Book"}
+{"_id":"Q92408190","label":"NOKIAN PYRY RY 1905-2005"}
+{"_id":"Q92408193","label":"Kilpisjärvi"}
+{"_id":"Q92408198","label":"Tytön muotokuva"}
+{"_id":"Q92408695","label":"Sadonkorjuu"}
+{"_id":"Q92408698","label":"Kukka-asetelma"}
+{"_id":"Q92408701","label":"Q92408701"}
+{"_id":"Q92408707","label":"Asetelma (Sauna), sarjasta Petroskoin päiväkirja"}
+{"_id":"Q92408710","label":"Asetelma (Haluan), sarjasta Petroskoin päiväkirja"}
+{"_id":"Q92408712","label":"Asetelma (Meloni torilta), sarjasta Petroskoin päiväkirja"}
+{"_id":"Q92408716","label":"Asetelma (Vehnäpitko torilta), sarjasta Petroskoin päiväkirja"}
+{"_id":"Q92408720","label":"Asetelma (Spartakiadit), sarjasta Petroskoin päiväkirja"}
+{"_id":"Q92408723","label":"Tässä kohtauksessa ohjaaja painotti läsnäoloa ja eläytymistä"}
+{"_id":"Q92408730","label":"City Portraits"}
+{"_id":"Q92408733","label":"Ikkunoita maailmaan"}
+{"_id":"Q92408738","label":"Minäminäminä"}
+{"_id":"Q92408742","label":"Tuulen jumala"}
+{"_id":"Q92408747","label":"Ansa"}
+{"_id":"Q92408749","label":"Nostalgia"}
+{"_id":"Q92408755","label":"Näkymä Torkkelinmäeltä"}
+{"_id":"Q92408757","label":"Videodokumentti: Pentti Lindfors - DDR, logiikka, naiset"}
+{"_id":"Q92408779","label":"Kirjastotoimenjohtaja Marjaana Karjalaisen muotokuva"}
+{"_id":"Q92408782","label":"Väri avaruudesta"}
+{"_id":"Q92408787","label":"Valo on ääntä nopeampaa"}
+{"_id":"Q92408790","label":"Onkalo"}
+{"_id":"Q92408791","label":"CU"}
+{"_id":"Q92408797","label":"Senttimetri"}
+{"_id":"Q92408802","label":"Hymiö"}
+{"_id":"Q92408805","label":"Luomisen yritys"}
+{"_id":"Q92408809","label":"Pikku Apulainen"}
+{"_id":"Q92408815","label":"Erotus"}
+{"_id":"Q92408821","label":"Setä ja täti"}
+{"_id":"Q92408824","label":"Hehku"}
+{"_id":"Q92408830","label":"KAIRO, SYÖ MINUT"}
+{"_id":"Q92408831","label":"KAI'RO, Bimbo"}
+{"_id":"Q92408836","label":"KAI'RO, Discotanssitunti TV:ssä Japanilaisille kotirouville"}
+{"_id":"Q92408841","label":"KAI'RO"}
+{"_id":"Q92408846","label":"Nautintojen paratiisi"}
+{"_id":"Q92408848","label":"Paradize of Delights -seinämaalaus"}
+{"_id":"Q92408854","label":"Otteita päiväkirjasta II"}
+{"_id":"Q92408863","label":"Inva-merkin variaatio 1"}
+{"_id":"Q92408868","label":"Inva-merkin variaatio 2"}
+{"_id":"Q92408870","label":"Inva-merkin variaatio 3"}
+{"_id":"Q92408876","label":"Inva-merkin variaatio 4"}
+{"_id":"Q92408879","label":"Inva-merkin variaatio 5"}
+{"_id":"Q92408884","label":"Inva-merkin variaatio 6"}
+{"_id":"Q92408887","label":"Inva-merkin variaatio 7"}
+{"_id":"Q92408893","label":"Tänään"}
+{"_id":"Q92408899","label":"Res Domestica"}
+{"_id":"Q92409369","label":"Kaupunginvaltuuston puheenjohtajan, kauppaneuvos Matti Linnainmaan muotokuva"}
+{"_id":"Q92409373","label":"Lauri Kr. Relander"}
+{"_id":"Q92409376","label":"Risto Ryti"}
+{"_id":"Q92409382","label":"Mannerheim"}
+{"_id":"Q92409384","label":"J.K. Paasikivi"}
+{"_id":"Q92409387","label":"Mauno Koivisto"}
+{"_id":"Q92409389","label":"Suomalainen lionismi, 1950-"}
+{"_id":"Q92409393","label":"Porin syväsatama -mitalin esivaiheen toteutus"}
+{"_id":"Q92409398","label":"Viivain"}
+{"_id":"Q92409402","label":"Yllin kyllin"}
+{"_id":"Q92409407","label":"Alttarikaappi"}
+{"_id":"Q92409411","label":"Hengitysharjoituksia Jumalan johdolla"}
+{"_id":"Q92409414","label":"Tämä elämä ei ole kahdella jaollinen"}
+{"_id":"Q92409419","label":"Elämä on murhaajan nimettömän äärellä"}
+{"_id":"Q92409421","label":"Elämä omatunnolla"}
+{"_id":"Q92409426","label":"Kurkotus"}
+{"_id":"Q92409429","label":"Juuri ennen vähän jälkeen"}
+{"_id":"Q92409433","label":"Ikuisesti tilapäinen"}
+{"_id":"Q92409435","label":"Onni"}
+{"_id":"Q92409440","label":"Aitiopaikka"}
+{"_id":"Q92409446","label":"Kurkotus"}
+{"_id":"Q92409448","label":"Varmuus"}
+{"_id":"Q92409453","label":"Sarjasta Joki ja ihminen I-IV, osa IV"}
+{"_id":"Q92409458","label":"Jäiden lähtö"}
+{"_id":"Q92409463","label":"Ahtojäät"}
+{"_id":"Q92409465","label":"Muuttomatkalle"}
+{"_id":"Q92409471","label":"Kosketus"}
+{"_id":"Q92409473","label":"Uni"}
+{"_id":"Q92409478","label":"Tässä ja nyt"}
+{"_id":"Q92409480","label":"Teesejä yhteiskuntaruumiista, Nimetön (Noitaympyrät 1)"}
+{"_id":"Q92409484","label":"Teesejä yhteiskuntaruumiista, Nimetön (Noitaympyrät 2)"}
+{"_id":"Q92409487","label":"Teesejä yhteiskuntaruumiista, Nimetön (Noitaympyrät 3)"}
+{"_id":"Q92409492","label":"Hengitystie"}
+{"_id":"Q92409496","label":"Appelsiinisyöjät"}
+{"_id":"Q92409501","label":"Kouluneuvos Raimo Forsströmin muotokuva"}
+{"_id":"Q92409502","label":"Ghazni 24.6.76"}
+{"_id":"Q92409507","label":"Ghazni 25.6.76"}
+{"_id":"Q92409509","label":"Pahalgam, Kashmir, Intia 14.5.1979"}
+{"_id":"Q92409513","label":"Kashmir, Intia 14.5.1979"}
+{"_id":"Q92409516","label":"Juhana Herttua"}
+{"_id":"Q92409518","label":"Kiivailija"}
+{"_id":"Q92409520","label":"Vanha kuolema"}
+{"_id":"Q92409526","label":"Huoneentaulu"}
+{"_id":"Q92409529","label":"Ylösnousemus"}
+{"_id":"Q92409534","label":"On aika lähteä"}
+{"_id":"Q92409535","label":"Mauno Koivisto 60"}
+{"_id":"Q92409538","label":"Cor Pro Corde (teosnimi)"}
+{"_id":"Q92409542","label":"OKO 75 Osuuspankki"}
+{"_id":"Q92409547","label":"Wäinö Aaltonen 1894-1966"}
+{"_id":"Q92410076","label":"Edvin Linkomies"}
+{"_id":"Q92410083","label":"Rautakirja 1910"}
+{"_id":"Q92410087","label":"Suomen Säästöpankit, 1822–1972"}
+{"_id":"Q92410090","label":"SKSK, Suomen kirkon seurakuntatoiminnan keskusliitto 1919-1979"}
+{"_id":"Q92410095","label":"Suomenkieliset Tietosanomat 1775"}
+{"_id":"Q92410099","label":"Huominen kasvaa tänään"}
+{"_id":"Q92410104","label":"Urho Ruola"}
+{"_id":"Q92410107","label":"Nakkila 1861-1986"}
+{"_id":"Q92410113","label":"Suomen kaupunkiliitto, Finlands Stadsförbund, 1912"}
+{"_id":"Q92410117","label":"Suomen kaupunkiliitto, Finlands Stadsförbund"}
+{"_id":"Q92410122","label":"Asuntosäätiö"}
+{"_id":"Q92410125","label":"Elinkeinovapaus 1879-1979 Näringsfrihet"}
+{"_id":"Q92410129","label":"SMP"}
+{"_id":"Q92410132","label":"Sigfrid Sirenius"}
+{"_id":"Q92410136","label":"Wild Thing"}
+{"_id":"Q92410139","label":"Näin nukun"}
+{"_id":"Q92410142","label":"R"}
+{"_id":"Q92410148","label":"Serigrafia"}
+{"_id":"Q92410152","label":"Explorer"}
+{"_id":"Q92410155","label":"Kiinalainen"}
+{"_id":"Q92410160","label":"Voimistelija"}
+{"_id":"Q92410162","label":"Täysikuu II"}
+{"_id":"Q92410168","label":"Sivustakatsojan henkilökohtaisia sotakertomuksia"}
+{"_id":"Q92410171","label":"Tapetoituja unia I"}
+{"_id":"Q92410173","label":"Maantiede"}
+{"_id":"Q92410178","label":"Puistossa 1"}
+{"_id":"Q92410186","label":"Puistossa 2"}
+{"_id":"Q92410189","label":"Puistossa 3"}
+{"_id":"Q92410191","label":"Puistossa 4"}
+{"_id":"Q92410195","label":"Kalastaja"}
+{"_id":"Q92410207","label":"Savonmuan Nusvee"}
+{"_id":"Q92410212","label":"Trio"}
+{"_id":"Q92410215","label":"Tietäjä"}
+{"_id":"Q92410225","label":"Rakentajat"}
+{"_id":"Q92410228","label":"Altarpiece"}
+{"_id":"Q92410234","label":"Nainen tummassa asussa"}
+{"_id":"Q92410236","label":"Laulajatar"}
+{"_id":"Q92410242","label":"Pyykinripustaja"}
+{"_id":"Q92410243","label":"Luolamaalarin luola"}
+{"_id":"Q92410249","label":"Seinämaalarin seinä"}
+{"_id":"Q92410252","label":"”Luuttua soittava enkeli”"}
+{"_id":"Q92410258","label":"Omakuva, Paris 4.11.1933"}
+{"_id":"Q92410264","label":"Kasvotutkielma"}
+{"_id":"Q92410266","label":"Kaupunginhallituksen puheenjohtajan Ahti Salmen muotokuva"}
+{"_id":"Q92410272","label":"Satakunnan Museo"}
+{"_id":"Q92410275","label":"Theses on the Body Politic (The Descent)"}
+{"_id":"Q92410743","label":"Viburnum"}
+{"_id":"Q92410745","label":"Sarjasta ”Miniatures végétales” Aucuba"}
+{"_id":"Q92410749","label":"Sarjasta ”Miniatures végétales” Chataignier"}
+{"_id":"Q92410753","label":"Sarjasta ”Miniatures végétales” Lilas 1"}
+{"_id":"Q92410757","label":"Sarjasta ”Miniatures végétales” Lys"}
+{"_id":"Q92410764","label":"Sarjasta ”Miniatures végétales” Lilas"}
+{"_id":"Q92410766","label":"Sarjasta ”Miniatures végétales” Rhododendron"}
+{"_id":"Q92410770","label":"Sarjasta ”Miniatures végétales” Chêne"}
+{"_id":"Q92410781","label":"Sarjasta ”Miniatures végétales” Tremble"}
+{"_id":"Q92410783","label":"Sarjasta ”Miniatures végétales” Tilleull"}
+{"_id":"Q92410789","label":"Sarjasta ”Miniatures végétales” Glycine"}
+{"_id":"Q92410791","label":"Sarjasta ”Miniatures végétales” not named"}
+{"_id":"Q92410797","label":"Sarjasta ”Miniatures végétales” not named"}
+{"_id":"Q92410802","label":"Sarjasta ”Miniatures végétales” Tulipier"}
+{"_id":"Q92410805","label":"Sarjasta ”Miniatures végétales” Aubépine"}
+{"_id":"Q92410818","label":"Sarjasta ”Miniatures végétales” Chêne d'Amerique"}
+{"_id":"Q92410822","label":"Sarjasta ”Miniatures végétales” Betterave"}
+{"_id":"Q92410827","label":"Sarjasta ”Miniatures végétales” Cerisier"}
+{"_id":"Q92410831","label":"Sarjasta ”Miniatures végétales” Fenouil"}
+{"_id":"Q92410836","label":"Sarjasta ”Miniatures végétales” Blè barbu"}
+{"_id":"Q92410840","label":"Sarjasta ”Miniatures végétales” Hortensia"}
+{"_id":"Q92410848","label":"Sarjasta ”Miniatures végétales” Châtaignier"}
+{"_id":"Q92410851","label":"Sarjasta ”Miniatures végétales” Lierre"}
+{"_id":"Q92410856","label":"Sarjasta ”Miniatures végétales” Viburnum"}
+{"_id":"Q92410864","label":"Sarjasta ”Miniatures végétales” Lierre 2"}
+{"_id":"Q92410873","label":"Sarjasta ”Miniatures végétales” Bouleau"}
+{"_id":"Q92410877","label":"Sarjasta ”Miniatures végétales” Branche de lilas"}
+{"_id":"Q92410881","label":"Sarjasta ”Miniatures végétales” Laurier"}
+{"_id":"Q92410887","label":"Sarjasta ”Miniatures végétales” Tiges de rosier"}
+{"_id":"Q92410896","label":"Sarjasta ”Miniatures végétales” Figuier"}
+{"_id":"Q92410901","label":"Sarjasta ”Miniatures végétales” Branche d'aucuba"}
+{"_id":"Q92410909","label":"Sarjasta ”Miniatures végétales” Branche"}
+{"_id":"Q92410913","label":"Sarjasta ”Miniatures végétales” Poireau"}
+{"_id":"Q92410922","label":"Sarjasta ”Miniatures végétales” Poncirus trifoliata"}
+{"_id":"Q92410928","label":"Sarjasta ”Miniatures végétales” Aspidistra"}
+{"_id":"Q92410932","label":"Sarjasta ”Miniatures végétales” Branche de glycine"}
+{"_id":"Q92410939","label":"Sarjasta ”Miniatures végétales” Rosier"}
+{"_id":"Q92410943","label":"Sarjasta ”Miniatures végétales” Artichaut"}
+{"_id":"Q92410948","label":"Sarjasta ”Miniatures végétales” Tiges de lierre"}
+{"_id":"Q92411538","label":"Lapsuus, nuoruus, vanhuus"}
+{"_id":"Q92411540","label":"Asetelma"}
+{"_id":"Q92411543","label":"Asetelma"}
+{"_id":"Q92411547","label":"August Lipsasen muotokuva"}
+{"_id":"Q92411551","label":"August Lipsanen muotokuva"}
+{"_id":"Q92411555","label":"Maisema"}
+{"_id":"Q92411559","label":"Erkki Lipsasen muotokuva"}
+{"_id":"Q92411563","label":"Erkki Lipsasen muotokuva"}
+{"_id":"Q92411566","label":"Tämä"}
+{"_id":"Q92411573","label":"Portti"}
+{"_id":"Q92411577","label":"Maankaari"}
+{"_id":"Q92411581","label":"Taivaankansi"}
+{"_id":"Q92411584","label":"Taivas putoaa I, sarjasta Taivas putoaa"}
+{"_id":"Q92411588","label":"Kuutamokalastaja"}
+{"_id":"Q92411594","label":"Liina"}
+{"_id":"Q92411598","label":"Mystinen mopomies ilmestyy purosillalta Koivukujan päähän"}
+{"_id":"Q92411601","label":"Karvapää nauttii kanervikossa välipalaa"}
+{"_id":"Q92411607","label":"Seinäruusu läimäyttää \"Nokkosneidon\" salaiset puutarhahansikkaat yhteen"}
+{"_id":"Q92411613","label":"Hiili nauttii aamiaista Äitikyöpelin varjostaessa hyasinttia"}
+{"_id":"Q92411618","label":"Istunto"}
+{"_id":"Q92411622","label":"Pyhiinvaeltajat saapuvat Suppelskoffenin katedraaliin hämmästelemään Markan talosta näytteille haalittua pimeässä hohtavaa piparipyhimystä"}
+{"_id":"Q92411625","label":"Naulakko"}
+{"_id":"Q92411628","label":"Istu mihin haluat"}
+{"_id":"Q92411633","label":"Sulje verhot"}
+{"_id":"Q92411637","label":"Globaali nomadi"}
+{"_id":"Q92411640","label":"Vesikaupungista"}
+{"_id":"Q92411643","label":"Malttamaton"}
+{"_id":"Q92411649","label":"RISTI"}
+{"_id":"Q92411652","label":"AAVEET"}
+{"_id":"Q92411657","label":"- TÄHTI ESKOLLE -"}
+{"_id":"Q92411660","label":"luonnos teokseen Nimetön (Elämäntapa)"}
+{"_id":"Q92411666","label":"Drip"}
+{"_id":"Q92411670","label":"Negate"}
+{"_id":"Q92411674","label":"Briefe aus Nirgendwo (teosnimi)"}
+{"_id":"Q92411676","label":"Siiville"}
+{"_id":"Q92411680","label":"Caribou II"}
+{"_id":"Q92411685","label":"Iceland Wall"}
+{"_id":"Q92411689","label":"Text Object II, At Any Level"}
+{"_id":"Q92411691","label":"Text Object III, One of the Unavoidable"}
+{"_id":"Q92411695","label":"Text Object IV, Political"}
+{"_id":"Q92411697","label":"Text Object V, It is a Distinctive"}
+{"_id":"Q92411699","label":"Text Object VI, Reintegrating"}
+{"_id":"Q92411703","label":"Living Memory"}
+{"_id":"Q92411706","label":"Mannekiini"}
+{"_id":"Q92411710","label":"Päällä maan"}
+{"_id":"Q92411714","label":"Muistiinpanoja"}
+{"_id":"Q92411717","label":"Altered Landscape; Sonic Ambience I"}
+{"_id":"Q92411719","label":"Altered Landscape; Sonic Ambience II"}
+{"_id":"Q92411722","label":"Altered Landscape; Sonic Ambience III"}
+{"_id":"Q92412065","label":"Ääretön II"}
+{"_id":"Q92412067","label":"Future Compass: between W(water) and E(earth)"}
+{"_id":"Q92412071","label":"Protool"}
+{"_id":"Q92412075","label":"Protool - Punatulkku"}
+{"_id":"Q92412078","label":"STC"}
+{"_id":"Q92412082","label":"STC - Aspi"}
+{"_id":"Q92412085","label":"Aspi"}
+{"_id":"Q92412089","label":"Aspi - Protool"}
+{"_id":"Q92412092","label":"Punatulkku"}
+{"_id":"Q92412097","label":"Punatulkku - STC"}
+{"_id":"Q92412099","label":"Meloni"}
+{"_id":"Q92412103","label":"Sammal"}
+{"_id":"Q92412105","label":"Seppele"}
+{"_id":"Q92412108","label":"Vauhtisokeus"}
+{"_id":"Q92412111","label":"Happikato"}
+{"_id":"Q92412115","label":"Aistitukos"}
+{"_id":"Q92412117","label":"Game Over"}
+{"_id":"Q92412120","label":"Aika levätä"}
+{"_id":"Q92412125","label":"9-osainen maalaus"}
+{"_id":"Q92412135","label":"Konstruktio"}
+{"_id":"Q92412138","label":"Lattiakonstruktio"}
+{"_id":"Q92412141","label":"Veistoskonstruktio"}
+{"_id":"Q92412145","label":"Bamian, Afganistan 11.6.1976, ison Buddhan freskotutkielma"}
+{"_id":"Q92412146","label":"Bamian, 3.5.1976, osa pienen Buddhan freskoa"}
+{"_id":"Q92412150","label":"Bamian, Afganistan, 3.6.76"}
+{"_id":"Q92412155","label":"Bamian 1976, freskotutkielma"}
+{"_id":"Q92412159","label":"Bamian 6.6.76"}
+{"_id":"Q92412165","label":"Bamian"}
+{"_id":"Q92412168","label":"Onnenpolkuja 1"}
+{"_id":"Q92412170","label":"Vaikeneminen eli itseensä uponnut"}
+{"_id":"Q92412173","label":"PORI BOX KIPPIS Bôite 1 / 50, Octobre 2011"}
+{"_id":"Q92412176","label":"Marriage Altar (masculin)"}
+{"_id":"Q92412181","label":"Pinkonautti"}
+{"_id":"Q92412183","label":"TPK"}
+{"_id":"Q92412189","label":"Kahden tuhannen vuoden eristäytyneisyys 1 - 23"}
+{"_id":"Q92412192","label":"Helen"}
+{"_id":"Q92412195","label":"Julie"}
+{"_id":"Q92412200","label":"Christoph"}
+{"_id":"Q92412203","label":"Veit"}
+{"_id":"Q92412209","label":"Nathalie"}
+{"_id":"Q92412212","label":"Jiggle (Blue-Red)"}
+{"_id":"Q92412214","label":"Harmaata pölyä keltainen räjähdys"}
+{"_id":"Q92412219","label":"Dadaworks series: Selected Life / Dadawork II (teosnimi)"}
+{"_id":"Q92412221","label":"Dadaworks series: Selected Life / Dadawork III"}
+{"_id":"Q92412226","label":"Dadaworks series: Selected Life / Dadawork IV"}
+{"_id":"Q92412228","label":"Dadaworks series: Selected Life / Dadawork V"}
+{"_id":"Q92412230","label":"Dadaworks series: Selected Life / Dadawork VI"}
+{"_id":"Q92412235","label":"Dadaworks series: Selected Life / Dadawork VII"}
+{"_id":"Q92412570","label":"Dadaworks series: Selected Life / Dadawork VIII"}
+{"_id":"Q92412573","label":"Life-Death series: Selected Life / Der tod und das mädchen"}
+{"_id":"Q92412574","label":"Life-Death series: Selected Life / Spanish Street Project. No 4"}
+{"_id":"Q92412578","label":"Life-Death series: Selected Life / Spanish Street Project. No 5"}
+{"_id":"Q92412581","label":"Pilari (Pori)"}
+{"_id":"Q92412583","label":"Katu (Pori)"}
+{"_id":"Q92412585","label":"Kuka koputtaa ovellesi?"}
+{"_id":"Q92412614","label":"Hiekkaranta"}
+{"_id":"Q92412620","label":"Rantamaisema"}
+{"_id":"Q92412624","label":"Jyväskylän maaseurakunnan (nykyisen Taulumäen) kirkon alttaritaulun Kristus käy vetten päällä -luonnos"}
+{"_id":"Q92412629","label":"Hevonen, reki ja mies"}
+{"_id":"Q92412637","label":"”Äitini rippipuvussa”"}
+{"_id":"Q92412642","label":"Vanha kaupunginsairaala"}
+{"_id":"Q92412646","label":"Villapaidan kutoja"}
+{"_id":"Q92412648","label":"Risti"}
+{"_id":"Q92412652","label":"Päätelmä & Ratkaisu"}
+{"_id":"Q92412655","label":"Jättömaa"}
+{"_id":"Q92412660","label":"Maalaismaisema"}
+{"_id":"Q92412666","label":"Långskär"}
+{"_id":"Q92412670","label":"\"Fly Democracy\""}
+{"_id":"Q92412675","label":"Sommitelma I"}
+{"_id":"Q92412679","label":"Sommitelma II"}
+{"_id":"Q92412683","label":"Sommitelma III"}
+{"_id":"Q92412688","label":"Sommitelma IV"}
+{"_id":"Q92412691","label":"Sommitelma V"}
+{"_id":"Q92412695","label":"Golf"}
+{"_id":"Q92412699","label":"Tulevaisuuden matka"}
+{"_id":"Q92412702","label":"Instant Decomposition"}
+{"_id":"Q92412706","label":"Kivi"}
+{"_id":"Q92412710","label":"Evil Skin"}
+{"_id":"Q92412714","label":"Messy Floor"}
+{"_id":"Q92412719","label":"Tapio ja metsän eläimet"}
+{"_id":"Q92412721","label":"Afrikasta"}
+{"_id":"Q92412726","label":"Matkalla"}
+{"_id":"Q92412730","label":"Kevätpuuhat"}
+{"_id":"Q92412733","label":"Nimetön"}
+{"_id":"Q92412737","label":"Temppeli"}
+{"_id":"Q92412742","label":"Hedelmätarha"}
+{"_id":"Q92412747","label":"Ve'en koira vengottavi"}
+{"_id":"Q92412752","label":"Pallokala"}
+{"_id":"Q92412756","label":"Lysti on venon vesillä, purren juosta jolkutella"}
+{"_id":"Q92413081","label":"Pauli Happosen muotokuva"}
+{"_id":"Q92413086","label":"Performers installation"}
+{"_id":"Q92413089","label":"Performing Grounds installation"}
+{"_id":"Q92413091","label":"Maldives to be or Not"}
+{"_id":"Q92413095","label":"Jääveisto video - Nature Morte"}
+{"_id":"Q92413098","label":"Lapsia"}
+{"_id":"Q92413102","label":"Juhlakaronkka"}
+{"_id":"Q92413104","label":"Nimetön (Imago 6)"}
+{"_id":"Q92413109","label":"Vakokukat"}
+{"_id":"Q92413113","label":"Pompula, pampula, piste"}
+{"_id":"Q92413116","label":"Eläin 1.2"}
+{"_id":"Q92413120","label":"Taajama"}
+{"_id":"Q92413124","label":"Super-Marja"}
+{"_id":"Q92413127","label":"Loikka"}
+{"_id":"Q92413131","label":"Ylilento"}
+{"_id":"Q92413133","label":"Askel, askel, hyppy"}
+{"_id":"Q92413137","label":"Rits, räts, läiskis"}
+{"_id":"Q92413138","label":"Silittelyä"}
+{"_id":"Q92413142","label":"The Defining Years of Hip Hop"}
+{"_id":"Q92413146","label":"Immersio"}
+{"_id":"Q92413150","label":"Ruusun nimi (Ruusun hetket), osa 1"}
+{"_id":"Q92413152","label":"Ruusun nimi (Ruusun hetket), osa 2"}
+{"_id":"Q92413156","label":"Ruusun nimi (Ruusun hetket), osa 3"}
+{"_id":"Q92413159","label":"Ruusun nimi (Ruusun hetket), osa 4"}
+{"_id":"Q92413160","label":"Ruusun nimi (Ruusun hetket), osa 5"}
+{"_id":"Q92413164","label":"Ruusun nimi (Ruusun hetket), osa 6"}
+{"_id":"Q92413167","label":"Ruusun nimi (Ruusun hetket), osa 7"}
+{"_id":"Q92413171","label":"Ruusun nimi (Ruusun hetket), osa 8"}
+{"_id":"Q92413173","label":"Ruusun nimi (Ruusun hetket), osa 9"}
+{"_id":"Q92413177","label":"Syrjäytynyt työtön Tutankham Von Jäärsson puhuu ikkunasta kansalle; ”Viisauden rakastajien” nimeen moraalisen pimeän keskiajan häpeällisistä haittapuolista"}
+{"_id":"Q92413178","label":"Pyhän Joosuan kirkon kattotapulin parvekkeelta toimitettava pimeän tyhjyyden mittaus osoittaa äärettömyyden karun realiteetin pitävän sietämättömän faktuaalisesti vettä"}
+{"_id":"Q92413184","label":"Ortodoksipapit siunaavat talkootöillä restauroidun tanssiravintola ”Eilisen aamu” uuteen nousuun, näivettyvän tuppukylän viimeisillä lehtereillä"}
+{"_id":"Q92413186","label":"Hauskanpuuska"}
+{"_id":"Q92413190","label":"Sarjasta Runner´s Hallucinations: Toimistorakennus"}
+{"_id":"Q92413192","label":"Sarjasta Runner´s Hallucinations: Unettomuus"}
+{"_id":"Q92413197","label":"Sarjasta Runner´s Hallucinations: Geenimuunneltu maissi sairastutti heidät"}
+{"_id":"Q92413201","label":"Aika levätä"}
+{"_id":"Q92413204","label":"Paradis k (Kidnap)"}
+{"_id":"Q92413209","label":"Concealed Entry"}
+{"_id":"Q92413212","label":"Status quo"}
+{"_id":"Q92413216","label":"Suspended White Sculpture"}
+{"_id":"Q92413219","label":"Energy Outside and Inside the Circle"}
+{"_id":"Q92413221","label":"Riippuva veistos 65"}
+{"_id":"Q92413224","label":"Nimetön"}
+{"_id":"Q92413228","label":"RIUTTA REEF"}
+{"_id":"Q92413231","label":"Ukk´ram - Salaperäinen alus"}
+{"_id":"Q92413234","label":"Kädet"}
+{"_id":"Q92413238","label":"Nimetön"}
+{"_id":"Q92413241","label":"Välitiloja"}
+{"_id":"Q92413245","label":"Välitiloja"}
+{"_id":"Q92413814","label":"Erillään"}
+{"_id":"Q92413819","label":"Erillään"}
+{"_id":"Q92413830","label":"Nimetön"}
+{"_id":"Q92413832","label":"Transformation"}
+{"_id":"Q92413837","label":"Brian ja lemmikkisika"}
+{"_id":"Q92413841","label":"Bedroom of Railway Worker, De Aar 1984"}
+{"_id":"Q92413843","label":"Boy with guns, Western Transvaal 1993"}
+{"_id":"Q92413848","label":"Released figures of suppressed"}
+{"_id":"Q92413852","label":"Whaleing over"}
+{"_id":"Q92413856","label":"Lepopaikka"}
+{"_id":"Q92413861","label":"Leaving the Fishtank"}
+{"_id":"Q92413866","label":"Rain catcher"}
+{"_id":"Q92413869","label":"Sydänkesä"}
+{"_id":"Q92413871","label":"Maisema Kymijoelta"}
+{"_id":"Q92413875","label":"Yyteri I"}
+{"_id":"Q92413877","label":"Väistämättömyys / Unavoidability"}
+{"_id":"Q92413881","label":"Apulaiskaupunginjohtaja Aulis Laaksosen muotokuva"}
+{"_id":"Q92413886","label":"Tukko"}
+{"_id":"Q92413889","label":"Toast"}
+{"_id":"Q92413894","label":"The System"}
+{"_id":"Q92413896","label":"Arc de Triomphe du Carrousel"}
+{"_id":"Q92413900","label":"Lupaus"}
+{"_id":"Q92413903","label":"Museoin Tarot (teosnimi)"}
+{"_id":"Q92413907","label":"Lahjakkaat miehet"}
+{"_id":"Q92413910","label":"Apulaiskaupunginjohtaja Kari Hannuksen muotokuva"}
+{"_id":"Q92413912","label":"Atrato (teosnimi)"}
+{"_id":"Q92413916","label":"Pori 2001"}
+{"_id":"Q92413920","label":"Time After Time"}
+{"_id":"Q92413923","label":"Mettä Vuoti Kuivat Kuuset (Ahjo)"}
+{"_id":"Q92413929","label":"Mettä Vuoti Kuivat Kuuset"}
+{"_id":"Q92413931","label":"Night Passing"}
+{"_id":"Q92413935","label":"Through the Moss Stuffed Chinks Heard Voices"}
+{"_id":"Q92413936","label":"Her Blue Sea Fire (Valamo)"}
+{"_id":"Q92413938","label":"Rasvasaari"}
+{"_id":"Q92413942","label":"Peat Shrine"}
+{"_id":"Q92413943","label":"Suon Hengetär"}
+{"_id":"Q92413945","label":"Limb To Limbs, Flesh & Home"}
+{"_id":"Q92413949","label":"Suojasää"}
+{"_id":"Q92413954","label":"Video-Performanssisarja"}
+{"_id":"Q92413956","label":"Kyyhky-kotka sarjasta Kamppailu"}
+{"_id":"Q92413960","label":"Oh City, of Broken Directions"}
+{"_id":"Q92413961","label":"Tivoli"}
+{"_id":"Q92413964","label":"Aamun hohde"}
+{"_id":"Q92413967","label":"Lunta ja aurinkoa"}
+{"_id":"Q92413970","label":"Urheilulautakunnan puheenjohtaja Viljam Rantasen muotokuva"}
+{"_id":"Q92413974","label":"Liikuntatoimenjohtaja Matti Malinin muotokuva"}
+{"_id":"Q92413978","label":"Sisäkuva"}
+{"_id":"Q92413984","label":"Vahvistin"}
+{"_id":"Q92413987","label":"Kasvu"}
+{"_id":"Q92413990","label":"Ensilaukaus"}
+{"_id":"Q92413993","label":"Vuorotellen"}
+{"_id":"Q92413996","label":"Guided"}
+{"_id":"Q92414000","label":"Poika ja helmikorvakoru"}
+{"_id":"Q92414003","label":"Night Soil - Nocturnal Gardening"}
+{"_id":"Q92414005","label":"Sarjasta \"Stalking\""}
+{"_id":"Q92414009","label":"Sarjasta \"Stalking\""}
+{"_id":"Q92414024","label":"Omegasumu"}
+{"_id":"Q92414027","label":"Torso of Bodymantix"}
+{"_id":"Q92414029","label":"Juuso ja Henna sarjasta \"Low Resolution Reflections\""}
+{"_id":"Q92414033","label":"Elokuu sarjasta \"Low Resolution Reflections\""}
+{"_id":"Q92414035","label":"nimetön organismi 1"}
+{"_id":"Q92414037","label":"nimetön organismi 2"}
+{"_id":"Q92414043","label":"Sumu"}
+{"_id":"Q92414045","label":"Sumu2"}
+{"_id":"Q92414049","label":"Kokemäenjoen vesimaisemia"}
+{"_id":"Q92414052","label":"Kuun lemmikit"}
+{"_id":"Q92414057","label":"Kastemalja"}
+{"_id":"Q92414058","label":"Takan sulkupelti"}
+{"_id":"Q92537255","label":"Vierailija"}
+{"_id":"Q92537273","label":"Vanha merimies muistelee"}
+{"_id":"Q92537298","label":"Lapsuusmuisto"}
+{"_id":"Q92537326","label":"Mennään kirjastoon"}
+{"_id":"Q92537370","label":"Omakuva kellotaulussa"}
+{"_id":"Q92537405","label":"Modernin taiteen painajaiset 2/8 (4)"}
+{"_id":"Q92537424","label":"Maailmalla"}
+{"_id":"Q92538059","label":"Tulitikku-ukko"}
+{"_id":"Q92538502","label":"Inva-merkin variaatio 8"}
+{"_id":"Q92538504","label":"Inva-merkin variaatio 9"}
+{"_id":"Q92538509","label":"Inva-merkin variaatio 10"}
+{"_id":"Q92538512","label":"Utopia"}
+{"_id":"Q92538607","label":"Tyhjän päällä"}
+{"_id":"Q93201260","label":"Asetelma"}
+{"_id":"Q93201264","label":"Rantanäkymä"}
+{"_id":"Q93201267","label":"Rantanäkymä"}
+{"_id":"Q93201271","label":"Katukuva"}
+{"_id":"Q93201275","label":"Kalastajia"}
+{"_id":"Q93201278","label":"Maisema"}
+{"_id":"Q93201284","label":"Satama"}
+{"_id":"Q93201286","label":"Tyttö"}
+{"_id":"Q93201291","label":"Kyläkuva"}
+{"_id":"Q93201293","label":"Tyttö"}
+{"_id":"Q93201297","label":"Talvi tuli tulvaan"}
+{"_id":"Q93201300","label":"Vanha portti"}
+{"_id":"Q93201304","label":"Pihanäkymä"}
+{"_id":"Q93201308","label":"Pihaportti"}
+{"_id":"Q93201311","label":"Asetelma"}
+{"_id":"Q93201316","label":"Veistos"}
+{"_id":"Q93201320","label":"Puolitoista suolakurkkua"}
+{"_id":"Q93201323","label":"Väinämöinen-Kaleva"}
+{"_id":"Q93201327","label":"Tyttö"}
+{"_id":"Q93201331","label":"Asetelma"}
+{"_id":"Q93201334","label":"Pori 1986"}
+{"_id":"Q93201338","label":"Pori 1986"}
+{"_id":"Q93201343","label":"Pori 1986"}
+{"_id":"Q93201347","label":"Pori 1986"}
+{"_id":"Q93201348","label":"Pori 1986"}
+{"_id":"Q93201352","label":"Armi"}
+{"_id":"Q93201356","label":"Armi"}
+{"_id":"Q93201362","label":"Nimetön"}
+{"_id":"Q93201365","label":"Nimetön"}
+{"_id":"Q93201369","label":"Sarjasta kentillä ja ristillä"}
+{"_id":"Q93201372","label":"Nimetön"}
+{"_id":"Q93201375","label":"Indikaattori: Zonation -sarja"}
+{"_id":"Q93201379","label":"Indikaattori: Zonation -sarja"}
+{"_id":"Q93201383","label":"Indikaattori: Zonation -sarja"}
+{"_id":"Q93201387","label":"Raskauden vuoksi-sarja II/XXV"}
+{"_id":"Q93201391","label":"Raskauden vuoksi-sarja II/XXV"}
+{"_id":"Q93201396","label":"Raskauden vuoksi-sarja II/XXV"}
+{"_id":"Q93201398","label":"Serigrafia"}
+{"_id":"Q93201402","label":"Sarjasta Urbilder"}
+{"_id":"Q93201405","label":"nimeämätön"}
+{"_id":"Q93201408","label":"Puutarhakuva, Englanti"}
+{"_id":"Q93201413","label":"Puutarhakuva, Englanti"}
+{"_id":"Q93201416","label":"Maalaus"}
+{"_id":"Q93201420","label":"Nimetön"}
+{"_id":"Q93201424","label":"Nimetön"}
+{"_id":"Q93201427","label":"Nimetön"}
+{"_id":"Q93201432","label":"Nimetön"}
+{"_id":"Q93201434","label":"Nimetön"}
+{"_id":"Q93201438","label":"Nimetön"}
+{"_id":"Q93201440","label":"Nimetön"}
+{"_id":"Q93201767","label":"Nimetön"}
+{"_id":"Q93201770","label":"Nimetön"}
+{"_id":"Q93201774","label":"Nimetön"}
+{"_id":"Q93201776","label":"Nimetön"}
+{"_id":"Q93201778","label":"Nimetön"}
+{"_id":"Q93201780","label":"Nimetön"}
+{"_id":"Q93201782","label":"Nimetön"}
+{"_id":"Q93201784","label":"Nimetön"}
+{"_id":"Q93201787","label":"Nimetön"}
+{"_id":"Q93201791","label":"Nimetön"}
+{"_id":"Q93201793","label":"Nimetön"}
+{"_id":"Q93201796","label":"Nimetön"}
+{"_id":"Q93201798","label":"Nimetön"}
+{"_id":"Q93201801","label":"Nimetön"}
+{"_id":"Q93201803","label":"Nimetön"}
+{"_id":"Q93201810","label":"Nimetön"}
+{"_id":"Q93201812","label":"Nimetön"}
+{"_id":"Q93201814","label":"Nimetön"}
+{"_id":"Q93201817","label":"Nimetön"}
+{"_id":"Q93201818","label":"Nimetön"}
+{"_id":"Q93201821","label":"Nimetön"}
+{"_id":"Q93201822","label":"Nimetön"}
+{"_id":"Q93201825","label":"Nimetön"}
+{"_id":"Q93201827","label":"Nimetön"}
+{"_id":"Q93201829","label":"Nimetön"}
+{"_id":"Q93201832","label":"Nimetön"}
+{"_id":"Q93201834","label":"Nimetön"}
+{"_id":"Q93201835","label":"Nimetön"}
+{"_id":"Q93201838","label":"Nimetön"}
+{"_id":"Q93201839","label":"Nimetön"}
+{"_id":"Q93201842","label":"Nimetön"}
+{"_id":"Q93201844","label":"Rakennushallinto 1811-1995"}
+{"_id":"Q93201845","label":"Elämän vaiheet"}
+{"_id":"Q93201847","label":"Elämän vaiheet"}
+{"_id":"Q93201849","label":"Elämän vaiheet"}
+{"_id":"Q93201851","label":"Elämän vaiheet 4"}
+{"_id":"Q93201852","label":"Elämän vaiheet 5"}
+{"_id":"Q93201854","label":"Elämän vaiheet"}
+{"_id":"Q93201856","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q93201857","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q93201859","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q93201862","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q93201863","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q93201865","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q93201866","label":"Tussipiirustus/laveeraus"}
+{"_id":"Q93201869","label":"Autoromuttamosta"}
+{"_id":"Q93201870","label":"Replika"}
+{"_id":"Q93201872","label":"Valokuva sarjasta Interlager Druzba, DDR"}
+{"_id":"Q93201874","label":"Valokuva sarjasta Interlager Druzba, DDR"}
+{"_id":"Q93201876","label":"Valokuva sarjasta Interlager Druzba, DDR"}
+{"_id":"Q93202120","label":"Valokuva sarjasta Interlager Druzba, DDR"}
+{"_id":"Q93202122","label":"Miehen muotokuva"}
+{"_id":"Q93202125","label":"Matti Kauppinen 1843-1936 Satakunnan museo 1888"}
+{"_id":"Q93202129","label":"Nimetön"}
+{"_id":"Q93202130","label":"Nimetön"}
+{"_id":"Q93202133","label":"Voimistelija"}
+{"_id":"Q93202136","label":"Sarjasta ”Miniatures végétales” Chataignier"}
+{"_id":"Q93202140","label":"Sarjasta ”Miniatures végétales” Aucuba"}
+{"_id":"Q93202143","label":"Sarjasta ”Miniatures végétales” Aucuba"}
+{"_id":"Q93202146","label":"Sarjasta ”Miniatures végétales” nimeämätön"}
+{"_id":"Q93202150","label":"Sarjasta ”Miniatures végétales” Châtaignier"}
+{"_id":"Q93202152","label":"Sarjasta ”Miniatures végétales” Viburnum"}
+{"_id":"Q93202155","label":"Sarjasta ”Miniatures végétales” Lierre"}
+{"_id":"Q93202156","label":"Sarjasta ”Miniatures végétales” Glycine"}
+{"_id":"Q93202159","label":"Sarjasta ”Miniatures végétales” Glycine"}
+{"_id":"Q93202164","label":"Sarjasta ”Miniatures végétales” nimeämätön"}
+{"_id":"Q93202165","label":"Sarjasta ”Miniatures végétales” Aucuba"}
+{"_id":"Q93202168","label":"Sarjasta ”Miniatures végétales” Lys"}
+{"_id":"Q93202171","label":"7-osainen maalaus"}
+{"_id":"Q93202174","label":"Maalaus"}
+{"_id":"Q93202177","label":"Kalastaja"}
+{"_id":"Q93202180","label":"nimeämätön"}
+{"_id":"Q93202183","label":"nimeämätön"}
+{"_id":"Q93202185","label":"Nimetön"}
+{"_id":"Q93202189","label":"Sarjasta \"Stalking\""}
+{"_id":"Q93202191","label":"Sarjasta \"Stalking\""}
+{"_id":"Q93202193","label":"Sarjasta \"Stalking\""}
+{"_id":"Q93242467","label":"Syksystä kevääseen"}
+{"_id":"Q93242475","label":"Aloittelevan käsitetaiteilijan päiväkirjasta"}
+{"_id":"Q93243036","label":"Jalmari Karhula"}
+{"_id":"Q97716561","label":"Tuotantoyksikkö"}
 {"$$indexCreated":{"fieldName":"label","unique":false,"sparse":false}}
-{"_id":"Q213673","label":"Talot rannalla","modified":"2020-12-09T13:40:21Z","status":"ok","timestamp":"2020-12-09T13:40:21Z","comment":"/* wbsetaliases-set:1|en */ Aarne","user":"87.93.130.115"}
+{"_id":"Q46","label":"second marriage of Elizabeth Taylor","modified":"2015-03-18T08:59:33Z","wdset":"uusi_setti"}

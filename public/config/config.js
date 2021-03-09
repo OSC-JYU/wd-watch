@@ -12,7 +12,7 @@ if(window.location.href.indexOf("file") === 0|| window.location.href.indexOf("ht
 if(g_local_dev) server = "";
 
 var config = {
-	api_url: server + "/s/weskari/api",
+	api_url: server + "/wd-watch/api",
 	local_dev: g_local_dev,
 	wd_server: wd_server
 };

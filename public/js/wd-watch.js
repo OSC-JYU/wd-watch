@@ -1,37 +1,49 @@
-function kakeAdmin () {
+function WDWatch () {
 	
 	var self = this;
 	this.collection 	= null;
 	this.currentDoc 	= null;
+	this.currentSet 	= null;
 	this.items			= null;
-
-
-
-
-
-
+	this.sets			= null;
 
 	this.init = function () {
-
-		// happens when user clicks back arrow from browser after opening an article
-		window.onpopstate = function(event) {
-			//if(!event.state && self.items)  {
-				//self.renderMain();
-			//} 
-		};
-		self.renderMain()
 		
+		self.renderMain()
 	};
 
 
 
 	this.renderMain = async function() {
 
-		$("#info").hide();
-		$("#items").show().empty().append("<div class='alert alert-info'>Haen tietoja...</div>");
-		
+
+		//$("#items").show().empty().append("<div class='alert alert-info'>Fetching data ...</div>");
+		await self.getSets();
+
+	}
+
+	this.getSets = async function() {
+		$("#wdsets").empty()
 		try {
-			var result = await fetch(config.api_url + "/watchlist?status=edited", {credentials: "include"} );
+			var result = await fetch(config.api_url + "/watchlist/sets", {credentials: "include"} );
+			self.sets = await result.json();
+			$("#wdsets").append("<option>choose set</option>")
+			for(var wdset in self.sets) {
+				$("#wdsets").append("<option value='"+wdset+"'>" + wdset + " (" + self.sets[wdset] + " items)</option>")
+			}
+
+		} catch(e) {
+			console.log(e)
+		}
+	}
+
+
+	this.renderSetItems = async function() {
+		$("#setitems").show();
+		$("#items-all").empty();
+		$("#items-header").text('wikidata items [' + self.currentSet + ']')
+		try {
+			var result = await fetch(config.api_url + "/watchlist?status=edited&wdset=" + self.currentSet, {credentials: "include"} );
 			self.items = await result.json();
 			self.renderItems();
 			self.renderItemCount()
@@ -41,14 +53,16 @@ function kakeAdmin () {
 		}
 	}
 
+
 	this.renderItemCount = async function() {
-		var result = await fetch("/api/watchlist?mode=count", {credentials: "include"} );
+		var result = await fetch(config.api_url + "/watchlist?mode=count&wdset=" + self.currentSet, {credentials: "include"} );
 		var json = await result.json();
-		if(json && json.count) $("#item-count").text('Wikidatakohteita ' + json.count);
+		if(json && json.count) $("#item-count").text('Wikidata items ' + json.count);
 	}
 
+
 	this.renderAll = async function() {
-		var result = await fetch("/api/watchlist", {credentials: "include"} );
+		var result = await fetch(config.api_url + "/watchlist?wdset=" + self.currentSet, {credentials: "include"} );
 		var items = await result.json();
 		var html = ''
 		for(var item of items) {
@@ -57,19 +71,22 @@ function kakeAdmin () {
 		$("#items-all").empty().append(html)
 	}
 
+
 	this.checkEdits = async function() {
-		$("#items").empty().append('tarkistan...');
-		var result = await fetch("/api/watchlist/check", {method: 'POST', credentials: "include"} );
+		$("#items").empty().append('checking ' + self.items.length + ' items ...');
+		var result = await fetch(config.api_url + "/watchlist/check?wdset=" + self.currentSet, {method: 'POST', credentials: "include"} );
 		var json = await result.json();
-		self.renderMain();
+		self.renderSetItems();
 	}
 
+
 	this.approveEdit = async function(qid) {
-		$("#items").empty().append('päivitän ...');
-		var result = await fetch("/api/watchlist/" + qid, {method: 'PUT', credentials: "include"} );
+		$("#items").empty().append('updating ...');
+		var result = await fetch(config.api_url + "/watchlist/" + qid, {method: 'PUT', credentials: "include"} );
 		var json = await result.json();
-		self.renderMain();
+		self.renderSetItems();
 	}
+
 
 	this.renderItems = function() {
 		var html = "<table>";
@@ -84,7 +101,7 @@ function kakeAdmin () {
 			
 			html += "  <td><a target='_blank' href='" + config.wd_server + '/wiki/' + item._id + "'> <h4 style='margin-top:0px'>" + item.label + "</h4></a>";
 			//html += "  <td><a target='_blank' href='" + config.wd_server + 'w/index.php?title=' + item._id + '&action=history'"' > <h4 style='margin-top:0px'>historia</h4></a>";
-			html += "  <td><button data-id='" + item._id + "' class='button rev-approve'>hyväksy</button></td>";
+			html += "  <td><button data-id='" + item._id + "' class='button rev-approve'>edit OK</button></td>";
 			html += "</tr>";
 		}	
 		$("#items").empty().append(html + "</table>");
@@ -92,14 +109,18 @@ function kakeAdmin () {
 	}
 
 
-	this.addWikidataItem = async function(qid) {
+	this.addWikidataItem = async function(qid, wdset) {
 		qid = qid.replace(/ /g,'')
 		try {
 			var url = config.api_url + "/wikidata/" +  qid
 			var result = await fetch(url);
-			json = await result.json();
+			var json = await result.json();
 			
 			var doc = {_id: qid, label: {}, modified: json.entities[qid].modified}
+			
+			// add to current set by default
+			if(wdset) doc.wdset = wdset
+			else doc.wdset = self.currentSet
 
 			if(json.entities[qid].labels.en)
 				doc.label = json.entities[qid].labels.en.value
@@ -107,72 +128,22 @@ function kakeAdmin () {
 			if(json.entities[qid].labels.fi)
 				doc.label = json.entities[qid].labels.fi.value
 
-			var result = await fetch("/api/watchlist", {method: "POST", body: JSON.stringify(doc), credentials: "include"});
+			var update_res = await fetch(config.api_url + "/watchlist", {method: "POST", body: JSON.stringify(doc), credentials: "include"});
+			var update_json = await update_res.json();
+			if(!update_res.ok) throw(update_json.error)
+			self.getSets()
+			self.renderSetItems()
+			$("#info").show().text('added ' + doc.label)
 			
-			self.renderMain()
-			$("#info").show().text('lisätty ' + doc.label)
-			
 		} catch(e) {
-			alert('lisäys epäonnistui ' + e)
-		}
-
-	}
-
-
-	this.updateDoc = async function(collection, id, update) {
-		var url = config.gp_url + "/collections/" + collection + "/"+ id;
-		var result = await fetch(url, {method: "PUT", body: JSON.stringify(update), credentials: "include"});
-		result = await result.json();
-		return result;
-	}
-
-	this.fetchReservedItems = async function() {
-		// fetch items that are in workflow from GLAMpipe
-		try {
-			self.reserved_items = await $.getJSON(config.gp_url + "/collections/" + config.gp_collection + "/docs?limit=1000" );
-		} catch(e) {
-			$("#items").empty().append("<div class='alert alert-danger'>Virhe tietojen haussa GLAMpipesta!</div>Kokeile uudestaan, ja jos ei auta niin laita postia jyx-support@jyu.fi.");
-			return;
+			alert('add failed! ' + e)
 		}
 	}
-
-
-	this.fetchNewItems = async function() {
-		// fetch items that are in workflow from GLAMpipe
-		try {
-			self.ready_items = await fetch(config.gp_url + "/collections/" + config.gp_collection_processed + "/docs?limit=1000", {credentials: "include"} );
-		} catch(e) {
-			$("#items").empty().append("<div class='alert alert-danger'>Virhe tietojen haussa GLAMpipesta!</div>Kokeile uudestaan, ja jos ei auta niin laita postia jyx-support@jyu.fi.");
-			return;
-		}
+	
+	this.insertFromQuery = async function(query) {
+		await fetch(config.api_url + "/watchlist/query?wdset=jotain&query=" + query, {method: "POST"})
 	}
-
-
-	this.addMessage = function(msg, cl, div_id) {
-		if(div_id) {
-			$("#" + div_id).append("<div class='alert alert-"+cl+"'>" + msg + "</div>");
-		} else {
-			$("#messages").append("<div class='alert alert-"+cl+"'>" + msg + "</div>");
-		}
-	}
-
-
-
-
 }
 
-
-
-function getDate (str) {
-	var date_str = str.replace("OPIN2JYX_", "");
-	var date = new Date(date_str);
-	return date.toLocaleDateString();
-	
-};
-
-function dateFromObjectId (objectId) {
-	var date = new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
-	return date.getFullYear() + "-" + ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
-};
 
 

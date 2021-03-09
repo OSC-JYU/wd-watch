@@ -8,6 +8,7 @@ const fss 			= require('fs');
 var debug 			= require('debug')('debug');
 const Datastore 	= require('nedb-promises')
 const fetch		 	= require('node-fetch')
+const axios		 	= require('axios')
 
 let db = {};
 
@@ -45,6 +46,7 @@ app.use(async function handleError(context, next) {
 		await next();
 	} catch (error) {
 		context.status = 500;
+		if(error.status) context.status = error.status
 		if(error.message) {
 			console.log('ERROR: ' + error.message);
 			context.body = {'error':error.message};
@@ -59,6 +61,19 @@ app.use(async function handleError(context, next) {
 
 router.get('/api/status', function (ctx) {
 	ctx.body = 'ok'
+});
+
+
+router.get('/api/watchlist/sets', async function (ctx) {
+	var sets = {}
+	var items = await db.watchlist.find({}, {'wdset':1})
+	for(item of items) {
+		if(item.wdset) {
+			if(item.wdset in sets) sets[item.wdset] = sets[item.wdset] + 1
+			else sets[item.wdset] = 1
+		}
+	}
+	ctx.body = sets
 });
 
 
@@ -98,8 +113,38 @@ router.post('/api/watchlist', async function (ctx) {
 	if(typeof ctx.request.body == 'string') doc = JSON.parse(ctx.request.body)
 	debug('hit')
 	debug(doc)
-	var resp = await db.watchlist.insert(doc)
-	ctx.body = resp;
+	try {
+		var resp = await db.watchlist.insert(doc)
+	} catch(e) {
+		throw({message: 'insert failed ' + e})
+	}
+	ctx.body = resp
+});
+
+router.post('/api/watchlist/query', async function (ctx) {
+
+	debug(ctx.request.query)
+	var query = 'https://query.wikidata.org/sparql?query=' + encodeURI(ctx.request.query.query)
+	debug(query)
+	try {
+		var result = await axios(query)
+		for(var item of result.data.results.bindings) {
+			var doc = {_id: '',label:''}
+			doc._id = item.item.value.replace("http://www.wikidata.org/entity/","")
+			doc.label = item.itemLabel.value
+			doc.wdset = ctx.request.query.wdset
+			try {
+				debug('inserting ' + doc._id)
+				var resp = await db.watchlist.insert(doc)
+			} catch(e) {
+				//throw({message: 'insert failed ' + e})
+				console.log('insert failed')
+			}
+		}
+	} catch(e) {
+		throw({message: 'sparql query failed'})
+	}
+	ctx.body = 'ok'
 });
 
 
@@ -133,7 +178,7 @@ router.post('/api/watchlist/check', async function (ctx) {
 			var response = await db.watchlist.update({_id: item._id}, {$set: update}, {returnUpdatedDocs:1})
 			count++;
 		} else {
-			console.log('ei muutettu: ' + item.label)
+			console.log('no change ' + item.label)
 		}
 
 	}
