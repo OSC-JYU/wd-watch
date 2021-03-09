@@ -9,7 +9,7 @@
     npm install
     DEBUG=debug nodemon index.js
     
-mene selaimella http://localhost:8101
+mene selaimella http://localhost:8200
 
 # TODO
 - use Mongo database
