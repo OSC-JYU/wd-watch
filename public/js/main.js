@@ -19,16 +19,21 @@ $( document ).ready(function() {
 		if(qid == '') {
 			alert('anna Wikidata ID')
 		} else {
-			var wdset = $("#new_wdset").val();
-			admin.addWikidataItem(qid, wdset);
+			var wdset = $("#new-wdset-for-item").val();
+			if(!wdset) wdset = $("#wdset-for-item").val();
+			if(wdset) admin.addWikidataItem(qid, wdset);
+			else alert("You must set wdset")
 		}
 	})
 
 	$("#mass-add-items").click(function(e) {
 		e.preventDefault();
+		let wdset = null
 		var query = $("#query").val();
-		admin.insertFromQuery(query)
-		
+		wdset = $("#new-wdset-for-query").val();
+		if(!wdset) wdset = $("#wdset-for-query").val();
+		if(wdset) admin.insertFromQuery(query, wdset)
+		else alert("You must set wdset")
 	})
 
 	$("#wdsets").change(function(e) {

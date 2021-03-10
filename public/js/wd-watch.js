@@ -27,7 +27,7 @@ function WDWatch () {
 		try {
 			var result = await fetch(config.api_url + "/watchlist/sets", {credentials: "include"} );
 			self.sets = await result.json();
-			$(".wdsets").append("<option>choose set</option>")
+			$(".wdsets").append("<option value=''>choose set</option>")
 			for(var wdset in self.sets) {
 				$(".wdsets").append("<option value='"+wdset+"'>" + wdset + " (" + self.sets[wdset] + " items)</option>")
 			}
@@ -116,8 +116,7 @@ function WDWatch () {
 
 	this.addWikidataItem = async function(qid, wdset) {
 		qid = qid.replace(/ /g,'')
-		
-		if(!wdset) wdset = $("#wdsets-add").val()
+
 		try {
 			var update_res = await fetch(config.api_url + "/watchlist/" + qid + "?wdset=" + wdset, {method: "POST", credentials: "include"});
 			var update_json = await update_res.json();
@@ -131,8 +130,15 @@ function WDWatch () {
 		}
 	}
 	
-	this.insertFromQuery = async function(query) {
-		await fetch(config.api_url + "/watchlist/query?wdset=jotain&query=" + query, {method: "POST"})
+	this.insertFromQuery = async function(query, wdset) {
+		try {
+			var response = await fetch(config.api_url + "/watchlist/query?wdset=" + wdset + "&query=" + query, {method: "POST"})
+			var data = await response.json()
+			$("#info").show().text(data)
+			
+		} catch(e) {
+			alert('Query insert failed')
+		}
 	}
 }
 

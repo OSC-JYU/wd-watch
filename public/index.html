@@ -94,17 +94,21 @@
 					<h3>Add item to set</h3>
 					<input id="qid" placeholder="Q42"/>
 					<button class="button" id="add-item">Add Wikidata ID</button>
-					to <select class="wdsets" id="wdsets-add">
+					to <select class="wdsets" id="wdset-for-item">
 						<option>choose set</option>
 					</select>
-					or create new set <input id="new_wdset" placeholder="new set"/>
+					or create new set <input id="new-wdset-for-item" placeholder="new set"/>
 					<div class="alert alert-success" id="info"></div>
 
 					<h3>Add items from SPARQL query</h3>
-					<p>Query needs to provide "item" and "itemLabel", so make sure that your query starts with "<b>SELECT ?item ?itemLabel</b> ".</p>
+					<p>Query needs to provide "item", so make sure that your query starts with "<b>SELECT ?item </b> ".</p>
 					<p> Copy query here:</p>
 					<textarea rows="10" cols="80" id="query" ></textarea><br>
 					<button class="button" id="mass-add-items">Add Wikidata IDs</button>
+					to <select class="wdsets" id="wdset-for-query">
+						<option>choose set</option>
+					</select>
+					or create new set <input id="new-wdset-for-query" placeholder="new set"/>
 				</div>
 			</div>
 
