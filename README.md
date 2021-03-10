@@ -31,11 +31,33 @@ Aim your browser to demo UI in http://localhost:8200
     
         curl -XPOST 'http://localhost:8200/api/watchlist/Q42?wdset=Dougs'
 
-- add items from SPARQL
+- add items directly with SPARQL
 
     POST /api/watchlist/query?wdset=[SETNAME]&query=[QUERY]
+    Query result must include "**item**", so start your query with "SELECT ?item ...".
 
-        curl -XPOST "http://localhost:8200/api/watchlist/query?wdset=klimt&query=SELECT%20%2A%0AWHERE%0A%7B%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ3305213%20.%0A%20%20%3Fitem%20wdt%3AP170%20wd%3AQ34661%20.%0A%0A%7D%0Alimit%2010"
+      curl -G -XPOST 'http://localhost:8200/api/watchlist/query' \
+        --header "Accept: application/json" \
+        --data-urlencode wdset="Klimt" \
+        --data-urlencode query="
+      SELECT *
+      WHERE
+      {
+        ?item wdt:P31 wd:Q3305213 .
+        ?item wdt:P170 wd:Q34661 .
+      }
+      limit 10
+      "
+
+
+- get all sets
+
+    GET /api/watchlist/sets
+    
+        curl  'http://localhost:8200/api/watchlist/sets'
+
+
+
 
 - get all items in set
 
@@ -46,6 +68,12 @@ Aim your browser to demo UI in http://localhost:8200
 - check edits
 
     POST /api/watchlist/check?wdset=[SETNAME]
+    
+        curl -XPOST 'http://localhost:8200/api/watchlist/check?wdset=Dougs'
+        
+- approve edits
+
+    PUT /api/watchlist/[QID]
     
         curl -XPOST 'http://localhost:8200/api/watchlist/check?wdset=Dougs'
 
