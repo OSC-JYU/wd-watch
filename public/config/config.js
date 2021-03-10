@@ -1,6 +1,6 @@
 
 var server = "https://tools.oscapps.jyu.fi";
-var wd_server = "https://test.wikidata.org/"
+var wd_server = "https://wikidata.org/"
 
 
 var g_local_dev = false;

@@ -113,6 +113,7 @@ router.put('/api/watchlist/:qid', async function (ctx) {
 
 router.post('/api/watchlist/query', async function (ctx) {
 
+	if(!ctx.request.query.wdset) throw('You must set wdset!')
 	let result = {ok: 0, failure: []}
 	
 	debug(ctx.request.query)
@@ -154,7 +155,7 @@ router.post('/api/watchlist/check', async function (ctx) {
 		var result = await axios(url)
 		var json = result.data
 		var key = Object.keys(json.query.pages)
-		var timestamp = json.query.pages[key[0]].revisions[0].timestamp;
+		var timestamp = json.query.pages[key[0]].revisions[0].timestamp; // timestamp of latest edit
 		if(timestamp != item.modified) {
 			// we have an edit, now check how many edits there are after last check
 			console.log(timestamp + ' - ' + item.modified)
@@ -261,7 +262,7 @@ async function getWikidataItem(qid) {
 		var result = await axios(config.site + '/wiki/Special:EntityData/' + qid + '.json')
 		var doc = {
 			_id: qid, 
-			label: {}, 
+			label: '', 
 			modified: result.data.entities[qid].modified
 		}
 		
