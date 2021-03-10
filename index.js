@@ -7,7 +7,6 @@ const fs 			= require('fs').promises;
 const fss 			= require('fs');
 var debug 			= require('debug')('debug');
 const Datastore 	= require('nedb-promises')
-const fetch		 	= require('node-fetch')
 const axios		 	= require('axios')
 
 let db = {};
@@ -15,6 +14,8 @@ let config;
 
 var app				= new Koa();
 var router			= new Router();
+
+
 
 (async () => {
 	try {
@@ -61,6 +62,7 @@ app.use(async function handleError(context, next) {
 });
 
 
+/* ROUTES */
 router.get('/api/status', function (ctx) {
 	ctx.body = 'ok'
 });
@@ -103,92 +105,54 @@ router.get('/api/watchlist/:qid', async function (ctx) {
 // edit approval
 router.put('/api/watchlist/:qid', async function (ctx) {
 	var p = await db.watchlist.findOne({_id: ctx.params.qid});
-	console.log(p)
 	var update = {status: 'ok', modified: p.timestamp}
 	var response = await db.watchlist.update({_id: ctx.params.qid}, {$set: update}, {returnUpdatedDocs:1})
 	ctx.body = response;
 });
 
 
-// add item to watch set
-router.post('/api/watchlist/:qid', async function (ctx) {
-
-	if(!ctx.query.wdset) throw('wdset must be set')
-	var qid = ctx.params.qid
-	var result = await axios(config.site + '/wiki/Special:EntityData/' + ctx.params.qid + '.json')
-	var doc = {
-		_id: qid, 
-		label: {}, 
-		modified: result.data.entities[qid].modified,
-		wdset: ctx.request.query.wdset
-	}
-	
-	if(result.data.entities[qid].labels.en)
-		doc.label = result.data.entities[qid].labels.en.value
-
-	if(result.data.entities[qid].labels.fi)
-		doc.label = result.data.entities[qid].labels.fi.value
-		
-	if(!doc.label) doc.label = 'no label'
-		
-	try {
-		var resp = await db.watchlist.insert(doc)
-	} catch(e) {
-		throw({message: 'insert failed ' + e})
-	}
-	ctx.body = resp
-});
-
-
 router.post('/api/watchlist/query', async function (ctx) {
 
+	let result = {ok: 0, failure: []}
+	
 	debug(ctx.request.query)
-	var query = 'https://query.wikidata.org/sparql?query=' + encodeURI(ctx.request.query.query)
-	debug(query)
+	var query = config.sparql_endpoint + '/sparql?query=' + encodeURI(ctx.request.query.query)
+	debug('query: ' + query)
 	try {
-		var result = await axios(query)
-		for(var item of result.data.results.bindings) {
-			var doc = {_id: '',label:''}
-			doc._id = item.item.value.replace("http://www.wikidata.org/entity/","")
-			doc.label = item.itemLabel.value
+		var response = await axios(query)
+		for(var item of response.data.results.bindings) {
+			var qid = item.item.value.replace(/https?:\/\/www\.wikidata\.org\/entity\//,"")
+			var doc = await getWikidataItem(qid)
 			doc.wdset = ctx.request.query.wdset
 			try {
-				debug('inserting ' + doc._id)
+				debug('inserting ' + qid)
 				var resp = await db.watchlist.insert(doc)
+				result.ok++
 			} catch(e) {
 				//throw({message: 'insert failed ' + e})
-				console.log('insert failed')
+				console.log('insert failed ' )
+				result.failure.push(qid)
 			}
 		}
 	} catch(e) {
 		throw({message: 'sparql query failed'})
 	}
-	ctx.body = 'ok'
-});
-
-
-router.delete('/api/watchlist/:qid', async function (ctx) {
-	var p = await db.watchlist.remove({_id: ctx.params.qid});
-	ctx.body = p;
-});
-
-
-router.get('/api/wikidata/:qid', async function (ctx) {
-	var result = await axios(config.site + '/wiki/Special:EntityData/' + ctx.params.qid + '.json')
-	ctx.body = result.data
+	ctx.body = result
 });
 
 
 router.post('/api/watchlist/check', async function (ctx) {
 	console.log('checking...')
 	var count = 0;
+	var total = 0
 	var query = {}
 	if(ctx.query.wdset) query = {wdset: ctx.query.wdset} 
 	var items = await db.watchlist.find(query)
 	for(var item of items) {
-		var url = "https://test.wikidata.org/w/api.php?action=query&format=json&prop=revisions&titles=" + item._id + "&rvprop=ids|timestamp|flags|comment|user&rvlimit=10&rvdir=older"
-		var result = await fetch(url)
-		var json = await result.json()
+		total++
+		var url = config.site + "/w/api.php?action=query&format=json&prop=revisions&titles=" + item._id + "&rvprop=ids|timestamp|flags|comment|user&rvlimit=" + config.rvlimit + "&rvdir=older"
+		var result = await axios(url)
+		var json = result.data
 		var key = Object.keys(json.query.pages)
 		var timestamp = json.query.pages[key[0]].revisions[0].timestamp;
 		if(timestamp != item.modified) {
@@ -196,7 +160,7 @@ router.post('/api/watchlist/check', async function (ctx) {
 			console.log(timestamp + ' - ' + item.modified)
 			var edit_count = 0
 			var edits = []
-			for(var i=0; i < 10; i++) {
+			for(var i=0; i < config.rvlimit; i++) {
 				if(json.query.pages[key[0]].revisions[i]) {
 					if(item.modified != json.query.pages[key[0]].revisions[i].timestamp) {
 						edit_count++
@@ -218,10 +182,42 @@ router.post('/api/watchlist/check', async function (ctx) {
 
 	}
 	console.log(count)
-	ctx.body = {edited: count}
+	ctx.body = {"total": total,"edited": count}
 });
 
 
+// add item to watch set
+router.post('/api/watchlist/:qid', async function (ctx) {
+
+	if(!ctx.query.wdset) throw('wdset must be set')
+	var qid = ctx.params.qid
+	let resp
+		
+	try {
+		var doc = await getWikidataItem(qid)
+		doc.wdset = ctx.query.wdset
+		resp = await db.watchlist.insert(doc)
+	} catch(e) {
+		throw({message: 'insert failed ' + e})
+	}
+	ctx.body = resp
+});
+
+
+router.delete('/api/watchlist/:qid', async function (ctx) {
+	var p = await db.watchlist.remove({_id: ctx.params.qid});
+	ctx.body = p;
+});
+
+
+router.get('/api/wikidata/:qid', async function (ctx) {
+	var result = await axios(config.site + '/wiki/Special:EntityData/' + ctx.params.qid + '.json')
+	ctx.body = result.data
+});
+
+
+
+/* ROUTES ENDS */
 
 
 app.use(router.routes());
@@ -258,6 +254,30 @@ function createQuery(ctx) {
 	if(ctx.request.query.skip) q.skip = parseInt(ctx.request.query.skip);
 	return q;
 }
+
+
+async function getWikidataItem(qid) {
+	try {
+		var result = await axios(config.site + '/wiki/Special:EntityData/' + qid + '.json')
+		var doc = {
+			_id: qid, 
+			label: {}, 
+			modified: result.data.entities[qid].modified
+		}
+		
+		if(result.data.entities[qid].labels.en)
+			doc.label = result.data.entities[qid].labels.en.value
+
+		if(result.data.entities[qid].labels[config.preferred_label]) // preferred label if available
+			doc.label = result.data.entities[qid].labels.fi.value
+			
+		if(!doc.label) doc.label = 'no label'
+		return doc
+	} catch(e) {
+		throw('Could not get item ' + qid + e)
+	}
+}
+
 
 async function loadConfig() {
 	console.log('Lataan config -tiedostoa')

@@ -1,5 +1,8 @@
 {
-	"site": "https://test.wikidata.org"
+	"site": "https://www.wikidata.org",
+	"sparql_endpoint": "https://query.wikidata.org",
+	"preferred_label": "fi",
+	"rvlimit": 10
 }
 
 
