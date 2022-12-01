@@ -5,7 +5,7 @@ let chaiHttp = require('chai-http');
 let should = chai.should();
 
 
-let url = "http://localhost:8101";
+let url = "http://localhost:8200";
 
 const venus_id = "Q179482"
 
@@ -15,25 +15,9 @@ chai.use(chaiHttp);
 describe('Watchlist item', () => {
 
 	describe('/POST item', () => {
-		it('should delete item from wathclist', (done) => {
-			chai.request(url)
-				.delete('/api/watchlist/' + venus_id)
-				.end((err, res) => {
-					res.should.have.status(200);
-					done();
-				});
-		});
-	});
-
-	describe('/POST item', () => {
 		it('should create item in wathclist', (done) => {
-			let item = {
-				_id: venus_id,
-				wdset: 'test-set1'
-			};
 			chai.request(url)
-				.post('/api/watchlist')
-				.send(item)
+				.post('/api/watchlist/' + venus_id + '?wdset=test-set1')
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('object');
@@ -50,13 +34,13 @@ describe('Watchlist item', () => {
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('object');
-					chai.expect(res.body).to.have.property("wdset", "test-set1"); 
+					chai.expect(res.body).to.have.property("wdset", "test-set1");
 					done();
 				});
 		});
 	});
 
-	describe('/GET wathclist items in test-set1', () => {
+	describe('/GET items in test-set1', () => {
 		it('get all items in test-set1', (done) => {
 			chai.request(url)
 				.get('/api/watchlist?wdset=test-set1')
@@ -71,66 +55,51 @@ describe('Watchlist item', () => {
 
 });
 
+describe('/GET set count', () => {
+	it('test-set1 should have zero items', (done) => {
+		chai.request(url)
+			.get('/api/watchlist/sets')
+			.end((err, res) => {
+				res.should.have.status(200);
+				res.body.should.be.a('object');
+				chai.expect(res.body).to.have.property('test-set1');
+				done();
+			});
+	});
+});
 
 describe('Watchlist check', () => {
-	describe('/POST check edits', () => {
+
+	describe('/POST create report', () => {
 		it('should check changes in wathclist', (done) => {
 			chai.request(url)
-				.post('/api/watchlist/check?wdset=test-set1')
-				.send({})
+				.post('/api/watchlist/report?wdset=test-set1')
 				.end((err, res) => {
 					res.should.have.status(200);
-					res.body.should.have.property('edited',1);
 					done();
 				});
 		});
 	});
 
 	describe('/GET checked item', () => {
-		it('item status should be "edited"', (done) => {
+		it('item should be "edit_count"', (done) => {
 			chai.request(url)
 				.get('/api/watchlist/' + venus_id)
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('object');
-					chai.expect(res.body).to.have.property("status", "edited"); 
+					chai.expect(res.body).to.have.property("edit_count");
 					done();
 				});
 		});
 	});
 
-	describe('/POST approve edits', () => {
-		it('should approve edits', (done) => {
+	describe('/DELETE remove item', () => {
+		it('should delete item from wathclist', (done) => {
 			chai.request(url)
-				.put('/api/watchlist/' + venus_id)
+				.delete('/api/watchlist/' + venus_id)
 				.end((err, res) => {
 					res.should.have.status(200);
-					done();
-				});
-		});
-	});
-
-	describe('/POST check again', () => {
-		it('should check changes in wathclist', (done) => {
-			chai.request(url)
-				.post('/api/watchlist/check?wdset=test-set1')
-				.send({})
-				.end((err, res) => {
-					res.should.have.status(200);
-					res.body.should.have.property('edited',0);
-					done();
-				});
-		});
-	});
-
-	describe('/GET checked item', () => {
-		it('item status should be"ok"', (done) => {
-			chai.request(url)
-				.get('/api/watchlist/' + venus_id)
-				.end((err, res) => {
-					res.should.have.status(200);
-					res.body.should.be.a('object');
-					chai.expect(res.body).to.have.property("status", "ok"); 
 					done();
 				});
 		});
@@ -139,4 +108,38 @@ describe('Watchlist check', () => {
 });
 
 
+describe('Sparql import', () => {
 
+	describe('/POST get items from Sparql', () => {
+		it('make query', (done) => {
+			const sparql = `SELECT ?item ?itemLabel
+			      WHERE
+			      {
+			        ?item wdt:P31 wd:Q3305213 .
+			        ?item wdt:P170 wd:Q34661 .
+			         SERVICE wikibase:label { bd:serviceParam wikibase:language "fi,en". }
+			      }
+			      limit 200`
+			chai.request(url)
+				.post('/api/watchlist/query?query=' + sparql + '&wdset=Klimt')
+				.end((err, res) => {
+					res.should.have.status(200);
+					done();
+				});
+		});
+	});
+
+	describe('/GET items in Klimt', () => {
+		it('get all items in test-set1', (done) => {
+			chai.request(url)
+				.get('/api/watchlist?wdset=Klimt')
+				.end((err, res) => {
+					res.should.have.status(200);
+					res.body.should.be.a('array');
+					res.body.length.should.be.eql(10);
+					done();
+				});
+		});
+	});
+
+});

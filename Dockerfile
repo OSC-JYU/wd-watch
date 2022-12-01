@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:18-alpine
 
 # Install app dependencies
 RUN apk update && apk add bash
@@ -9,6 +9,6 @@ COPY . /src
 WORKDIR /src
 EXPOSE  8200
 
-ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
+ ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
 
 CMD ["node", "index.js"]

@@ -8,18 +8,20 @@ const fss 			= require('fs');
 var debug 			= require('debug')('debug');
 const Datastore 	= require('nedb-promises')
 const axios		 	= require('axios')
+const Report	 	= require('./report.js')
 
-let db = {};
-let config;
+let db = {}
+let config
+let report
 
 var app				= new Koa();
 var router			= new Router();
 
 
-
 (async () => {
 	try {
 		await loadConfig();
+		report 	= new Report(config)
 		db.watchlist = Datastore.create('./data/watchlist.db')
 		db.watchlist.ensureIndex({ fieldName: 'label' }, function (err) {
 			console.log(err)
@@ -28,12 +30,12 @@ var router			= new Router();
 		console.log('Could not create or load database, aborting...');
 		console.log(e);
 		process.exit(1);
-    }
+	}
 })();
 
 
 //Set up body parsing middleware
-app.use(bodyParser({ 
+app.use(bodyParser({
    multipart: true,
    urlencoded: true
 }));
@@ -86,10 +88,11 @@ router.get('/api/watchlist', async function (ctx) {
 	var q = createQuery(ctx)
 	debug(q)
 	var p = {};
-	if(ctx.request.query.mode == 'count')
+	if(ctx.request.query.mode == 'count') {
 		p.count = await db.watchlist.count(q.query)
-	else
+	} else {
 		p = await db.watchlist.find(q.query, q.keys).sort(q.sort).limit(q.limit).skip(q.skip)
+	}
 	ctx.body = p;
 });
 
@@ -105,28 +108,36 @@ router.get('/api/watchlist/:qid', async function (ctx) {
 // edit approval
 router.put('/api/watchlist/:qid', async function (ctx) {
 	var p = await db.watchlist.findOne({_id: ctx.params.qid});
-	var update = {status: 'ok', modified: p.timestamp}
+	var update = {status: 'ok', latest_edit: p.timestamp}
 	var response = await db.watchlist.update({_id: ctx.params.qid}, {$set: update}, {returnUpdatedDocs:1})
 	ctx.body = response;
 });
 
 
+router.post('/api/watchlist/report', async function (ctx) {
+	if(!ctx.request.query.wdset) throw('You must set wdset!')
+	var filename = await report.create(ctx.request.query.wdset, db, ctx.request.query.mode)
+	ctx.body = filename
+})
+
 router.post('/api/watchlist/query', async function (ctx) {
 
 	if(!ctx.request.query.wdset) throw('You must set wdset!')
 	let result = {ok: 0, failure: []}
-	
+
 	debug(ctx.request.query)
 	var query = config.sparql_endpoint + '/sparql?query=' + encodeURI(ctx.request.query.query)
 	debug('query: ' + query)
+	console.log(query)
 	try {
 		var response = await axios(query)
 		for(var item of response.data.results.bindings) {
 			var qid = item.item.value.replace(/https?:\/\/www\.wikidata\.org\/entity\//,"")
-			var doc = await getWikidataItem(qid)
+			var doc = await getWikidataItem(qid, item)
 			doc.wdset = ctx.request.query.wdset
 			try {
 				debug('inserting ' + qid)
+				console.log(`${result.ok} inserting ${qid}`)
 				var resp = await db.watchlist.insert(doc)
 				result.ok++
 			} catch(e) {
@@ -142,58 +153,13 @@ router.post('/api/watchlist/query', async function (ctx) {
 });
 
 
-router.post('/api/watchlist/check', async function (ctx) {
-	console.log('checking...')
-	var count = 0;
-	var total = 0
-	var query = {}
-	if(ctx.query.wdset) query = {wdset: ctx.query.wdset} 
-	var items = await db.watchlist.find(query)
-	for(var item of items) {
-		total++
-		var url = config.site + "/w/api.php?action=query&format=json&prop=revisions&titles=" + item._id + "&rvprop=ids|timestamp|flags|comment|user&rvlimit=" + config.rvlimit + "&rvdir=older"
-		var result = await axios(url)
-		var json = result.data
-		var key = Object.keys(json.query.pages)
-		var timestamp = json.query.pages[key[0]].revisions[0].timestamp; // timestamp of latest edit
-		if(timestamp != item.modified) {
-			// we have an edit, now check how many edits there are after last check
-			console.log(timestamp + ' - ' + item.modified)
-			var edit_count = 0
-			var edits = []
-			for(var i=0; i < config.rvlimit; i++) {
-				if(json.query.pages[key[0]].revisions[i]) {
-					if(item.modified != json.query.pages[key[0]].revisions[i].timestamp) {
-						edit_count++
-						edits.push(json.query.pages[key[0]].revisions[i].comment + "::" + json.query.pages[key[0]].revisions[i].user)
-					}
-				}
-			}
-			var update = {
-				status: 'edited', 
-				timestamp: timestamp, 
-				edits: edits,
-				edit_count: edit_count
-			}
-			var response = await db.watchlist.update({_id: item._id}, {$set: update}, {returnUpdatedDocs:1})
-			count++;
-		} else {
-			console.log('no change ' + item.label)
-		}
-
-	}
-	console.log(count)
-	ctx.body = {"total": total,"edited": count}
-});
-
-
 // add item to watch set
 router.post('/api/watchlist/:qid', async function (ctx) {
 
 	if(!ctx.query.wdset) throw('wdset must be set')
 	var qid = ctx.params.qid
 	let resp
-		
+
 	try {
 		var doc = await getWikidataItem(qid)
 		doc.wdset = ctx.query.wdset
@@ -257,25 +223,43 @@ function createQuery(ctx) {
 }
 
 
-async function getWikidataItem(qid) {
-	try {
-		var result = await axios(config.site + '/wiki/Special:EntityData/' + qid + '.json')
+async function getWikidataItem(qid, item) {
+	// if we got item label from SPARQL, then use that label (much faster)
+	if(item && item.itemLabel) {
 		var doc = {
-			_id: qid, 
-			label: '', 
-			modified: result.data.entities[qid].modified
+			_id: qid,
+			label: item.itemLabel.value,
+			latest_edit: ''
 		}
-		
-		if(result.data.entities[qid].labels.en)
-			doc.label = result.data.entities[qid].labels.en.value
-
-		if(result.data.entities[qid].labels[config.preferred_label]) // preferred label if available
-			doc.label = result.data.entities[qid].labels.fi.value
-			
-		if(!doc.label) doc.label = 'no label'
 		return doc
-	} catch(e) {
-		throw('Could not get item ' + qid + e)
+	} else {
+		try {
+			var result = await axios(config.site + '/wiki/Special:EntityData/' + qid + '.json')
+			var doc = {
+				_id: qid,
+				label: '',
+				latest_edit: result.data.entities[qid].modified
+			}
+
+			if(result.data.entities[qid].labels.en)
+				doc.label = result.data.entities[qid].labels.en.value
+
+			if(result.data.entities[qid].labels[config.preferred_lang]) // preferred label if available
+				doc.label = result.data.entities[qid].labels[config.preferred_lang].value
+
+			if(!doc.label && result.data.entities[qid].descriptions[config.preferred_lang]) {
+				doc.label = result.data.entities[qid].descriptions[config.preferred_lang].value
+			}
+
+			// use en description as label if other not found
+			if(!doc.label && result.data.entities[qid].descriptions.en) {
+				doc.label = result.data.entities[qid].descriptions.en.value
+			}
+			if(!doc.label) doc.label = qid
+			return doc
+		} catch(e) {
+			throw('Could not get item ' + qid + e)
+		}
 	}
 }
 

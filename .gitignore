@@ -1,3 +1,4 @@
 data/*
 node_modules/
+public/reports/*
 Makefile_tuotanto

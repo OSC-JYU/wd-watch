@@ -20,12 +20,10 @@ start:
 		-e DEBUG=debug,error \
 		-p 8200:8200 \
 		 osc-jyu/wd-watch:latest
-restart: 
+restart:
 	docker stop wd-watch
 	docker rm wd-watch
 	$(MAKE) start
 
 bash:
 	docker exec -it wd-watch bash
-
-
