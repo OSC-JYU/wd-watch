@@ -60,7 +60,7 @@ Let's add ten artworks by Gustav Klimt with SPARQL:
     }
     limit 10
     "
-    
+
 Create report for Klimt works:
 
     curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt'
@@ -106,12 +106,19 @@ Do not expose WD-watch API to the world. It's meant to be used locally only. How
 
 
 
-
 - get all items in set
 
     GET /api/watchlist/?wdset=[SETNAME]
 
         curl  'http://localhost:8200/api/watchlist/?wdset=Dougs'
+
+
+- delete item from set
+
+    DELETE /api/watchlist/[QID]?wdset=[SETNAME]
+
+        curl  XDELETE 'http://localhost:8200/api/watchlist/Q42'
+
 
 - create report
 
@@ -120,8 +127,8 @@ Do not expose WD-watch API to the world. It's meant to be used locally only. How
         curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Dougs'
 
 
-- delete item from set
+- list reports page
 
-    DELETE /api/watchlist/[QID]?wdset=[SETNAME]
+    GET /reports
 
-        curl  XDELETE 'http://localhost:8200/api/watchlist/Q42'
+        http://localhost:8200/reports
