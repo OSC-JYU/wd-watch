@@ -70,6 +70,12 @@ router.get('/api/status', function (ctx) {
 });
 
 
+router.get('/reports', function (ctx) {
+	var files = readdirSortTime('public/reports')
+	ctx.body = files
+});
+
+
 router.get('/api/watchlist/sets', async function (ctx) {
 	var sets = {}
 	var items = await db.watchlist.find({}, {'wdset':1})
@@ -261,6 +267,22 @@ async function getWikidataItem(qid, item) {
 			throw('Could not get item ' + qid + e)
 		}
 	}
+}
+
+
+function readdirSortTime(dir, timeKey = 'mtime') {
+
+    var files = fss.readdirSync(dir)
+    .map(name => ({
+      name,
+      time: fss.statSync(`${dir}/${name}`)[timeKey].getTime(),
+	  stats: fss.statSync(`${dir}/${name}`)
+    }))
+    .sort((a, b) => (b.time - a.time)) // ascending
+    .map(f => `<tr><td><a href="${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
+
+	const html = report.getHead()
+    return html + '<table>' + files.join('') + '</table>'
 }
 
 

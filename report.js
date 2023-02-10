@@ -21,17 +21,17 @@ const head = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "ht
 
 <body>
 
-<header class="site-header container-fluid hidden-print">
-  <div class="site-brand-container container">
-	<div class="row">
-	  <div class="col-2 col-sm-2 col-md-10 col-xl-7 site-logo-container">
-		<p class="hidden-sm-down site-name">
-		  <h2>WD-watch</h2>
-		</p>
+	<header class="site-header container-fluid hidden-print">
+	  <div class="site-brand-container container">
+		<div class="row">
+		  <div class="col-2 col-sm-2 col-md-10 col-xl-7 site-logo-container">
+			<p class="hidden-sm-down site-name">
+			  <h2>WD-watch</h2>
+			</p>
+		  </div>
+		</div>
 	  </div>
-	</div>
-  </div>
-</header>
+	</header>
 
 <div class="container">
 <div class="col-md-12 col-lg-12 col-xl-12 main">
@@ -47,6 +47,9 @@ module.exports = class Report {
 		this.config = config
 	}
 
+	getHead() {
+		return head
+	}
 
 	async create(wdset, db, mode) {
 		try {
@@ -218,7 +221,7 @@ module.exports = class Report {
 
 		// added translations
 		if(report.translations_added.length) {
-			html += "<h2>" + this.config.title_translations_added + "</h2>"
+			html += `<h2>${this.config.title_translations_added} (${report.translations_added.length})</h2>`
 			html += '<ul>\n'
 			for(var edit of report.translations_added) {
 				if(prev_item != edit.item._id) {
@@ -235,7 +238,7 @@ module.exports = class Report {
 
 		// modified labels
 		if(report.edited_labels.length) {
-			html += "<h2>" + this.config.title_translations_edited + "</h2>"
+			html += `<h2>${this.config.title_translations_edited} (${report.edited_labels.length})</h2>`
 			html += '<ul>\n'
 			prev_item = null
 			for(edit of report.edited_labels) {
@@ -252,7 +255,7 @@ module.exports = class Report {
 
 		// descriptions
 		if(report.descriptions.length) {
-			html += "<h2>" + this.config.title_descriptions + "</h2>"
+			html += `<h2>${this.config.title_descriptions} (${report.descriptions.length})</h2>`
 			html += '<ul>\n'
 			prev_item = null
 			for(edit of report.descriptions) {
@@ -269,7 +272,7 @@ module.exports = class Report {
 
 		// properties
 		if(report.properties.length) {
-			html += "<h2>" + this.config.title_properties + "</h2>"
+			html += `<h2>${this.config.title_properties} (${report.properties.length})</h2>`
 			html += '<ul>\n'
 			prev_item = null
 			for(edit of report.properties) {
