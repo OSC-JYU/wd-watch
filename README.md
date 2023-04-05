@@ -32,7 +32,7 @@ Check that API is responsing
 
     curl http://localhost:8200/api/status
 
-Add Adam Douglas:
+Add Adam Douglas (Q42) to set "Dougs":
 
     curl -XPOST 'http://localhost:8200/api/watchlist/Q42?wdset=Dougs'
 
@@ -40,8 +40,10 @@ Create report:
 
     curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Dougs'
 
+
 This will return something like '/reports/Dougs_2022-12-1.html'
-Aim your browser to http://localhost:8200/reports/Dougs_2022-12-1.html
+
+Aim your browser to http://localhost:8200/reports and you should see all reports.
 
 The first report includes all edits (the limit is the "rvlimit" setting in config.js). However, the next report includes edits that has newer timestamp than previous report.
 

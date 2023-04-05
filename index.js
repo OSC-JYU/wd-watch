@@ -279,7 +279,7 @@ function readdirSortTime(dir, timeKey = 'mtime') {
 	  stats: fss.statSync(`${dir}/${name}`)
     }))
     .sort((a, b) => (b.time - a.time)) // ascending
-    .map(f => `<tr><td><a href="${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
+    .map(f => `<tr><td><a href="reports/${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
 
 	const html = report.getHead()
     return html + '<table>' + files.join('') + '</table>'
