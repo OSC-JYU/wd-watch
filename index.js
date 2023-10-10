@@ -122,7 +122,7 @@ router.put('/api/watchlist/:qid', async function (ctx) {
 
 router.post('/api/watchlist/report', async function (ctx) {
 	if(!ctx.request.query.wdset) throw('You must set wdset!')
-	var filename = await report.create(ctx.request.query.wdset, db, ctx.request.query.mode)
+	var filename = await report.create(ctx.request.query.wdset, db, ctx.request.query.mode, ctx.request.query.mail)
 	ctx.body = filename
 })
 
@@ -149,6 +149,7 @@ router.post('/api/watchlist/query', async function (ctx) {
 			} catch(e) {
 				//throw({message: 'insert failed ' + e})
 				console.log('insert failed ' )
+				console.log(e)
 				result.failure.push(qid)
 			}
 		}

@@ -67,6 +67,17 @@ Create report for Klimt works:
 
     curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt'
 
+
+## Sending email
+
+WD-watch can be configured to send email whern report is created. You must define environment variables MAILER, MAILER_PORT and MAILTO. 
+
+
+
+Then just add "mail" query parameter to report creating endpoint like this:
+
+     curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt&mail=somebody@somewhere.com'
+
 ## Installation
 
 Do not expose WD-watch API to the world. It's meant to be used locally only. However, you can expose 'reports' -directory, so people can easily access reports.

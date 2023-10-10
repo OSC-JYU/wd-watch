@@ -2,8 +2,11 @@
 const fs 		= require('fs/promises')
 const path 		= require('path')
 const axios		= require('axios')
+const nodemailer = require("nodemailer");
 
-
+const mailto = process.env.MAILTO || 'nobody@watch.wd'
+const mailer = process.env.MAILER || 'localhost'
+const port = process.env.MAILER_PORT || 1025
 
 const head = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
@@ -16,6 +19,25 @@ const head = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "ht
 
 	<link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="./../css/overrides.css" rel="stylesheet">
+	<style>
+	h4 {
+		margin-top:20px;
+	}
+	
+	.site-logo-container {
+		background-color: #002957;
+		color: white;
+		padding: 10px;
+	}
+	
+	table {
+		margin-top: 20px;
+	}
+	table td {
+		min-width: 250px;
+	}
+	</style>
+
 	<title>WD-Watch</title>
 </head>
 
@@ -39,6 +61,12 @@ const head = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "ht
 <img src = "../images/gardener.svg" alt="My Happy gardener" style="position: absolute; right:0px; height:120px; margin-top:60px"/>
 `
 
+const transporter = nodemailer.createTransport({
+	host: mailer,
+	port: port,
+	secure: false,
+	tls: { minVersion: 'TLSv1' }
+  });
 
 
 module.exports = class Report {
@@ -51,7 +79,7 @@ module.exports = class Report {
 		return head
 	}
 
-	async create(wdset, db, mode) {
+	async create(wdset, db, mode, mail) {
 		try {
 			const date = new Date()
 			let day = date.getDate();
@@ -68,13 +96,32 @@ module.exports = class Report {
 			var html = this.createHTML(report, wdset)
 
 			await fs.writeFile(path.join('public', 'reports', filename), html);
+			if (mail) await this.sendMail(mail, wdset, html)
 			return '/reports/' + filename
 		} catch (err) {
 			console.log(err);
+			throw(err)
 		}
 	}
 
+	async sendMail(email, wdset, html) {
 
+
+		var message = {
+			from: mailto,
+			to: mailto,
+			replyTo: email,
+			subject: `WD-watch report: ${wdset}`, // Subject line
+			text: "raportti", // plain text body
+			html: `${html}` // html body
+		}
+	
+		const info = await transporter.sendMail(message)
+		console.log("Message sent: %s", info.messageId);
+		return info.messageId
+	
+	}
+	
 
 	async getEdits(wdset, db, mode) {
 		console.log('checking edits...')
@@ -83,6 +130,7 @@ module.exports = class Report {
 		var total = 0
 		var query = {wdset: wdset}
 		var items = await db.watchlist.find(query)
+		if(items.length === 0) throw('no items found')
 		for(var item of items) {
 			total++
 			var url = this.config.site + "/w/api.php?action=query&format=json&prop=revisions&titles=" + item._id + "&rvprop=ids|timestamp|flags|comment|user&rvlimit=" + this.config.rvlimit + "&rvdir=older"

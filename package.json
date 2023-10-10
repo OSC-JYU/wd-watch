@@ -11,12 +11,13 @@
     "koa-router": "^8.0.8",
     "koa-static": "^5.0.0",
     "nedb-promises": "^4.1.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "node-mailer": "^0.1.1"
   },
   "devDependencies": {
-    "mocha": "^8.2.1",
     "chai": "^4.2.0",
-    "chai-http": "^4.3.0"
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1"
   },
   "scripts": {
     "test": "mocha"
