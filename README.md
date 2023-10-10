@@ -74,16 +74,15 @@ WD-watch can be configured to send email whern report is created. You must defin
 
 
 
-Then just add "mail" query parameter to report creating endpoint like this:
+Then just add "mail" query parameter and call report creating endpoint like this:
 
      curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt&mail=somebody@somewhere.com'
 
-## Installation
+## API
 
 Do not expose WD-watch API to the world. It's meant to be used locally only. However, you can expose 'reports' -directory, so people can easily access reports.
 
 
-###	API
 
 - add individual item
 

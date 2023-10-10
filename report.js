@@ -20,10 +20,19 @@ const head = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "ht
 	<link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="./../css/overrides.css" rel="stylesheet">
 	<style>
-	h4 {
+
+	body {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #333;
+	  }
+
+	  h4 {
 		margin-top:20px;
 	}
-	
+
+
 	.site-logo-container {
 		background-color: #002957;
 		color: white;
@@ -264,12 +273,27 @@ module.exports = class Report {
 		html += `<p>${this.config.title_item_count}: ${report.total_count} </p>\n\n`
 		html += `<p>${this.config.title_edit_count}: ${report.edit_count} </p>\n\n`
 		html += `<p>${this.config.title_report_date}: ${date} </p>\n\n`
+
+		// TOC
+		if(report.translations_added.length) {
+			html += `<a href="#title_translations"><h4>${this.config.title_translations_added} (${report.translations_added.length})</h4></a>`
+		}
+		if(report.edited_labels.length) {
+			html += `<a href="#modified_labels"><h4>${this.config.title_translations_edited} (${report.edited_labels.length})</h4></a>`
+		}
+		if(report.descriptions.length) {
+			html += `<a href="#descriptions"><h4>${this.config.title_descriptions} (${report.descriptions.length})</h4></a>`
+		}
+		if(report.properties.length) {
+			html += `<a href="#properties"><h4>${this.config.title_properties} (${report.properties.length})</h4></a>`
+		}
+
 		var prev_item = null
 
 
 		// added translations
 		if(report.translations_added.length) {
-			html += `<h2>${this.config.title_translations_added} (${report.translations_added.length})</h2>`
+			html += `<a name="title_translations"><br></a><h2>${this.config.title_translations_added} (${report.translations_added.length})</h2>`
 			html += '<ul>\n'
 			for(var edit of report.translations_added) {
 				if(prev_item != edit.item._id) {
@@ -286,7 +310,7 @@ module.exports = class Report {
 
 		// modified labels
 		if(report.edited_labels.length) {
-			html += `<h2>${this.config.title_translations_edited} (${report.edited_labels.length})</h2>`
+			html += `<a name="modified_labels"><br></a><h2>${this.config.title_translations_edited} (${report.edited_labels.length})</h2>`
 			html += '<ul>\n'
 			prev_item = null
 			for(edit of report.edited_labels) {
@@ -303,7 +327,7 @@ module.exports = class Report {
 
 		// descriptions
 		if(report.descriptions.length) {
-			html += `<h2>${this.config.title_descriptions} (${report.descriptions.length})</h2>`
+			html += `<a name="descriptions"><br></a><h2>${this.config.title_descriptions} (${report.descriptions.length})</h2>`
 			html += '<ul>\n'
 			prev_item = null
 			for(edit of report.descriptions) {
@@ -320,7 +344,7 @@ module.exports = class Report {
 
 		// properties
 		if(report.properties.length) {
-			html += `<h2>${this.config.title_properties} (${report.properties.length})</h2>`
+			html += `<a name="properties"><br></a><h2>${this.config.title_properties} (${report.properties.length})</h2>`
 			html += '<ul>\n'
 			prev_item = null
 			for(edit of report.properties) {

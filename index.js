@@ -89,6 +89,14 @@ router.get('/api/watchlist/sets', async function (ctx) {
 });
 
 
+router.delete('/api/watchlist/sets', async function (ctx) {
+	var query = {wdset: ctx.request.query.wdset}
+	var items = await db.watchlist.remove(query, {multi: true})
+	ctx.body = 'done'
+});
+
+
+
 router.get('/api/watchlist', async function (ctx) {
 
 	var q = createQuery(ctx)
@@ -280,7 +288,7 @@ function readdirSortTime(dir, timeKey = 'mtime') {
 	  stats: fss.statSync(`${dir}/${name}`)
     }))
     .sort((a, b) => (b.time - a.time)) // ascending
-    .map(f => `<tr><td><a href="reports/${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
+    .map(f => `<tr><td><a href="${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
 
 	const html = report.getHead()
     return html + '<table>' + files.join('') + '</table>'
