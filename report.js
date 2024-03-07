@@ -2,11 +2,7 @@
 const fs 		= require('fs/promises')
 const path 		= require('path')
 const axios		= require('axios')
-const nodemailer = require("nodemailer");
-
-const mailto = process.env.MAILTO || 'nobody@watch.wd'
-const mailer = process.env.MAILER || 'localhost'
-const port = process.env.MAILER_PORT || 1025
+const nodemailer 	= require("nodemailer");
 
 const head = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
@@ -70,18 +66,21 @@ const head = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "ht
 <img src = "../images/gardener.svg" alt="My Happy gardener" style="position: absolute; right:0px; height:120px; margin-top:60px"/>
 `
 
-const transporter = nodemailer.createTransport({
-	host: mailer,
-	port: port,
-	secure: false,
-	tls: { minVersion: 'TLSv1' }
-  });
-
-
 module.exports = class Report {
 
 	constructor(config) {
 		this.config = config
+		console.log('mailer:', config.mailer )
+		console.log('mailer port:', config.mailer_port )
+
+		this.transporter = nodemailer.createTransport({
+			host: config.mailer,
+			port: config.mailer_port,
+			secure: false,
+			tls: { minVersion: 'TLSv1' }
+  		});
+
+
 	}
 
 	getHead() {
@@ -117,15 +116,14 @@ module.exports = class Report {
 
 
 		var message = {
-			from: mailto,
-			to: mailto,
-			replyTo: email,
+			from: "nobody@jyu.fi",
+			to: email,
 			subject: `WD-watch report: ${wdset}`, // Subject line
 			text: "raportti", // plain text body
 			html: `${html}` // html body
 		}
 	
-		const info = await transporter.sendMail(message)
+		const info = await this.transporter.sendMail(message)
 		console.log("Message sent: %s", info.messageId);
 		return info.messageId
 	

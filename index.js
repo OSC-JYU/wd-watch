@@ -10,6 +10,10 @@ const Datastore 	= require('nedb-promises')
 const axios		 	= require('axios')
 const Report	 	= require('./report.js')
 
+const mailer = process.env.MAILER || 'localhost'
+const port = process.env.MAILER_PORT || 1025
+
+
 let db = {}
 let config
 let report
@@ -21,6 +25,8 @@ var router			= new Router();
 (async () => {
 	try {
 		await loadConfig();
+		config.mailer = mailer
+		config.mailer_port = port
 		report 	= new Report(config)
 		db.watchlist = Datastore.create('./data/watchlist.db')
 		db.watchlist.ensureIndex({ fieldName: 'label' }, function (err) {
@@ -90,8 +96,9 @@ router.get('/api/watchlist/sets', async function (ctx) {
 
 
 router.delete('/api/watchlist/sets', async function (ctx) {
+	console.log(ctx.request.query)
 	var query = {wdset: ctx.request.query.wdset}
-	var items = await db.watchlist.remove(query, {multi: true})
+	var items = await db.watchlist.remove({}, {multi: true})
 	ctx.body = 'done'
 });
 
@@ -288,7 +295,7 @@ function readdirSortTime(dir, timeKey = 'mtime') {
 	  stats: fss.statSync(`${dir}/${name}`)
     }))
     .sort((a, b) => (b.time - a.time)) // ascending
-    .map(f => `<tr><td><a href="${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
+    .map(f => `<tr><td><a href="reports/${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
 
 	const html = report.getHead()
     return html + '<table>' + files.join('') + '</table>'
