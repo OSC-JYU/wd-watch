@@ -6,19 +6,12 @@
 
 	"main_title": "Wikidata-puutarhurin raportti",
 
-	"title_item_count": "Wikidata -kohteinta",
+	"title_item_count": "Wikidata -kohteita",
 	"title_edit_count": "Raportoitavia muokkauksia",
 	"title_report_date": "Raportti luotu",
 	"title_translations_added": "Lisätyt käännökset",
 	"title_translations_edited": "Muokatetut nimet (labels)",
 	"title_properties": "Properties",
-	"title_descriptions": "Kuvailujen lisäykset (descriptions)",
+	"title_descriptions": "Kuvailujen lisäykset (descriptions)"
 
-	"wdsets": {
-		"Klimt": {
-			"emails": []
-		},
-		"JYU": {
-		}
-	}
 }

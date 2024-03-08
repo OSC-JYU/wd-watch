@@ -13,7 +13,6 @@ const Report	 	= require('./report.js')
 const mailer = process.env.MAILER || 'localhost'
 const port = process.env.MAILER_PORT || 1025
 
-
 let db = {}
 let config
 let report
@@ -27,6 +26,7 @@ var router			= new Router();
 		await loadConfig();
 		config.mailer = mailer
 		config.mailer_port = port
+		console.log(config)
 		report 	= new Report(config)
 		db.watchlist = Datastore.create('./data/watchlist.db')
 		db.watchlist.ensureIndex({ fieldName: 'label' }, function (err) {
