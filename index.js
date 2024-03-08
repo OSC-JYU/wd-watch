@@ -149,7 +149,7 @@ router.post('/api/watchlist/query', async function (ctx) {
 	debug(ctx.request.query)
 	var query = config.sparql_endpoint + '/sparql?query=' + encodeURI(ctx.request.query.query)
 	debug('query: ' + query)
-	console.log(query)
+	//console.log(query)
 	try {
 		var response = await axios(query)
 		for(var item of response.data.results.bindings) {
@@ -158,13 +158,13 @@ router.post('/api/watchlist/query', async function (ctx) {
 			doc.wdset = ctx.request.query.wdset
 			try {
 				debug('inserting ' + qid)
-				console.log(`${result.ok} inserting ${qid}`)
+				//console.log(`${result.ok} inserting ${qid}`)
 				var resp = await db.watchlist.insert(doc)
 				result.ok++
 			} catch(e) {
 				//throw({message: 'insert failed ' + e})
-				console.log('insert failed ' )
-				console.log(e)
+				//console.log('insert failed ' )
+				//console.log(e)
 				result.failure.push(qid)
 			}
 		}
@@ -295,7 +295,7 @@ function readdirSortTime(dir, timeKey = 'mtime') {
 	  stats: fss.statSync(`${dir}/${name}`)
     }))
     .sort((a, b) => (b.time - a.time)) // ascending
-    .map(f => `<tr><td><a href="reports/${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
+    .map(f => `<tr><td><a href="${f.name}">${f.name}</td><td>${Math.round(f.stats.size / 1024 * 10)/10} kt</a></td></tr>`)
 
 	const html = report.getHead()
     return html + '<table>' + files.join('') + '</table>'
