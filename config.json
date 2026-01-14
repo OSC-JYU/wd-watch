@@ -3,6 +3,7 @@
 	"sparql_endpoint": "https://query.wikidata.org",
 	"preferred_lang": "fi",
 	"rvlimit": 100,
+	"user_agent": "WD-Watch/1.0 (https://github.com/OSC-JYU/wd-watch; CONTACT_EMAIL_HERE)",
 
 	"main_title": "Wikidata-puutarhurin raportti",
 

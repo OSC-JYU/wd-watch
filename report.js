@@ -73,11 +73,14 @@ module.exports = class Report {
 		console.log('mailer:', config.mailer )
 		console.log('mailer port:', config.mailer_port )
 
+		// Configure axios with default user agent from config
+		axios.defaults.headers.common['User-Agent'] = config.user_agent || 'WD-Watch/1.0'
+
 		this.transporter = nodemailer.createTransport({
 			host: config.mailer,
 			port: config.mailer_port,
 			secure: false,
-			tls: { minVersion: 'TLSv1' }
+			tls: { minVersion: 'TLSv1', rejectUnauthorized: false }
   		});
 
 
@@ -140,11 +143,15 @@ module.exports = class Report {
 		if(items.length === 0) throw('no items found')
 		for(var item of items) {
 			total++
+			if(!item.label && (item.item.itemLabel && item.item.itemLabel.value)) {
+				item.label = item.item.itemLabel.value
+			}
 			var url = this.config.site + "/w/api.php?action=query&format=json&prop=revisions&titles=" + item._id + "&rvprop=ids|timestamp|flags|comment|user&rvlimit=" + this.config.rvlimit + "&rvdir=older"
 			console.log(url)
 			var result = await axios(url)
 			var json = result.data
 			var key = Object.keys(json.query.pages)
+
 			if(!item.edit_count) mode = 'all' // in first run we get all edits
 			var timestamp = json.query.pages[key[0]].revisions[0].timestamp; // timestamp of latest edit
 			if(mode == 'all' || timestamp != item.latest_edit) {
@@ -247,9 +254,10 @@ module.exports = class Report {
 
 
 	checkProperty(property, wdset) {
+		
 		if(!property) return false
 		// if "wdset" is defined and its has key "properties" then allow only properties listed
-		if(this.config.wdsets[wdset] && this.config.wdsets[wdset].properties) {
+		if(this.config.wdsets && this.config.wdsets[wdset] && this.config.wdsets[wdset].properties) {
 			if(this.config.wdsets[wdset].properties.includes(property)) {
 				return true
 			} else {
