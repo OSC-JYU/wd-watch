@@ -11,6 +11,11 @@ When request is made to the /watchlist/report endpoint, WD-watch creates an HTML
 
 WD-watch is not meant for large datasets.
 
+## User-agent
+
+NOTE! Wikidata requires user agent with contact email. Add contact info to config.json
+
+    "user_agent": "WD-Watch/1.0 (https://github.com/OSC-JYU/wd-watch; CONTACT_EMAIL_HERE)",
 
 ## Running (Docker)
 
