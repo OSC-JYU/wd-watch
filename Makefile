@@ -1,6 +1,7 @@
 IMAGES := $(shell docker images -f "dangling=true" -q)
 CONTAINERS := $(shell docker ps -a -q -f status=exited)
 VOLUME := wd-watch-data
+REPO := wd-watch
 
 
 clean:
@@ -11,15 +12,17 @@ create_volume:
 	docker volume create $(VOLUME)
 
 build:
-	docker build -t osc-jyu/wd-watch:latest .
+	docker build -t $(REPO):latest .
 
 start:
 	docker run -d --name wd-watch \
 		-v $(VOLUME):/src/data \
 		-e DOCKER_VOLUME=yes \
+		-e PORT=8200 \
 		-e DEBUG=debug,error \
 		-p 8200:8200 \
-		 osc-jyu/wd-watch:latest
+		 $(REPO):latest
+
 restart:
 	docker stop wd-watch
 	docker rm wd-watch

@@ -1,15 +1,15 @@
 const Hapi = require('@hapi/hapi');
+const Inert = require('@hapi/inert');
 const fs = require('fs').promises;
-const fss = require('fs');
-const debug = require('debug')('debug');
+const Path = require('path');
 const Datastore = require('nedb-promises');
 const axios = require('axios');
-const Inert = require('@hapi/inert');
-const Path = require('path');
+
 const Report = require('./report.js');
 
 const mailer = process.env.MAILER || 'smtp.jyu.fi';
-const port = process.env.MAILER_PORT || 25;
+const mailerPort = Number(process.env.MAILER_PORT || 25);
+const appPort = Number(process.env.PORT || 8200);
 
 let db = {};
 let config;
@@ -17,23 +17,21 @@ let report;
 
 async function startServer() {
   await loadConfig();
+
   config.mailer = mailer;
-  config.mailer_port = port;
-  
-  // Configure axios with default user agent from config
-  axios.defaults.headers.common['User-Agent'] = config.user_agent || 'WD-Watch/1.0'
-  
-  console.log(config);
+  config.mailer_port = mailerPort;
+  axios.defaults.headers.common['User-Agent'] = config.user_agent || 'WD-Watch/2.0';
 
   report = new Report(config);
 
-  db.watchlist = Datastore.create('./data/watchlist.db');
-  db.watchlist.ensureIndex({ fieldName: 'label' }, (err) => {
-    console.log(err);
-  });
+  db.watchlist = Datastore.create('./data/watchlist_v2.db');
+  db.runs = Datastore.create('./data/runs_v2.db');
+
+  db.watchlist.ensureIndex({ fieldName: 'wdset' }, () => {});
+  db.runs.ensureIndex({ fieldName: 'wdset', unique: true }, () => {});
 
   const server = Hapi.server({
-    port: 8200,
+    port: appPort,
     host: '0.0.0.0',
     routes: {
       files: {
@@ -43,19 +41,19 @@ async function startServer() {
     }
   });
 
-  await server.register(Inert); // for static files
+  await server.register(Inert);
 
   server.route([
     {
       method: 'GET',
       path: '/api/status',
-      handler: () => 'ok'
+      handler: () => ({ ok: true })
     },
     {
       method: 'GET',
       path: '/reports',
       handler: async () => {
-        const files = await readdirSortTime('public/reports');
+        const files = await readdirSortTime(Path.join('public', 'reports'));
         return files;
       }
     },
@@ -77,86 +75,41 @@ async function startServer() {
       method: 'DELETE',
       path: '/api/watchlist/sets',
       handler: async (request) => {
-        const query = { wdset: request.query.wdset };
-        await db.watchlist.remove(query, { multi: true });
-        return 'done';
+        if (!request.query.wdset) {
+          throw new Error('wdset must be set');
+        }
+        await db.watchlist.remove({ wdset: request.query.wdset }, { multi: true });
+        await db.runs.remove({ wdset: request.query.wdset }, { multi: false });
+        return { deleted: true };
       }
     },
     {
       method: 'GET',
       path: '/api/watchlist',
       handler: async (request) => {
-        const q = createQuery(request);
-        debug(q);
+        const q = createQuery(request.query);
         if (request.query.mode === 'count') {
           const count = await db.watchlist.count(q.query);
           return { count };
-        } else {
-          const results = await db.watchlist.find(q.query, q.keys)
-            .sort(q.sort)
-            .limit(q.limit)
-            .skip(q.skip);
-          return results;
         }
+        return db.watchlist.find(q.query, q.keys).sort(q.sort).limit(q.limit).skip(q.skip);
       }
     },
     {
       method: 'GET',
       path: '/api/watchlist/{qid}',
       handler: async (request) => {
-        const query = { _id: request.params.qid };
-        debug(query);
-        const item = await db.watchlist.findOne(query);
-        return item;
-      }
-    },
-    {
-      method: 'PUT',
-      path: '/api/watchlist/{qid}',
-      handler: async (request) => {
-        const p = await db.watchlist.findOne({ _id: request.params.qid });
-        const update = { status: 'ok', latest_edit: p.timestamp };
-        const response = await db.watchlist.update({ _id: request.params.qid }, { $set: update }, { returnUpdatedDocs: true });
-        return response;
+        return db.watchlist.findOne({ _id: request.params.qid });
       }
     },
     {
       method: 'POST',
       path: '/api/watchlist/report',
       handler: async (request) => {
-        if (!request.query.wdset) throw new Error('You must set wdset!');
-        const filename = await report.create(request.query.wdset, db, request.query.mode, request.query.mail);
-        return filename;
-      }
-    },
-    {
-      method: 'POST',
-      path: '/api/watchlist/query',
-      handler: async (request) => {
-        if (!request.query.wdset) throw new Error('You must set wdset!');
-
-        let result = { ok: 0, failure: [] };
-        debug(request.query);
-
-        const queryUrl = config.sparql_endpoint + '/sparql?query=' + encodeURI(request.query.query);
-        debug('query: ' + queryUrl);
-
-        try {
-          const response = await axios.get(queryUrl);
-          for (const item of response.data.results.bindings) {
-            const qid = item.item.value.replace(/https?:\/\/www\.wikidata\.org\/entity\//, '');
-            const doc = await getWikidataItem(qid, item);
-            doc.wdset = request.query.wdset;
-            try {
-              await db.watchlist.insert(doc);
-              result.ok++;
-            } catch (e) {
-              result.failure.push(qid);
-            }
-          }
-        } catch (e) {
-          throw new Error('SPARQL query failed');
+        if (!request.query.wdset) {
+          throw new Error('You must set wdset');
         }
+        const result = await report.create(request.query.wdset, db, request.query.mail);
         return result;
       }
     },
@@ -164,33 +117,83 @@ async function startServer() {
       method: 'POST',
       path: '/api/watchlist/{qid}',
       handler: async (request) => {
-        if (!request.query.wdset) throw new Error('wdset must be set');
-        const qid = request.params.qid;
-        let resp;
+        if (!request.query.wdset) {
+          throw new Error('wdset must be set');
+        }
+
+        const qid = normalizeQid(request.params.qid);
+        const doc = await getWikidataItem(qid);
+        doc.wdset = request.query.wdset;
 
         try {
-          const doc = await getWikidataItem(qid);
-          doc.wdset = request.query.wdset;
-          resp = await db.watchlist.insert(doc);
-        } catch (e) {
-          throw new Error('Insert failed ' + e);
+          const inserted = await db.watchlist.insert(doc);
+          return inserted;
+        } catch (err) {
+          if (String(err).includes('unique') || String(err).includes('already exists')) {
+            const existing = await db.watchlist.findOne({ _id: qid });
+            if (existing && existing.wdset !== request.query.wdset) {
+              await db.watchlist.update({ _id: qid }, { $set: { wdset: request.query.wdset } }, {});
+              return db.watchlist.findOne({ _id: qid });
+            }
+            return existing;
+          }
+          throw new Error('Insert failed: ' + err.message);
         }
-        return resp;
+      }
+    },
+    {
+      method: 'POST',
+      path: '/api/watchlist/query',
+      handler: async (request) => {
+        if (!request.query.wdset) {
+          throw new Error('You must set wdset');
+        }
+        if (!request.query.query) {
+          throw new Error('SPARQL query is missing');
+        }
+
+        const result = { ok: 0, failure: [] };
+        const queryUrl = `${config.sparql_endpoint}/sparql?query=${encodeURIComponent(request.query.query)}`;
+        const response = await axios.get(queryUrl, {
+          headers: {
+            Accept: 'application/sparql-results+json'
+          }
+        });
+
+        for (const binding of response.data.results.bindings) {
+          if (!binding.item || !binding.item.value) {
+            continue;
+          }
+
+          const qid = normalizeQid(binding.item.value.replace(/https?:\/\/www\.wikidata\.org\/entity\//, ''));
+          try {
+            const doc = await getWikidataItem(qid, binding);
+            doc.wdset = request.query.wdset;
+            await db.watchlist.insert(doc);
+            result.ok += 1;
+          } catch (err) {
+            result.failure.push({ qid, error: err.message });
+          }
+        }
+
+        return result;
       }
     },
     {
       method: 'DELETE',
       path: '/api/watchlist/{qid}',
       handler: async (request) => {
-        const p = await db.watchlist.remove({ _id: request.params.qid });
-        return p;
+        const qid = normalizeQid(request.params.qid);
+        const count = await db.watchlist.remove({ _id: qid }, {});
+        return { deleted: count };
       }
     },
     {
       method: 'GET',
       path: '/api/wikidata/{qid}',
       handler: async (request) => {
-        const result = await axios.get(`${config.site}/wiki/Special:EntityData/${request.params.qid}.json`);
+        const qid = normalizeQid(request.params.qid);
+        const result = await axios.get(`${config.site}/wiki/Special:EntityData/${qid}.json`);
         return result.data;
       }
     },
@@ -210,43 +213,84 @@ async function startServer() {
   console.log(`WD-Watch running on ${server.info.uri}`);
 }
 
-startServer().catch(err => {
+startServer().catch((err) => {
   console.error('Failed to start server:', err);
   process.exit(1);
 });
 
-// Helper functions
-async function readdirSortTime(dir) {
-  const files = await fs.readdir(dir);
-  const fileStats = await Promise.all(files.map(async file => {
-    const stat = await fs.stat(Path.join(dir, file));
-    return { file, mtime: stat.mtime };
-  }));
-  return fileStats.sort((a, b) => b.mtime - a.mtime).map(f => f.file);
-}
+function createQuery(query = {}) {
+  const wdset = query.wdset ? String(query.wdset) : undefined;
+  const limit = query.limit ? Math.max(1, Math.min(1000, Number(query.limit))) : 100;
+  const skip = query.skip ? Math.max(0, Number(query.skip)) : 0;
+  const sort = { label: 1 };
 
-function createQuery(request) {
-  // Assuming you have a logic here for query construction
+  const dbQuery = {};
+  if (wdset) {
+    dbQuery.wdset = wdset;
+  }
+
   return {
-    query: {},
+    query: dbQuery,
     keys: {},
-    sort: {},
-    limit: 100,
-    skip: 0
+    sort,
+    limit,
+    skip
   };
 }
 
-async function getWikidataItem(qid, item) {
-  // Replace this with your real logic
+async function readdirSortTime(dir) {
+  await fs.mkdir(dir, { recursive: true });
+  const files = await fs.readdir(dir);
+  const stats = await Promise.all(
+    files.map(async (file) => {
+      const stat = await fs.stat(Path.join(dir, file));
+      return { file, mtime: stat.mtime };
+    })
+  );
+
+  return stats.sort((a, b) => b.mtime - a.mtime).map((f) => f.file);
+}
+
+function normalizeQid(value) {
+  const qid = String(value || '').trim().toUpperCase();
+  if (!/^Q\d+$/.test(qid)) {
+    throw new Error(`Invalid QID: ${value}`);
+  }
+  return qid;
+}
+
+async function getWikidataItem(qid, binding) {
+  const url = `${config.site}/w/api.php?action=wbgetentities&ids=${qid}&props=labels|descriptions&languages=${config.preferred_lang}|en&format=json`;
+  const response = await axios.get(url);
+  const entity = response.data.entities && response.data.entities[qid];
+
+  if (!entity) {
+    throw new Error(`Wikidata entity not found: ${qid}`);
+  }
+
+  const label = pickMonolingual(entity.labels, config.preferred_lang) || (binding && binding.itemLabel && binding.itemLabel.value) || qid;
+  const description = pickMonolingual(entity.descriptions, config.preferred_lang) || '';
+
   return {
     _id: qid,
-    item: item || {}
+    label,
+    description,
+    wd_url: `${config.site}/wiki/${qid}`
   };
+}
+
+function pickMonolingual(obj = {}, preferredLang) {
+  if (obj[preferredLang] && obj[preferredLang].value) {
+    return obj[preferredLang].value;
+  }
+  if (obj.en && obj.en.value) {
+    return obj.en.value;
+  }
+  const firstKey = Object.keys(obj)[0];
+  return firstKey ? obj[firstKey].value : '';
 }
 
 async function loadConfig() {
-	console.log('Lataan config -tiedostoa')
-	const file = await fs.readFile('./config.json', 'utf8');
-	config = JSON.parse(file);
-
+  const file = await fs.readFile('./config.json', 'utf8');
+  config = JSON.parse(file);
 }

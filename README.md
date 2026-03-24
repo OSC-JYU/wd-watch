@@ -1,151 +1,115 @@
 # WD-watch
 
-Extremely simple Wikidata item change detection tool. The idea is to give possibility to for example museums to see how their collection items in wikidata are edited.
- WD-watch uses NeDB as a database.
+Wikidata monitoring tool for tracking edits on watched items and generating HTML reports.
 
-## How it works?
+Repository: https://github.com/OSC-JYU/wd-watch
 
-By creating sets of wikidata IDs, one can check if those items are edited after latest check or not. WD-watch stores timestamp of latest edit for item and then - when check is run - gets edits from wikidata API and compares timestamps.
+## User-Agent
 
-When request is made to the /watchlist/report endpoint, WD-watch creates an HTML-report of changes.
+Wikidata requires a user-agent with contact info. Set it in `config.json`:
 
-WD-watch is not meant for large datasets.
-
-## User-agent
-
-NOTE! Wikidata requires user agent with contact email. Add contact info to config.json
-
-    "user_agent": "WD-Watch/1.0 (https://github.com/OSC-JYU/wd-watch; CONTACT_EMAIL_HERE)",
-
-## Running (Docker)
-
-    git clone https://github.com/OSC-JYU/wd-watch.git
-    cd wd-watch
-    make build
-    make start
+```json
+"user_agent": "WD-Watch/1.0 (https://github.com/OSC-JYU/wd-watch; CONTACT_EMAIL_HERE)"
+```
 
 ## Running (NodeJS)
 
-    git clone https://github.com/OSC-JYU/wd-watch.git
-    cd wd-watch
-    npm install
-    node index.js
+```bash
+git clone https://github.com/OSC-JYU/wd-watch.git
+cd wd-watch
+npm install
+npm start
+```
+
+Default server port is `8200`.
+
+## Running (Docker)
+
+```bash
+make build
+make start
+```
+
+Reports are exported to the `public/reports` directory.
+
+## Converting Legacy Data
+
+If you still have an old database (`data/watchlist.db`), convert it to the current schema:
+
+```bash
+npm run convert:v1-to-v2 -- --dry-run
+npm run convert:v1-to-v2
+```
+
+Options:
+
+- `--source <file>` defaults to `data/watchlist.db`
+- `--target <file>` defaults to `data/watchlist_v2.db`
+- `--runs <file>` defaults to `data/runs_v2.db`
+- `--dry-run` prints what would be converted without writing
+- `--force` overwrites existing rows with the same QID
 
 ## Usage
 
-Check that API is responsing
+Status:
 
-    curl http://localhost:8200/api/status
+```bash
+curl http://localhost:8200/api/status
+```
 
-Add Adam Douglas (Q42) to set "Dougs":
+Add one item:
 
-    curl -XPOST 'http://localhost:8200/api/watchlist/Q42?wdset=Dougs'
+```bash
+curl -XPOST 'http://localhost:8200/api/watchlist/Q42?wdset=Dougs'
+```
+
+SPARQL import:
+
+```bash
+curl -G -XPOST 'http://localhost:8200/api/watchlist/query' \
+  --header "Accept: application/json" \
+  --data-urlencode wdset="Klimt" \
+  --data-urlencode query="
+SELECT ?item ?itemLabel
+WHERE
+{
+  ?item wdt:P31 wd:Q3305213 .
+  ?item wdt:P170 wd:Q34661 .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language \"fi,en\". }
+}
+limit 10
+"
+```
 
 Create report:
 
-    curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Dougs'
+```bash
+curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt'
+```
 
+Report files are written to `public/reports/` and listed at:
 
-This will return something like '/reports/Dougs_2022-12-1.html'
+```bash
+curl 'http://localhost:8200/reports'
+```
 
-Aim your browser to http://localhost:8200/reports and you should see all reports.
+## Email Reports
 
-The first report includes all edits (the limit is the "rvlimit" setting in config.js). However, the next report includes edits that has newer timestamp than previous report.
+Set `MAILER` and `MAILER_PORT`, then:
 
-Let's add ten artworks by Gustav Klimt with SPARQL:
+```bash
+curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt&mail=somebody@somewhere.com'
+```
 
-    curl -G -XPOST 'http://localhost:8200/api/watchlist/query' \
-      --header "Accept: application/json" \
-      --data-urlencode wdset="Klimt" \
-      --data-urlencode query="
-    SELECT ?item ?itemLabel
-    WHERE
-    {
-      ?item wdt:P31 wd:Q3305213 .
-      ?item wdt:P170 wd:Q34661 .
-       SERVICE wikibase:label { bd:serviceParam wikibase:language \"fi,en\". }
-    }
-    limit 10
-    "
+## API Summary
 
-Create report for Klimt works:
-
-    curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt'
-
-
-## Sending email
-
-WD-watch can be configured to send email whern report is created. You must define environment variables MAILER, MAILER_PORT and MAILTO. 
-
-
-
-Then just add "mail" query parameter and call report creating endpoint like this:
-
-     curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt&mail=somebody@somewhere.com'
-
-## API
-
-Do not expose WD-watch API to the world. It's meant to be used locally only. However, you can expose 'reports' -directory, so people can easily access reports.
-
-
-
-- add individual item
-
-    POST /api/watchlist/[QID]?wdset=[SETNAME]
-
-        curl -XPOST 'http://localhost:8200/api/watchlist/Q42?wdset=Dougs'
-
-- add items directly with SPARQL
-
-    POST /api/watchlist/query?wdset=[SETNAME]&query=[QUERY]
-    Query result must include "**item**", so start your query with "SELECT ?item ...".
-
-      curl -G -XPOST 'http://localhost:8200/api/watchlist/query' \
-        --header "Accept: application/json" \
-        --data-urlencode wdset="Klimt" \
-        --data-urlencode query="
-      SELECT ?item ?itemLabel
-      WHERE
-      {
-        ?item wdt:P31 wd:Q3305213 .
-        ?item wdt:P170 wd:Q34661 .
-         SERVICE wikibase:label { bd:serviceParam wikibase:language \"fi,en\". }
-      }
-      limit 10
-      "
-
-
-- get all sets
-
-    GET /api/watchlist/sets
-
-        curl  'http://localhost:8200/api/watchlist/sets'
-
-
-
-- get all items in set
-
-    GET /api/watchlist/?wdset=[SETNAME]
-
-        curl  'http://localhost:8200/api/watchlist/?wdset=Dougs'
-
-
-- delete item from set
-
-    DELETE /api/watchlist/[QID]?wdset=[SETNAME]
-
-        curl  XDELETE 'http://localhost:8200/api/watchlist/Q42'
-
-
-- create report
-
-    POST /api/watchlist/report?wdset=[SETNAME]
-
-        curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Dougs'
-
-
-- list reports page
-
-    GET /reports
-
-        http://localhost:8200/reports
+- `GET /api/status`
+- `GET /api/watchlist/sets`
+- `GET /api/watchlist?wdset=<set>`
+- `GET /api/watchlist/{qid}`
+- `POST /api/watchlist/{qid}?wdset=<set>`
+- `POST /api/watchlist/query?wdset=<set>&query=<sparql>`
+- `DELETE /api/watchlist/{qid}`
+- `DELETE /api/watchlist/sets?wdset=<set>`
+- `POST /api/watchlist/report?wdset=<set>[&mail=<email>]`
+- `GET /reports`

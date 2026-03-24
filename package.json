@@ -17,6 +17,8 @@
     "mocha": "^10.3.0"
   },
   "scripts": {
+    "start": "node index.js",
+    "convert:v1-to-v2": "node scripts/convert_v1_to_v2.js",
     "test": "mocha"
   },
   "nodemonConfig": {

@@ -11,4 +11,4 @@ EXPOSE  8200
 
 ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
