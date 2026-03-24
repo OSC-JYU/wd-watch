@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo 'entrypoint.sh: Running chown for /src'
+chown -R node:node /src
+
 echo 'entrypoint.sh: Running chown for /src/data'
 chown -R node:node /src/data
 chown -R node:node /src/public

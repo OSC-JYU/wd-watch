@@ -109,7 +109,23 @@ async function startServer() {
         if (!request.query.wdset) {
           throw new Error('You must set wdset');
         }
-        const result = await report.create(request.query.wdset, db, request.query.mail);
+
+        const options = {};
+        if (request.query.days !== undefined) {
+          const days = Number(request.query.days);
+          if (!Number.isInteger(days) || days < 1 || days > 3650) {
+            throw new Error('days must be an integer between 1 and 3650');
+          }
+          options.editPeriodDays = days;
+        }
+
+        const template = request.query.template ? String(request.query.template).trim().toLowerCase() : 'email-safe';
+        if (template !== 'email-safe' && template !== 'web') {
+          throw new Error('template must be either email-safe or web');
+        }
+        options.reportTemplate = template;
+
+        const result = await report.create(request.query.wdset, db, request.query.mail, options);
         return result;
       }
     },
@@ -152,7 +168,15 @@ async function startServer() {
           throw new Error('SPARQL query is missing');
         }
 
-        const result = { ok: 0, failure: [] };
+        const maxFailureDetails = 100;
+        const result = {
+          ok: 0,
+          processed: 0,
+          skipped_existing: 0,
+          skipped_other_set: 0,
+          failure_count: 0,
+          failure: []
+        };
         const queryUrl = `${config.sparql_endpoint}/sparql?query=${encodeURIComponent(request.query.query)}`;
         const response = await axios.get(queryUrl, {
           headers: {
@@ -165,6 +189,7 @@ async function startServer() {
             continue;
           }
 
+          result.processed += 1;
           const qid = normalizeQid(binding.item.value.replace(/https?:\/\/www\.wikidata\.org\/entity\//, ''));
           try {
             const doc = await getWikidataItem(qid, binding);
@@ -172,8 +197,26 @@ async function startServer() {
             await db.watchlist.insert(doc);
             result.ok += 1;
           } catch (err) {
-            result.failure.push({ qid, error: err.message });
+            const isDuplicate = String(err).includes('unique') || String(err).includes('already exists');
+            if (isDuplicate) {
+              const existing = await db.watchlist.findOne({ _id: qid });
+              if (existing && existing.wdset === request.query.wdset) {
+                result.skipped_existing += 1;
+              } else {
+                result.skipped_other_set += 1;
+              }
+              continue;
+            }
+
+            result.failure_count += 1;
+            if (result.failure.length < maxFailureDetails) {
+              result.failure.push({ qid, error: err.message });
+            }
           }
+        }
+
+        if (result.failure_count > result.failure.length) {
+          result.failure_truncated = true;
         }
 
         return result;

@@ -17,12 +17,20 @@ module.exports = class Report {
     });
   }
 
-  async create(wdset, db, mail) {
+  async create(wdset, db, mail, options = {}) {
     const now = new Date();
     const nowIso = now.toISOString();
 
     const lastRun = await db.runs.findOne({ wdset });
-    const sinceTimestamp = lastRun && lastRun.last_run ? lastRun.last_run : null;
+    const editPeriodDays = Number.isInteger(options.editPeriodDays) ? options.editPeriodDays : null;
+
+    let sinceTimestamp = lastRun && lastRun.last_run ? lastRun.last_run : null;
+    let sinceSource = sinceTimestamp ? 'last_run' : 'first_run';
+
+    if (editPeriodDays) {
+      sinceTimestamp = new Date(now.getTime() - editPeriodDays * 24 * 60 * 60 * 1000).toISOString();
+      sinceSource = `period_${editPeriodDays}_days`;
+    }
 
     const watchItems = await db.watchlist.find({ wdset }).sort({ label: 1 });
     if (!watchItems.length) {
@@ -57,7 +65,14 @@ module.exports = class Report {
       truncatedItems
     });
 
-    const html = this.createHtml(reportData);
+    const reportTemplate = options.reportTemplate || 'email-safe';
+    let html;
+    if (reportTemplate === 'web') {
+      const inlineCss = await this.getInlineReportCss();
+      html = this.createHtml(reportData, inlineCss);
+    } else {
+      html = this.createEmailSafeHtml(reportData);
+    }
 
     await fs.mkdir(path.join('public', 'reports'), { recursive: true });
     const filename = `${wdset}_${this.getDateFilePart(now)}.html`;
@@ -81,6 +96,9 @@ module.exports = class Report {
       changed_items: itemsWithEdits.length,
       total_edits: totalEdits,
       since: sinceTimestamp,
+      since_source: sinceSource,
+      edit_period_days: editPeriodDays,
+      report_template: reportTemplate,
       generated_at: nowIso,
       truncated_items: truncatedItems
     };
@@ -203,7 +221,7 @@ module.exports = class Report {
     return 'Other';
   }
 
-  createHtml(data) {
+  createHtml(data, inlineCss = '') {
     const generated = this.formatDateTime(data.nowIso);
     const since = data.sinceTimestamp ? this.formatDateTime(data.sinceTimestamp) : 'First run (includes latest available edits)';
 
@@ -254,7 +272,7 @@ module.exports = class Report {
           .join('\n');
 
         return `<details class="item-block">
-<summary>${this.escapeHtml(row.item.label || row.item._id)} (${row.item._id}) - ${row.edits.length} edits</summary>
+      <summary><a target="_blank" href="${this.config.site}/wiki/${row.item._id}">${this.escapeHtml(row.item.label || row.item._id)} (${row.item._id})</a> - ${row.edits.length} edits</summary>
 <div class="table-wrap">
 <table>
 <thead><tr><th>Time</th><th>User</th><th>Action</th><th>Properties</th><th>Summary</th></tr></thead>
@@ -275,7 +293,9 @@ module.exports = class Report {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>WD-Watch V2 report ${this.escapeHtml(data.wdset)}</title>
-<link rel="stylesheet" href="../css/report.css" />
+<style>
+${inlineCss}
+</style>
 </head>
 <body>
 <main class="page">
@@ -331,6 +351,147 @@ ${perItemSections || '<p>No item updates since previous run.</p>'}
 </main>
 </body>
 </html>`;
+  }
+
+  createEmailSafeHtml(data) {
+    const generated = this.formatDateTime(data.nowIso);
+    const since = data.sinceTimestamp ? this.formatDateTime(data.sinceTimestamp) : 'First run (includes latest available edits)';
+
+    const styles = {
+      body: 'margin:0;padding:0;background:#f7f4ef;color:#1f2a30;font-family:Arial,Helvetica,sans-serif;line-height:1.4;',
+      container: 'max-width:900px;margin:0 auto;padding:16px;',
+      panel: 'background:#ffffff;border:1px solid #dfd4c6;border-radius:8px;padding:14px;margin-bottom:14px;',
+      h1: 'margin:0 0 8px 0;font-size:24px;line-height:1.2;color:#9a3412;',
+      h2: 'margin:0 0 8px 0;font-size:18px;line-height:1.3;color:#0f766e;',
+      p: 'margin:4px 0;color:#374151;font-size:14px;',
+      table: 'width:100%;border-collapse:collapse;margin-top:8px;',
+      th: 'text-align:left;padding:8px;border:1px solid #e7e0d4;background:#faf6ef;font-size:13px;',
+      td: 'text-align:left;vertical-align:top;padding:8px;border:1px solid #e7e0d4;font-size:13px;',
+      metricLabel: 'padding:8px;border:1px solid #e7e0d4;background:#faf6ef;font-size:13px;color:#374151;',
+      metricValue: 'padding:8px;border:1px solid #e7e0d4;font-size:16px;font-weight:bold;color:#9a3412;',
+      warning: 'margin:0 0 12px 0;padding:10px;border:1px solid #f4b4b4;border-radius:6px;background:#fde8e8;color:#7f1d1d;font-size:13px;'
+    };
+
+    const userRows = data.editsByUser
+      .slice(0, 15)
+      .map(([user, count]) => `<tr><td style="${styles.td}">${this.escapeHtml(user)}</td><td style="${styles.td}">${count}</td></tr>`)
+      .join('');
+
+    const actionRows = data.editsByAction
+      .slice(0, 15)
+      .map(([action, count]) => `<tr><td style="${styles.td}">${this.escapeHtml(action)}</td><td style="${styles.td}">${count}</td></tr>`)
+      .join('');
+
+    const timelineRows = data.editsFlat
+      .map((edit) => {
+        const props = edit.properties.length ? edit.properties.join(', ') : '-';
+        return `<tr>
+<td style="${styles.td}">${this.formatDateTime(edit.timestamp)}</td>
+<td style="${styles.td}"><a target="_blank" href="${this.config.site}/wiki/${edit.qid}">${this.escapeHtml(edit.item_label)}</a></td>
+<td style="${styles.td}">${this.escapeHtml(edit.user)}</td>
+<td style="${styles.td}">${this.escapeHtml(edit.action)}</td>
+<td style="${styles.td}">${this.escapeHtml(props)}</td>
+<td style="${styles.td}">${this.escapeHtml(edit.comment || '-')}</td>
+</tr>`;
+      })
+      .join('');
+
+    const perItemBlocks = data.itemsWithEdits
+      .map((row) => {
+        const itemRows = row.edits
+          .map((edit) => {
+            const props = edit.properties.length ? edit.properties.join(', ') : '-';
+            return `<tr>
+<td style="${styles.td}">${this.formatDateTime(edit.timestamp)}</td>
+<td style="${styles.td}">${this.escapeHtml(edit.user)}</td>
+<td style="${styles.td}">${this.escapeHtml(edit.action)}</td>
+<td style="${styles.td}">${this.escapeHtml(props)}</td>
+<td style="${styles.td}">${this.escapeHtml(edit.comment || '-')}</td>
+</tr>`;
+          })
+          .join('');
+
+        return `<div style="${styles.panel}">
+<h3 style="margin:0 0 6px 0;font-size:16px;color:#9a3412;"><a target="_blank" href="${this.config.site}/wiki/${row.item._id}">${this.escapeHtml(row.item.label || row.item._id)} (${row.item._id})</a> - ${row.edits.length} edits</h3>
+<table style="${styles.table}">
+<thead><tr><th style="${styles.th}">Time</th><th style="${styles.th}">User</th><th style="${styles.th}">Action</th><th style="${styles.th}">Properties</th><th style="${styles.th}">Summary</th></tr></thead>
+<tbody>${itemRows}</tbody>
+</table>
+</div>`;
+      })
+      .join('');
+
+    const truncationNote = data.truncatedItems
+      ? `<p style="${styles.warning}">Note: ${data.truncatedItems} item(s) hit rvlimit=${this.config.rvlimit}. Some older edits after last run may be missing.</p>`
+      : '';
+
+    return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WD-Watch report ${this.escapeHtml(data.wdset)}</title>
+</head>
+<body style="${styles.body}">
+<div style="${styles.container}">
+<div style="${styles.panel}">
+<h1 style="${styles.h1}">WD-Watch: ${this.escapeHtml(data.wdset)}</h1>
+<p style="${styles.p}">Generated: ${generated}</p>
+<p style="${styles.p}">Changes since: ${since}</p>
+<p style="${styles.p}">Project: <a target="_blank" href="https://github.com/OSC-JYU/wd-watch">github.com/OSC-JYU/wd-watch</a></p>
+
+<table style="${styles.table}">
+<tbody>
+<tr><td style="${styles.metricLabel}">Watched Items</td><td style="${styles.metricValue}">${data.watchCount}</td></tr>
+<tr><td style="${styles.metricLabel}">Changed Items</td><td style="${styles.metricValue}">${data.changedItemCount}</td></tr>
+<tr><td style="${styles.metricLabel}">Total Edits</td><td style="${styles.metricValue}">${data.totalEdits}</td></tr>
+<tr><td style="${styles.metricLabel}">Properties Touched</td><td style="${styles.metricValue}">${data.uniquePropertyCount}</td></tr>
+</tbody>
+</table>
+</div>
+
+${truncationNote}
+
+<div style="${styles.panel}">
+<h2 style="${styles.h2}">Top Editors</h2>
+<table style="${styles.table}">
+<thead><tr><th style="${styles.th}">User</th><th style="${styles.th}">Edits</th></tr></thead>
+<tbody>${userRows || `<tr><td style="${styles.td}" colspan="2">No edits</td></tr>`}</tbody>
+</table>
+</div>
+
+<div style="${styles.panel}">
+<h2 style="${styles.h2}">Action Types</h2>
+<table style="${styles.table}">
+<thead><tr><th style="${styles.th}">Action</th><th style="${styles.th}">Count</th></tr></thead>
+<tbody>${actionRows || `<tr><td style="${styles.td}" colspan="2">No edits</td></tr>`}</tbody>
+</table>
+</div>
+
+<div style="${styles.panel}">
+<h2 style="${styles.h2}">Timeline (All Edits)</h2>
+<table style="${styles.table}">
+<thead><tr><th style="${styles.th}">Time</th><th style="${styles.th}">Item</th><th style="${styles.th}">User</th><th style="${styles.th}">Action</th><th style="${styles.th}">Properties</th><th style="${styles.th}">Summary</th></tr></thead>
+<tbody>${timelineRows || `<tr><td style="${styles.td}" colspan="6">No edits since previous run</td></tr>`}</tbody>
+</table>
+</div>
+
+<div style="${styles.panel}">
+<h2 style="${styles.h2}">Per Item Details</h2>
+${perItemBlocks || `<p style="${styles.p}">No item updates since previous run.</p>`}
+</div>
+</div>
+</body>
+</html>`;
+  }
+
+  async getInlineReportCss() {
+    try {
+      const cssPath = path.join(__dirname, 'public', 'css', 'report.css');
+      return await fs.readFile(cssPath, 'utf8');
+    } catch (err) {
+      return '';
+    }
   }
 
   metricCard(label, value) {

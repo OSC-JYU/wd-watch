@@ -9,7 +9,7 @@ Repository: https://github.com/OSC-JYU/wd-watch
 Wikidata requires a user-agent with contact info. Set it in `config.json`:
 
 ```json
-"user_agent": "WD-Watch/1.0 (https://github.com/OSC-JYU/wd-watch; CONTACT_EMAIL_HERE)"
+"user_agent": "WD-Watch/2.0 (https://github.com/OSC-JYU/wd-watch; CONTACT_EMAIL_HERE)"
 ```
 
 ## Running (NodeJS)
@@ -81,10 +81,27 @@ limit 10
 "
 ```
 
+Note: always include `LIMIT` in SPARQL imports. Large unbounded queries may take a long time.
+If an item already exists in watchlist, import now counts it as `skipped_existing` (same set)
+or `skipped_other_set` (already tracked in another set) instead of flooding `failure` output.
+
 Create report:
 
 ```bash
 curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt'
+```
+
+By default, reports use `email-safe` template (optimized for email clients).
+Use `template=web` for the richer browser layout:
+
+```bash
+curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt&template=web'
+```
+
+Create report for a fixed lookback period (overrides saved last run):
+
+```bash
+curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt&days=21'
 ```
 
 Report files are written to `public/reports/` and listed at:
@@ -111,5 +128,5 @@ curl -XPOST 'http://localhost:8200/api/watchlist/report?wdset=Klimt&mail=somebod
 - `POST /api/watchlist/query?wdset=<set>&query=<sparql>`
 - `DELETE /api/watchlist/{qid}`
 - `DELETE /api/watchlist/sets?wdset=<set>`
-- `POST /api/watchlist/report?wdset=<set>[&mail=<email>]`
+- `POST /api/watchlist/report?wdset=<set>[&template=<email-safe|web>][&days=<1..3650>][&mail=<email>]`
 - `GET /reports`

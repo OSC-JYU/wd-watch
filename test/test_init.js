@@ -6,9 +6,9 @@ before((done) => {
 	(async (done) => {
 		try {
 			//fs.unlinkSync()
-			db.watchlist = Datastore.create('./data/watchlist.db')
+			db.watchlist = Datastore.create('./data/watchlist_v2.db')
 			var items = await db.watchlist.find({})
-			if(items.length) throw(`Tests can be run only with empty database!\n run 'rm data/watchlist.db' \n restart app`)
+			if(items.length) throw(`Tests can be run only with empty database!\n run 'rm data/watchlist_v2.db' \n restart app`)
 
 		} catch(e) {
 			console.log(e)

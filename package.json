@@ -4,17 +4,17 @@
   "description": "Wikidata change watch",
   "main": "index.js",
   "dependencies": {
-    "@hapi/hapi": "^21.4.0",
+    "@hapi/hapi": "^21.4.7",
     "@hapi/inert": "^7.1.0",
-    "axios": "^1.8.4",
+    "axios": "^1.13.6",
     "nedb-promises": "^6.2.3",
     "node-fetch": "^3.3.2",
-    "nodemailer": "^6.10.1"
+    "nodemailer": "^8.0.3"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "mocha": "^10.3.0"
+    "chai": "^6.2.2",
+    "chai-http": "^5.1.2",
+    "mocha": "^11.7.5"
   },
   "scripts": {
     "start": "node index.js",
